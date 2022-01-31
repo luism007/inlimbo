@@ -1,15 +1,15 @@
-.carousel-container {
-  height: 600px;
-}
+
 .image-container {
   display: block;
   width: 90% !important;
-  max-height: 700px;
+  height: 700px;
+  max-height: 100%;
   margin: 0 auto;
 }
 .inlimbo-img {
   position: relative;
   display: block;
-  width: 50%;
+  width: 100%;
   margin: auto;
+  object-fit: scale-down;
 }
