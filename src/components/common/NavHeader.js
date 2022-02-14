@@ -4,8 +4,8 @@ import inlimboLogo from '../../../public/images/inlimbo-studios-small-logo-white
 import "./NavHeader.css";
 const NavHeader = () => {
     const activeStyle = { 
-        color: 'white',
-        borderBottom: 'solid white 2px' 
+        color: 'black',
+        borderBottom: 'solid black 2px' 
     }
 
     return (

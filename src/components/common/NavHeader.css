@@ -1,7 +1,7 @@
 .inlimbo-navbar { 
     position: fixed !important;
     z-index: 1;
-    background-color: black !important;
+    background-color: white !important;
     width: 100%;
     display: grid;
     grid-template-columns: 20% 70%;
@@ -19,6 +19,6 @@
     margin: auto 5px;
     font-family: 'Oswald', sans-serif;
     text-decoration: none;
-    color: white;
+    color: black;
     font-size: 1.3em;
 }

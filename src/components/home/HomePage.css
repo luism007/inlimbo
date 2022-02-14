@@ -13,3 +13,8 @@
   margin: auto;
   object-fit: scale-down;
 }
+
+.carousel-container { 
+    display: block;
+    background-color: purple;
+}
