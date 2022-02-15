@@ -3,7 +3,7 @@
     grid-template-columns: 60% 40%;
     grid-template-rows: 100%;
     background-color: black;
-    width: 90vw;
+    width: 100vw;
     height: 90vh;
     margin: auto;
 }
@@ -38,5 +38,9 @@
 }
 
 .photo-grid:nth-child(3) {
+    background-color: red;
+}
+
+.photo-grid:nth-child(2):hover {
     background-color: red;
 }
