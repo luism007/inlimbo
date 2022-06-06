@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import HomePage from "./home/HomePage";
 import AboutPage from "./about/AboutPage";
@@ -7,7 +7,9 @@ import PageNotFound from "./PageNotFound";
 import CoursesPage from "./courses/CoursesPage";
 import "./App.css";
 import inlimboLogo from '../../public/images/inlimbo-proto.svg';
-const App = () => (
+const App = () => {
+  
+  return (
   <div>
     <div className="header">
       <div className="logo">
@@ -24,6 +26,7 @@ const App = () => (
       </Switch>
     </div>
   </div>
-);
+)
+};
 
 export default App;
