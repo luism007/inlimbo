@@ -3,16 +3,18 @@
     z-index: 1;
     background-color: white !important;
     width: 100%;
-    display: grid;
-    grid-template-columns: 20% 70%;
-    grid-template-rows: 1;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
 }
 
 .inlimbo-navbar nav { 
     display: flex;
     flex-flow: row;
     align-items: center;
-    justify-content: right;
+    justify-content: space-between;
 }
 
 .inlimbo-navbar nav a { 
@@ -21,4 +23,5 @@
     text-decoration: none;
     color: black;
     font-size: 1.3em;
+    padding: 5px;
 }

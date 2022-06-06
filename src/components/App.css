@@ -1,3 +1,19 @@
 .page-showcase { 
     padding-top: 5%;
 }
+
+.header { 
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    background-color: black;
+}
+
+.logo img { 
+    height: 75px;
+}

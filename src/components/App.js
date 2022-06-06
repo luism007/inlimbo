@@ -6,8 +6,14 @@ import NavHeader from "./common/NavHeader";
 import PageNotFound from "./PageNotFound";
 import CoursesPage from "./courses/CoursesPage";
 import "./App.css";
+import inlimboLogo from '../../public/images/inlimbo-proto.svg';
 const App = () => (
   <div>
+    <div className="header">
+      <div className="logo">
+        <img src= "../../public/images/inlimbo-proto-wht-small.svg" alt = "inlimbo-logo" aria-label="INLIMBO"></img>
+      </div>
+    </div>
     <NavHeader />
     <div className="page-showcase">
       <Switch>
