@@ -1,12 +1,12 @@
 .tile { 
     display: block;
     background-color: black;
-    height: 50%;
+    /* height: 50%;
     width: 50%;
     position: absolute;
     left: 25%;
     top: 25%;
-    transform: scale(1);
+    transform: scale(1); */
     flex-basis: 350px;
 }
 

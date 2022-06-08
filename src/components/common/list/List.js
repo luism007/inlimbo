@@ -1,10 +1,18 @@
 import React, { useEffect, useState } from "react";
+import PhotoTiles from "../photo-tiles/PhotoTiles";
 
 
-const List = () => {
+const List = (props) => {
+    console.log(props);
     return(
         <div className="list-container">
-            <p> Show Pictures!!</p>
+            {props.items.map((item, index) => {
+               return (<ul key={index}>
+                  <li>
+                    <PhotoTiles {...item} ></PhotoTiles>
+                  </li>
+                </ul>);
+            })}
         </div>
     )
 }

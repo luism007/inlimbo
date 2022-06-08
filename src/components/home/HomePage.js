@@ -7,11 +7,10 @@ import pressCoffeeImage from '../../../public/images/press-coffee-phx-az.jpg';
 import detroitNightImg from "../../../public/images/detroit-night-street-inlimbo.jpg";
 
 import "./HomePage.css";
-import PhotoTiles from "../photo-tiles/PhotoTiles";
+import PhotoTiles from "../common/photo-tiles/PhotoTiles";
 
 const HomePage = () => (
   <div className="carousel-container">
-      <PhotoTiles></PhotoTiles>
   </div>
 );
 

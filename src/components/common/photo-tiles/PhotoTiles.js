@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import "./PhotoTiles.css";
-const PhotoTiles = () => {
+const PhotoTiles = (props) => {
 
   useEffect(()=>{
-    animateTile();
+    //animateTile();
   })
 
   const animateTile = () => {
@@ -13,7 +13,9 @@ const PhotoTiles = () => {
     return (
      <div className="tile-container">
        <div className="tile" id = "tileBlock">
-         <img src = "../../../public/images/press-coffee-phx-az.jpg"></img>
+         <img src = {props.source}></img>
+         <p> {props.title} </p>
+         <p> {props.location} </p>
        </div>
      </div>
     );
