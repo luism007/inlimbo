@@ -1,14 +1,13 @@
 
 .list-container { 
-    display: flex;
-    flex-flow: row;
-    justify-content: flex-start;
-    align-items: center;
-    flex-wrap: wrap;
 }
 .list-item-container {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
     list-style: none !important;
 }
 .list-item { 
  /* list-style: none !important; */
+ margin: 10px;
 }

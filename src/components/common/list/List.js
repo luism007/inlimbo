@@ -4,18 +4,20 @@ import './List.css'
 
 const List = (props) => {
     console.log(props);
-    return(
-        <div className="list-container">
-            {props.items.map((item, index) => {
-               return (
-               <ul key={index} className="list-item-container">
-                  <li className = "list-item">
-                    <PhotoTiles {...item} ></PhotoTiles>
-                  </li>
-                </ul>);
-            })}
-        </div>
-    )
+    return (
+      <div className="list-container">
+        <ul className="list-item-container">
+          {" "}
+          {props.items.map((item, index) => {
+            return (
+              <li key={index} className="list-item">
+                <PhotoTiles {...item}></PhotoTiles>
+              </li>
+            );
+          })}{" "}
+        </ul>
+      </div>
+    );
 }
 
 export default List;
