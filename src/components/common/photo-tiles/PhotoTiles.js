@@ -14,8 +14,7 @@ const PhotoTiles = (props) => {
      <div className="tile-container">
        <div className="tile" id = "tileBlock">
          <img src = {props.source}></img>
-         <p> {props.title} </p>
-         <p> {props.location} </p>
+         <p className = "tile-label"> {props.title} </p>
        </div>
      </div>
     );

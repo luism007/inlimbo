@@ -12,18 +12,18 @@ const PhotographyPage = () => {
 
     const pics = [
         {
-            source: "public/images/canyon-inlimbo-smaller.jpg",
-            title: "In Between The Canyon",
+            source: "public/images/heart-of-the-canyon.jpg",
+            title: "Nature",
             location: "Page, AZ" 
         },
         {
-            source: "public/images/press-coffee-phx-az.jpg",
-            title: "Press Coffee Shop",
+            source: "public/images/detroit-fox-theatre-1.jpg",
+            title: "Urban",
             location: "Phoenix, AZ" 
         },
         {
-            source: "public/images/detroit-tigers-bigger-logo.jpg",
-            title: "Guardians of the City",
+            source: "public/images/doomslayer.jpg",
+            title: "Portraits",
             location: "Detroit, MI" 
         },
         {
@@ -40,7 +40,6 @@ const PhotographyPage = () => {
     }
     return(
         <div className="photography-container">
-            <h1> Photos </h1>
             { (loading) ? <p>Loading ...</p> : <List items = {pics}/> }
         </div>
     )
