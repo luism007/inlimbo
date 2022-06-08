@@ -1,0 +1,14 @@
+
+.list-container { 
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.list-item-container {
+    list-style: none !important;
+}
+.list-item { 
+ /* list-style: none !important; */
+}
