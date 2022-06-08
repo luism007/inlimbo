@@ -3,7 +3,7 @@ import "./PhotoTiles.css";
 const PhotoTiles = (props) => {
 
   useEffect(()=>{
-    //animateTile();
+    animateTile();
   })
 
   const animateTile = () => {

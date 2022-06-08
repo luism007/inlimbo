@@ -7,7 +7,9 @@
     left: 25%;
     top: 25%;
     transform: scale(1); */
-    flex-basis: 350px;
+    height: 423px;
+    width: 500px;
+    flex-basis: 500px;
 }
 
 .tile img { 

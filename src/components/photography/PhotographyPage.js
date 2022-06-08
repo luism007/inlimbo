@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import List from "../common/list/List";
-
+import './PhotographyPage.css';
 
 const PhotographyPage = () => {
     useEffect(() => {
@@ -39,7 +39,7 @@ const PhotographyPage = () => {
         }, 2000);
     }
     return(
-        <div className="list-container">
+        <div className="photography-container">
             { (loading) ? <p>Loading ...</p> : <List items = {pics}/> }
         </div>
     )
