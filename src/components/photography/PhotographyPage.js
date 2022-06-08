@@ -40,6 +40,7 @@ const PhotographyPage = () => {
     }
     return(
         <div className="photography-container">
+            <h1> Photos </h1>
             { (loading) ? <p>Loading ...</p> : <List items = {pics}/> }
         </div>
     )

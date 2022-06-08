@@ -1,5 +1,5 @@
 .page-showcase { 
-    padding-top: 5%;
+    padding-top: calc(100px + 1%);
 }
 
 .header { 
