@@ -2,6 +2,7 @@
 .list-container { 
     height: 90%;
     width: 100%;
+    overflow-y: auto;
 }
 .list-item-container {
     display: flex;
@@ -9,7 +10,7 @@
     flex-wrap: wrap;
     list-style: none !important;
     margin: 0;
-    padding: 0;
+    padding: 10px;
     justify-content: flex-start;
     align-items: center;
     width: 100%;
@@ -17,8 +18,8 @@
 }
 .list-item { 
  /* list-style: none !important; */
-  /* margin: 10px; */
-  height: calc(100% - 100px + 63px);
-  width: calc(100%/3);
+margin: 10px;
+  height: 400px;
+  width: calc(100%/4);
   background-color: black;
 }
