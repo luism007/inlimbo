@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 import DropdownComponent from "../common/dropdown/Dropdown";
 import List from "../common/list/List";
 import './PhotographyPage.css';
+import * as photosApi from '../../api/PhotosApi';
 
 const PhotographyPage = () => {
     useEffect(() => {
-        retrieveList();
+        retrievePhotos();
     }, [])
 
     const [loading, setLoading] = useState(true);
@@ -62,17 +63,23 @@ const PhotographyPage = () => {
       }
     ];
 
+    const [picList, setPicList] = useState(pics);
     const types = ['nature', 'portrait', 'urban'];
-
-    const retrieveList = () => {
-        setTimeout(() => {
-            setLoading(false);
-        }, 2000);
-    }
 
     const captureSelectedOption = (option) => {
         console.log(option);
     }
+
+    const retrievePhotos = async() => {
+      setTimeout(async() => { 
+        const pics = await photosApi.getPhotos();
+        setLoading(false); 
+        setPicList(pics);
+      }, 2000);
+
+    }
+
+    
 
     return (
       <div className="photography-container">
@@ -87,7 +94,7 @@ const PhotographyPage = () => {
                 callback = { captureSelectedOption }
               ></DropdownComponent>
             </div>
-            <List items={pics} />
+            <List items={picList} />
           </div>
         )}
       </div>
