@@ -50,11 +50,11 @@ const DropdownComponent = (props) => {
         <label> { props.label } </label>
         <div className="dropdown-selected-box" onClick = {showSelectionBox}>
           <p className="dropdown-selected-value"> {selectedOption}</p>
-          <span><img src="public/images/dropdown-logo.png"></img></span>
+          <span><img src="public/images/dropdown-logo-light.png"></img></span>
         </div>
         <div className="dropdown-selection-box hide" id = "selection-box">
           {props.options.map((option, index) => {
-            return <p key={index} onClick={() => {printOption(option)}}> {option} </p>;
+            return <p key={index} onClick={() => {printOption(option)}} className = "options"> {option} </p>;
           })}
         </div>
       </div>

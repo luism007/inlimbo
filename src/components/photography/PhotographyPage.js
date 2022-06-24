@@ -35,7 +35,31 @@ const PhotographyPage = () => {
             title: "Wandering the Streets",
             location: "Detroit, MI",
             type: "urban" 
-        }
+        },
+        {
+          source: "public/images/heart-of-the-canyon.jpg",
+          title: "Nature",
+          location: "Page, AZ",
+          type: "nature"
+      },
+      {
+          source: "public/images/detroit-fox-theatre-1.jpg",
+          title: "Urban",
+          location: "Phoenix, AZ",
+          type: "urban" 
+      },
+      {
+          source: "public/images/doomslayer.jpg",
+          title: "Portraits",
+          location: "Detroit, MI",
+          type: "portrait"
+      },
+      {
+          source: "public/images/detroit-night-street-inlimbo.jpg",
+          title: "Wandering the Streets",
+          location: "Detroit, MI",
+          type: "urban" 
+      }
     ];
 
     const types = ['nature', 'portrait', 'urban'];

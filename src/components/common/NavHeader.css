@@ -6,7 +6,7 @@
     width: 20%;
     height: 100px;
     position: fixed !important;
-    bottom: 0;
+    top: 0;
     right: 0;
     z-index: 1;
     background-color: white !important;
