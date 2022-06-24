@@ -19,7 +19,7 @@ const NavHeader = () => {
             <img src= {homeLogo} alt = "Home Icon" aria-label="Home"/>
           </NavLink>{" "}
           {" | "}
-          <NavLink to="/about" activeStyle={activeStyle}>
+          <NavLink to="/photography" activeStyle={activeStyle}>
             {" "}
             <img src = {cameraLogo} alt = "Camera Icon" aria-label="Photography"/>
           </NavLink>{" "}

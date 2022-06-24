@@ -1,13 +1,17 @@
 .inlimbo-navbar { 
-    position: fixed !important;
-    z-index: 1;
-    background-color: white !important;
-    width: 100%;
     display: flex;
     flex-flow: row;
     justify-content: center;
     align-items: center;
+    width: 20%;
+    height: 100px;
+    position: fixed !important;
     bottom: 0;
+    right: 0;
+    z-index: 1;
+    background-color: white !important;
+
+
 }
 
 .inlimbo-navbar nav { 

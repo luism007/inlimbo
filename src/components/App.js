@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import HomePage from "./home/HomePage";
-import AboutPage from "./about/AboutPage";
+import PhotographyPage from "./photography/PhotographyPage";
 import NavHeader from "./common/NavHeader";
 import PageNotFound from "./PageNotFound";
 import CoursesPage from "./courses/CoursesPage";
@@ -20,7 +20,7 @@ const App = () => {
     <div className="page-showcase">
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route path="/about" component={AboutPage} />
+        <Route path="/photography" component={PhotographyPage} />
         <Route path="/courses" component={CoursesPage} />
         <Route component={PageNotFound} />
       </Switch>
