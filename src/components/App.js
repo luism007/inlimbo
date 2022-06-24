@@ -13,7 +13,7 @@ const App = () => {
   <div>
     <div className="header">
       <div className="logo">
-        <img src= "../../public/images/inlimbo-proto-wht-small.svg" alt = "inlimbo-logo" aria-label="INLIMBO"></img>
+        <img src= "../../public/images/inlimbo-proto-blk-small.svg" alt = "inlimbo-logo" aria-label="INLIMBO"></img>
       </div>
     </div>
     <NavHeader />
