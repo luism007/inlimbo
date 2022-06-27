@@ -1,4 +1,4 @@
-const { retrievePhotos } = require('../services/photo-services');
+const { retrievePhotos, postPhoto } = require('../services/photo-services');
 
 const getPhotos = async (req, res, next) => {
     try {
@@ -11,6 +11,17 @@ const getPhotos = async (req, res, next) => {
     }
 }
 
+const addPhoto = async (req, res, next) => {
+    try {
+        const photo = req.body;
+        const postedPhoto = await postPhoto(photo);
+        res.send({message: 'Photo successfully posted!', photo: postedPhoto}).status(201);
+    } catch (e) {
+        res.sendStatus(500);
+    }
+}
+
 module.exports = {
-    getPhotos
+    getPhotos, 
+    addPhoto
 };

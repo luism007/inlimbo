@@ -8,6 +8,11 @@ const retrievePhotos = async () => {
     return photos;
 }
 
+const postPhoto = async (photo) => { 
+    return await Photo.create(photo);
+}
+
 module.exports = {
-    retrievePhotos
+    retrievePhotos,
+    postPhoto
 }
