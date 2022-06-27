@@ -1,8 +1,17 @@
-.photography-container { 
-height: 100%;
-width: 100%;
+.photography-container, .items-container {
+  display: flex;
+  flex-flow: wrap;
+  height: 100%;
+  width: 100%;
 }
 
-h1 { 
-    color: white;
+.dropdown-container { 
+    display: flex;
+    flex-flow: row;
+    width: 100%;
+    justify-content: end;
+}
+
+h1 {
+  color: white;
 }
