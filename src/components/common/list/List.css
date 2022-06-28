@@ -18,8 +18,8 @@
 }
 .list-item { 
  /* list-style: none !important; */
-  margin: 40px 20px;
-  height: 500px;
-  width: calc(100%/5);
+  margin: 10px;
+  height: 300px;
+  flex-grow: 1;
   background-color: black;
 }

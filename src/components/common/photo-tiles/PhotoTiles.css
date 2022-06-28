@@ -4,15 +4,14 @@
 }
 .tile { 
     display: block;
-    background-color: white;
+    background-color: black;
     height: 100%;
     width: 100%;
-    flex-basis: 500px;
 }
 
 .tile img { 
-    object-fit: cover;
-    height: 80%;
+    object-fit: contain;
+    height: 100%;
     width: 100%;
 
 }
