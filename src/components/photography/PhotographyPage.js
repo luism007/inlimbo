@@ -64,7 +64,7 @@ const PhotographyPage = () => {
     ];
 
     const [picList, setPicList] = useState(pics);
-    const types = ['nature', 'portrait', 'urban'];
+    const types = ['all', 'nature', 'portrait', 'urban'];
 
     const captureSelectedOption = (option) => {
         console.log(option);

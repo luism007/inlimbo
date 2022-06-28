@@ -35,7 +35,7 @@ const DropdownComponent = (props) => {
 
     useEffect(() => { console.log(props.options) }, []);
 
-    const [selectedOption, setSelectedOption] = useState('urban');
+    const [selectedOption, setSelectedOption] = useState('all');
 
     const printOption = (option) => {
        // console.log(option);
