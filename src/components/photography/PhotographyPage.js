@@ -7,76 +7,31 @@ import * as photosApi from '../../api/PhotosApi';
 
 const PhotographyPage = () => {
     useEffect(() => {
-        retrievePhotos();
+        retrievePhotos(0, 10);
     }, [])
 
     const [loading, setLoading] = useState(true);
 
-    const pics = [
-        {
-            source: "public/images/heart-of-the-canyon.jpg",
-            title: "Nature",
-            location: "Page, AZ",
-            type: "nature"
-        },
-        {
-            source: "public/images/detroit-fox-theatre-1.jpg",
-            title: "Urban",
-            location: "Phoenix, AZ",
-            type: "urban" 
-        },
-        {
-            source: "public/images/doomslayer.jpg",
-            title: "Portraits",
-            location: "Detroit, MI",
-            type: "portrait"
-        },
-        {
-            source: "public/images/detroit-night-street-inlimbo.jpg",
-            title: "Wandering the Streets",
-            location: "Detroit, MI",
-            type: "urban" 
-        },
-        {
-          source: "public/images/heart-of-the-canyon.jpg",
-          title: "Nature",
-          location: "Page, AZ",
-          type: "nature"
-      },
-      {
-          source: "public/images/detroit-fox-theatre-1.jpg",
-          title: "Urban",
-          location: "Phoenix, AZ",
-          type: "urban" 
-      },
-      {
-          source: "public/images/doomslayer.jpg",
-          title: "Portraits",
-          location: "Detroit, MI",
-          type: "portrait"
-      },
-      {
-          source: "public/images/detroit-night-street-inlimbo.jpg",
-          title: "Wandering the Streets",
-          location: "Detroit, MI",
-          type: "urban" 
-      }
-    ];
-
-    const [picList, setPicList] = useState(pics);
+    const [picList, setPicList] = useState([]);
     const types = ['all', 'nature', 'portrait', 'urban'];
 
     const captureSelectedOption = (option) => {
         console.log(option);
     }
 
-    const retrievePhotos = async() => {
+    const retrievePhotos = async(offset, limit) => {
       setTimeout(async() => { 
-        const pics = await photosApi.getPhotosByOffset(0, 10);
+        const pics = await photosApi.getPhotosByOffset(offset, limit);
         setLoading(false); 
-        setPicList(pics);
+        setPicList([...picList, ...pics]);
       }, 2000);
 
+    }
+
+    const showMore = () => {
+      const photosOnScreenAmt = picList.length;
+      const calcOffset = photosOnScreenAmt / 10; 
+      retrievePhotos(calcOffset, 10);
     }
 
     
@@ -95,6 +50,7 @@ const PhotographyPage = () => {
               ></DropdownComponent>
             </div>
             <List items={picList} />
+            <button onClick={ showMore }> Show More </button>
           </div>
         )}
       </div>
