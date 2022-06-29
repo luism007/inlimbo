@@ -13,8 +13,7 @@ const PhotoTiles = (props) => {
     return (
      <div className="tile-container">
        <div className="tile" id = "tileBlock">
-         <img src = {props.source}></img>
-         <p className = "tile-label"> {props.title} </p>
+         <img src = {props.source} loading = "lazy" height= "300px" width = "500px"></img>
        </div>
      </div>
     );

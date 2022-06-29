@@ -8,11 +8,17 @@ const retrievePhotos = async () => {
     return photos;
 }
 
+const retrievePhotosByOffset = async (offset, amount) => {
+    const photos = Photo.find().skip(offset * amount).limit(amount);
+    return photos;
+}
+
 const postPhoto = async (photo) => { 
     return await Photo.create(photo);
 }
 
 module.exports = {
     retrievePhotos,
+    retrievePhotosByOffset,
     postPhoto
 }
