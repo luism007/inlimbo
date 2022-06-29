@@ -3,7 +3,11 @@ import PhotoTiles from "../photo-tiles/PhotoTiles";
 import './List.css'
 
 const List = (props) => {
-    console.log(props);
+
+  const showMore = () => { 
+    props.showMoreCallback();
+  }
+  
     return (
       <div className="list-container">
         <ul className="list-item-container">
@@ -16,6 +20,7 @@ const List = (props) => {
             );
           })}{" "}
         </ul>
+        <button id = "showMoreButton" onClick={ showMore }> Show More </button>
       </div>
     );
 }

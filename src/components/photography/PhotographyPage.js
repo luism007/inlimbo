@@ -49,8 +49,7 @@ const PhotographyPage = () => {
                 callback = { captureSelectedOption }
               ></DropdownComponent>
             </div>
-            <List items={picList} />
-            <button onClick={ showMore }> Show More </button>
+            <List items={picList} showMoreCallback = {showMore} />
           </div>
         )}
       </div>
