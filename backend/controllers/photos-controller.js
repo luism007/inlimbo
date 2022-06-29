@@ -1,4 +1,4 @@
-const { retrievePhotos, postPhoto } = require('../services/photo-services');
+const { retrievePhotos, retrievePhotosByOffset, postPhoto } = require('../services/photo-services');
 
 const getPhotos = async (req, res, next) => {
     try {
@@ -7,6 +7,18 @@ const getPhotos = async (req, res, next) => {
         res.send(photos).status(200);
 
     } catch (e) {
+        res.sendStatus(500);
+    }
+}
+
+const getPhotosByOffset = async(req, res, next) => {
+    try{ 
+        const offset = req.query.offset;
+        const limit = req.query.limit;
+        const photos = await retrievePhotosByOffset(offset, limit);
+        res.send(photos).status(200);
+    }
+    catch(e){
         res.sendStatus(500);
     }
 }
@@ -21,7 +33,9 @@ const addPhoto = async (req, res, next) => {
     }
 }
 
+
 module.exports = {
     getPhotos, 
+    getPhotosByOffset,
     addPhoto
 };

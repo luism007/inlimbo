@@ -72,7 +72,7 @@ const PhotographyPage = () => {
 
     const retrievePhotos = async() => {
       setTimeout(async() => { 
-        const pics = await photosApi.getPhotos();
+        const pics = await photosApi.getPhotosByOffset(0, 10);
         setLoading(false); 
         setPicList(pics);
       }, 2000);
