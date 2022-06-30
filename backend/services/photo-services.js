@@ -13,6 +13,11 @@ const retrievePhotosByOffset = async (offset, amount) => {
     return photos;
 }
 
+const retrievePhotosFromCollection = async (collectionId) => {
+    const photos = Photo.find({collection_id: collectionId}).limit(5);
+    return photos;
+}
+
 const postPhoto = async (photo) => { 
     return await Photo.create(photo);
 }
@@ -20,5 +25,6 @@ const postPhoto = async (photo) => {
 module.exports = {
     retrievePhotos,
     retrievePhotosByOffset,
+    retrievePhotosFromCollection,
     postPhoto
 }
