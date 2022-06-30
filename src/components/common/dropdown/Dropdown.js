@@ -33,12 +33,11 @@ const DropdownComponent = (props) => {
     const wrapperRef = useRef(null);
     outsideAlert(wrapperRef);
 
-    useEffect(() => { console.log(props.options) }, []);
+    useEffect(() => {}, []);
 
     const [selectedOption, setSelectedOption] = useState('all');
 
     const printOption = (option) => {
-       // console.log(option);
         setSelectedOption(option);
         props.callback(option);
         classToggle('selection-box', 'show', 'hide');

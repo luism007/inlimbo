@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
+import  Spinner  from '../../components/common/loading/Spinner';
 import DropdownComponent from "../common/dropdown/Dropdown";
 import List from "../common/list/List";
 import './PhotographyPage.css';
@@ -11,8 +12,8 @@ const PhotographyPage = () => {
     }, [])
 
     const [loading, setLoading] = useState(true);
-
     const [picList, setPicList] = useState([]);
+    const [offset, setOffset] = useState(0);
     const types = ['all', 'nature', 'portrait', 'urban'];
 
     const captureSelectedOption = (option) => {
@@ -20,11 +21,14 @@ const PhotographyPage = () => {
     }
 
     const retrievePhotos = async(offset, limit) => {
+      setLoading(true);
       setTimeout(async() => { 
         const pics = await photosApi.getPhotosByOffset(offset, limit);
         setLoading(false); 
         setPicList([...picList, ...pics]);
-      }, 2000);
+        const totalLen = picList.length + pics.length;
+        setOffset(totalLen);
+      }, 5000);
 
     }
 
@@ -38,9 +42,6 @@ const PhotographyPage = () => {
 
     return (
       <div className="photography-container">
-        {loading ? (
-          <p>Loading ...</p>
-        ) : (
           <div className="items-container">
             <div className="dropdown-container">
               <DropdownComponent
@@ -49,9 +50,13 @@ const PhotographyPage = () => {
                 callback = { captureSelectedOption }
               ></DropdownComponent>
             </div>
-            <List items={picList} showMoreCallback = {showMore} />
+            <List 
+            items={picList} 
+            showMoreCallback = {showMore} 
+            loading = {loading}
+            offset = {offset}
+            />
           </div>
-        )}
       </div>
     );
 };
