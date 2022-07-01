@@ -1,13 +1,15 @@
 import React, { useEffect } from "react";
+import * as photosApi from '../../../api/PhotosApi';
 import './Overlay.css';
 const Overlay = (props) => {
 
     useEffect(() => {
-
+        getRelatedPics();
     }, []);
 
-    const getRelatedPics = () => {
-
+    const getRelatedPics = async () => {
+        const photos = await photosApi.getPhotosByCollectionId('#sample_photos');
+        console.log(photos);
     }
 
     return(

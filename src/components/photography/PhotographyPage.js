@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import  Spinner  from '../../components/common/loading/Spinner';
 import DropdownComponent from "../common/dropdown/Dropdown";
 import List from "../common/list/List";
+import Overlay from "../common/overlay/Overlay";
 import './PhotographyPage.css';
 import * as photosApi from '../../api/PhotosApi';
 
@@ -56,6 +57,7 @@ const PhotographyPage = () => {
             loading = {loading}
             offset = {offset}
             />
+            <Overlay/>
           </div>
       </div>
     );

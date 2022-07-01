@@ -6,6 +6,6 @@ router.get('/photography', getPhotosByOffset);
 router.get('/photography', getPhotos);
 router.post('/photography', addPhoto);
 
-router.get('/collection', getPhotosByCollectionId);
+router.post('/collection', getPhotosByCollectionId);
 
 module.exports = router;
