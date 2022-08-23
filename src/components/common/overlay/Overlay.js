@@ -1,31 +1,27 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import * as photosApi from '../../../api/PhotosApi';
+import Gallery from '../../common/gallery/Gallery';
 import './Overlay.css';
 const Overlay = (props) => {
+
+    const [gridPhotos, setGridPhotos] = useState([]);
+
 
     useEffect(() => {
         getRelatedPics();
     }, []);
 
     const getRelatedPics = async () => {
-        const photos = await photosApi.getPhotosByCollectionId('#sample_photos');
-        console.log(photos);
+        const photos = await photosApi.getPhotosByCollectionId('#antelope_cnyn_21');
+        setGridPhotos(photos);
     }
 
-    return(
-        <div id = "overlay" className="overlay-wrapper">
-            <div className="overlay-container">
-                <div className="overlay-preview-container">
-                    <div className="overlay-pic-showcase-container"></div>
-                    <div className="overlay-pic-grid-container"></div>
-                </div>
-                <div className="overlay-pic-description-container">
-                    <p className="overlay-pic-description">
-
-                    </p>
-                </div>
-            </div>
-        </div>
+    return (
+      <div id="overlay" className="overlay-wrapper">
+        {   gridPhotos.length > 0  &&
+            <Gallery photos = {gridPhotos}></Gallery>
+      }
+      </div>
     );
 
 }
