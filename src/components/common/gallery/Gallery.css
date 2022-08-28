@@ -73,8 +73,11 @@
     opacity: 0.7;
 }
 
-.active,
 .grid-photo-list-item:hover { 
     opacity: 1;
     cursor: pointer;
+}
+
+.focused-el { 
+    border-bottom: 1px solid orange;
 }

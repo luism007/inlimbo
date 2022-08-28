@@ -3,11 +3,25 @@ import './Gallery.css';
 const Gallery = (props) => {
     const [photoInView, setPhotoInView] = useState(props.photos[0]);
     const [currentIndex, setCurrentIndex] = useState(0);
+    const fadeInKeyframes = [
+        {
+            display: 'none',
+            opacity: 0
+        },
+        {
+            display: 'block',
+            opacity: 1
+        }
+    ];
+    const fadeInOptions =  {
+        duration: 1000,
+        easing: 'ease-in-out'
+    }
     let interval = useRef(null);
   
     useEffect(() => {
+        animateActivePhoto();
           interval.current = setInterval(() => {
-            console.log(props.photos);
               nextPhoto();
               clearInterval(interval);
           }, 3000);
@@ -18,18 +32,27 @@ const Gallery = (props) => {
   
     }, [currentIndex]);
 
+    const animateActivePhoto = () => {
+        let active = document.getElementById('active-photo');
+        active.animate(fadeInKeyframes, fadeInOptions);
+    }
+
     const setPhoto = (index) => {
         setCurrentIndex(index);
+        const element = document.getElementById(`grid-photo-${index}`);       
+        animateActivePhoto();
+        element.classList.add(['focused-el']);
         setPhotoInView(props.photos[index]);
     }
 
     const nextPhoto = () => {
         let index = currentIndex;
+        const element = document.getElementById(`grid-photo-${index}`);
+        element.classList.remove(['focused-el']);
         index += 1;
         if(index >= props.photos.length) {
             index = 0;
         }
-        console.log(index);
         setPhoto(index);
     }
 
@@ -50,7 +73,7 @@ const Gallery = (props) => {
                     <button onClick={prevPhoto}> prev </button>
                 </div>
                 <div className="overlay-pic-showcase">
-                    <img className="overlay-pic" src = {photoInView.source}></img>
+                    <img className="overlay-pic" id = "active-photo" src = {photoInView.source}></img>
                 </div>
                 <div className="overlay-gallery-button-right">
                     <button onClick={nextPhoto}> next </button>
