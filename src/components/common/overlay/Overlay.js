@@ -6,7 +6,6 @@ const Overlay = (props) => {
 
     const [gridPhotos, setGridPhotos] = useState([]);
 
-
     useEffect(() => {
         getRelatedPics();
     }, []);
@@ -16,9 +15,12 @@ const Overlay = (props) => {
         setGridPhotos(photos);
     }
 
+ 
+
     return (
       <div id="overlay" className="overlay-wrapper">
-        {   gridPhotos.length > 0  &&
+        <button onClick={props.hideOverlay}>Hide</button>
+        {   gridPhotos.length > 0  && 
             <Gallery photos = {gridPhotos}></Gallery>
       }
       </div>

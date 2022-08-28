@@ -87,6 +87,7 @@ const Gallery = (props) => {
                       key={index}
                       id={`grid-photo-${index}`}
                       className="grid-photo-list-item"
+                      onClick={()=>{ setPhoto(index)}}
                     >
                       <img src={photo.source} className = "grid-photo"></img>
                     </li>

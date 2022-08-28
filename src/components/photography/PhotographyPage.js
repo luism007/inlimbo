@@ -15,6 +15,7 @@ const PhotographyPage = () => {
     const [loading, setLoading] = useState(true);
     const [picList, setPicList] = useState([]);
     const [offset, setOffset] = useState(0);
+    const [overlay, setOverlay] = useState(true);
     const types = ['all', 'nature', 'portrait', 'urban'];
 
     const captureSelectedOption = (option) => {
@@ -39,6 +40,14 @@ const PhotographyPage = () => {
       retrievePhotos(calcOffset, 10);
     }
 
+    const hideOverlay = () => {
+      setOverlay(false);
+    }
+
+    const showOverlay = () =>{
+      setOverlay(true);
+    }
+
     
 
     return (
@@ -57,8 +66,8 @@ const PhotographyPage = () => {
             loading = {loading}
             offset = {offset}
             />
-            <Overlay/>
           </div>
+          {overlay && <Overlay hideOverlay = {hideOverlay}/> }
       </div>
     );
 };
