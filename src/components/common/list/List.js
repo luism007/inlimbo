@@ -26,7 +26,7 @@ const List = (props) => {
           {" "}
           {props.items.map((item, index) => {
             return (
-              <li key={index} id = {`tile-${index}`} className="list-item">
+              <li key={index} id = {`tile-${index}`} className="list-item" onClick={props.showOverlay}>
                 <PhotoTiles {...item}></PhotoTiles>
               </li>
             );

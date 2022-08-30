@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import './Gallery.css';
 const Gallery = (props) => {
-    const [photoInView, setPhotoInView] = useState(props.photos[0]);
+    const [photoInView, setPhotoInView] = useState(props.photo);
     const [currentIndex, setCurrentIndex] = useState(0);
     const fadeInKeyframes = [
         {
@@ -30,7 +30,7 @@ const Gallery = (props) => {
               clearInterval(interval.current);
           }
   
-    }, [currentIndex]);
+    }, [currentIndex, photoInView, props.photos]);
 
     const animateActivePhoto = () => {
         let active = document.getElementById('active-photo');
