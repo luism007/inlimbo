@@ -69,6 +69,9 @@ const Gallery = (props) => {
         <div className="overlay-container">
           <div className="overlay-preview-container">
             <div className="overlay-pic-showcase-container">
+              <div className="gallery-hide-button-container">
+                <button onClick={props.closeOverlay}>Hide</button>
+              </div>
                 <div className="overlay-gallery-button-left">
                     <button onClick={prevPhoto}> prev </button>
                 </div>

@@ -77,9 +77,9 @@ const Overlay = (props) => {
     return (
       (
         <div id="overlay" className="overlay-wrapper">
-          <button onClick={closeOverlay}>Hide</button>
           {gridPhotos.length > 0 && (
             <Gallery
+              closeOverlay = {closeOverlay}
               photos={gridPhotos}
               photo={photo}
               startIndex={startIndex}

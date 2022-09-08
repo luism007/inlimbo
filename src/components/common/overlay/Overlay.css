@@ -8,6 +8,11 @@
     top: 100%;
 }
 
+.hideButtonContainer { 
+    background-color: black;
+    width: 100%;
+}
+
 .up { 
     animation-name: slideUp;
     animation-duration: 1s;
