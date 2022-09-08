@@ -12,26 +12,30 @@
 }
 
 .overlay-preview-container {
-    height: 70%;
+    height: 100%;
 }
 .overlay-pic-description-container{
     height: 30%;
 }
 .overlay-pic-showcase-container {
-    display: flex; 
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 90%;
+    height: 100%;
     background-color: black;
 }
 .overlay-pic-grid-container { 
     width: 100%;
+    position: absolute;
+    bottom: 0;
 }
 
 .overlay-pics-container { 
     display: flex;
-    height: 200px;
+    height: 150px;
     flex-flow: wrap;
     justify-content: center;
     align-items: center;
@@ -51,8 +55,8 @@
 
 .overlay-pic-showcase {
     display: block;
-    height: 100%;
-    width: 100%;
+    height: 90%;
+    width: 90%;
 }
 
 .overlay-pic { 
@@ -73,4 +77,17 @@
 
 .focused-el { 
     opacity: 1;
+}
+
+.gallery-hide-button-container { 
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+
+}
+
+.close-btn { 
+    margin-right: 2%;
 }
