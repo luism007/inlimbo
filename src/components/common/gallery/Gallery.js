@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import './Gallery.css';
 const Gallery = (props) => {
     const [photoInView, setPhotoInView] = useState(props.photo);
-    const [currentIndex, setCurrentIndex] = useState(0);
+    const [currentIndex, setCurrentIndex] = useState(props.startIndex);
     const fadeInKeyframes = [
         {
             display: 'none',

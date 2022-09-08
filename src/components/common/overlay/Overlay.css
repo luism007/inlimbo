@@ -5,4 +5,36 @@
     width: 100vw;
     background-color: white;
     z-index: 1;
+    top: 100%;
+}
+
+.up { 
+    animation-name: slideUp;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    top: 0;
+}
+
+.down { 
+    animation-name: slideDown;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    top: 100%;
+}
+
+@keyframes slideUp {
+    from {
+        top: 100%
+    }
+    to {
+        top: 0
+    }
+}
+
+@keyframes slideDown {
+    from {
+        top: 0
+    } to { 
+        top: 100%
+    }
 }
