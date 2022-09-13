@@ -27,13 +27,13 @@ const Gallery = (props) => {
     let subscription$;
 
     useEffect(() => {
-       subscription$ = PictureCommunicationService.getPictureSubject()
-        .subscribe((p) => {
-          console.log('Gallery Subscribe Photo', p);
-          setPhotoInView(p);
-          animateActivePhoto();
-          (photoInView) ? getRelatedPics() : null;
-        })
+       subscription$ =
+         PictureCommunicationService.getPictureSubject().subscribe((p) => {
+           setPhotoInView(p);
+           animateActivePhoto();
+           getRelatedPics(p);
+         });
+         //
           interval.current = setInterval(() => {
               nextPhoto();
               clearInterval(interval);
@@ -86,18 +86,26 @@ const Gallery = (props) => {
       setStartIndex(index);
   }
 
-  const getRelatedPics = async () => {
-      const photos = await photosApi.getPhotosByCollectionId(photoInView.collection_id);
-      if (!isObjectEmpty(photoInView)) {
-        const possibleDuplicates = photos.filter((p) => p.source === photoInView.source);
+  const getRelatedPics = async (photo) => {
+      const photos = await photosApi.getPhotosByCollectionId(photo.collection_id);
+      console.log(photos);
+      if (!isObjectEmpty(photo)) {
+        const possibleDuplicates = photos.filter((p) => p.source === photo.source);
         possibleDuplicates.length < 1
-          ? configureStart(photos, photoInView)
+          ? configureStart(photos, photo)
           : setGridPhotos(photos);
       }
   }
 
   const isObjectEmpty = (obj) => {
-    return Object.keys(obj).length === 0;
+    let val = false;
+
+    if(obj === null || obj === undefined) { 
+      val = true;
+    } else if (Object.keys(obj).length === 0) {
+      val = true;
+    }
+    return val;
   };
 
     return (

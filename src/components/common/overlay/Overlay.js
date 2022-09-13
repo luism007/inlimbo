@@ -13,7 +13,7 @@ const Overlay = (props) => {
 
     useEffect(() => {
         (props.overlay) ? slideUp() : null;
-    },[photo]);
+    });
 
     const getRelatedPics = async () => {
         const photos = await photosApi.getPhotosByCollectionId(photo.collection_id);
