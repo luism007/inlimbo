@@ -10,21 +10,9 @@ const Overlay = (props) => {
     const [photo, setPhoto] = useState({});
     const [startIndex, setStartIndex] = useState(0);
 
-    let subscription$;
 
     useEffect(() => {
         (props.overlay) ? slideUp() : null;
-        subscription$ = PictureCommunicationService
-        .getPictureSubject()
-        .subscribe((picture) => {
-            if(picture) { 
-                setPhoto({...picture}); 
-            }
-        });
-        getRelatedPics();
-        return () => {
-            subscription$.unsubscribe();
-        }
     },[photo]);
 
     const getRelatedPics = async () => {
@@ -77,14 +65,12 @@ const Overlay = (props) => {
     return (
       (
         <div id="overlay" className="overlay-wrapper">
-          {gridPhotos.length > 0 && (
             <Gallery
               closeOverlay = {closeOverlay}
-              photos={gridPhotos}
-              photo={photo}
-              startIndex={startIndex}
-            ></Gallery>
-          )}
+            //   photos={gridPhotos}
+            //   photo={photo}
+            //   startIndex={startIndex}
+            ></Gallery>    
         </div>
       )
     );

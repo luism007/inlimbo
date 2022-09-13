@@ -92,3 +92,10 @@
 .close-btn { 
     margin-right: 2%;
 }
+
+.close-btn:hover { 
+    cursor: pointer;
+}
+.overlay-gallery-button-right:hover, .overlay-gallery-button-left:hover{
+    cursor: pointer;
+}

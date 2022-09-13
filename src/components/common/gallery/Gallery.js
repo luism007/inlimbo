@@ -1,8 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
+import PictureCommunicationService from "../../../rxjs-services/picture-service";
+import * as photosApi from '../../../api/PhotosApi';
+import Spinner from "../loading/Spinner";
 import './Gallery.css';
 const Gallery = (props) => {
-    const [photoInView, setPhotoInView] = useState(props.photo);
-    const [currentIndex, setCurrentIndex] = useState(props.startIndex);
+  
+    const [gridPhotos, setGridPhotos] = useState([]);
+    const [startIndex, setStartIndex] = useState(0);
+    const [photoInView, setPhotoInView] = useState(null);
+    const [currentIndex, setCurrentIndex] = useState(startIndex);
     const fadeInKeyframes = [
         {
             display: 'none',
@@ -18,9 +24,16 @@ const Gallery = (props) => {
         easing: 'ease-in-out'
     }
     let interval = useRef(null);
-  
+    let subscription$;
+
     useEffect(() => {
-        animateActivePhoto();
+       subscription$ = PictureCommunicationService.getPictureSubject()
+        .subscribe((p) => {
+          console.log('Gallery Subscribe Photo', p);
+          setPhotoInView(p);
+          animateActivePhoto();
+          (photoInView) ? getRelatedPics() : null;
+        })
           interval.current = setInterval(() => {
               nextPhoto();
               clearInterval(interval);
@@ -28,29 +41,29 @@ const Gallery = (props) => {
   
           return () => {
               clearInterval(interval.current);
+              subscription$.unsubscribe();
           }
-  
-    }, [currentIndex, photoInView, props.photos]);
+    }, [currentIndex, photoInView, gridPhotos]);
 
     const animateActivePhoto = () => {
         let active = document.getElementById('active-photo');
-        active.animate(fadeInKeyframes, fadeInOptions);
+        (active) ? active.animate(fadeInKeyframes, fadeInOptions) : null;
     }
 
     const setPhoto = (index) => {
         setCurrentIndex(index);
-        const element = document.getElementById(`grid-photo-${index}`);       
+        const element = document.getElementById(`grid-photo-${index}`);  
         animateActivePhoto();
-        element.classList.add(['focused-el']);
-        setPhotoInView(props.photos[index]);
+        (element) ? element.classList.add(['focused-el']) : null;
+        setPhotoInView(gridPhotos[index]);
     }
 
     const nextPhoto = () => {
         let index = currentIndex;
         const element = document.getElementById(`grid-photo-${index}`);
-        element.classList.remove(['focused-el']);
+        (element) ? element.classList.remove(['focused-el']) : null;
         index += 1;
-        if(index >= props.photos.length) {
+        if(index >= gridPhotos.length) {
             index = 0;
         }
         setPhoto(index);
@@ -60,35 +73,59 @@ const Gallery = (props) => {
         let index = currentIndex;
         index -= 1;
         if(index < 0) {
-            index = props.photos.length - 1;
+            index = gridPhotos.length - 1;
         }
         setPhoto(index);
     }
+
+    const configureStart = (photos, photo) => {
+      const index = photos.findIndex((p) => {
+          return (p.source === photo.source);
+      });
+      setGridPhotos([photo, ...photos])
+      setStartIndex(index);
+  }
+
+  const getRelatedPics = async () => {
+      const photos = await photosApi.getPhotosByCollectionId(photoInView.collection_id);
+      if (!isObjectEmpty(photoInView)) {
+        const possibleDuplicates = photos.filter((p) => p.source === photoInView.source);
+        possibleDuplicates.length < 1
+          ? configureStart(photos, photoInView)
+          : setGridPhotos(photos);
+      }
+  }
+
+  const isObjectEmpty = (obj) => {
+    return Object.keys(obj).length === 0;
+  };
 
     return (
       <div className="overlay-container">
         <div className="overlay-preview-container">
           <div className="overlay-pic-showcase-container">
             <div className="gallery-hide-button-container">
-              <span className="close-btn"><img src="public/images/close-x.png" onClick={props.closeOverlay}></img></span>
+              <span className="close-btn"><img src="public/images/close-x.svg" onClick={props.closeOverlay}></img></span>
             </div>
             <div className="overlay-gallery-button-left">
-              <span><img src = "public/images/left-arrow.png" onClick={prevPhoto}></img></span>
+              <span><img src = "public/images/left-arrow.svg" onClick={prevPhoto}></img></span>
             </div>
             <div className="overlay-pic-showcase">
+             { (photoInView) ? 
               <img
                 className="overlay-pic"
                 id="active-photo"
                 src={photoInView.source}
-              ></img>
+              ></img> : <Spinner></Spinner>
+              }
             </div>
             <div className="overlay-gallery-button-right">
-            <span><img src = "public/images/right-arrow.png" onClick={nextPhoto}></img></span>
+            <span><img src = "public/images/right-arrow.svg" onClick={nextPhoto}></img></span>
             </div>
           </div>
           <div className="overlay-pic-grid-container">
             <ul className="overlay-pics-container">
-              {props.photos.map((photo, index) => {
+              {gridPhotos.map((photo, index) => {
                 return (
                   <li
                     key={index}
