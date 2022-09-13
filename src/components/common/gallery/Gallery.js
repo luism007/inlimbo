@@ -6,9 +6,8 @@ import './Gallery.css';
 const Gallery = (props) => {
   
     const [gridPhotos, setGridPhotos] = useState([]);
-    const [startIndex, setStartIndex] = useState(0);
     const [photoInView, setPhotoInView] = useState(null);
-    const [currentIndex, setCurrentIndex] = useState(startIndex);
+    const [currentIndex, setCurrentIndex] = useState(0);
     const fadeInKeyframes = [
         {
             display: 'none',
@@ -33,12 +32,12 @@ const Gallery = (props) => {
            animateActivePhoto();
            getRelatedPics(p);
          });
-         //
+
           interval.current = setInterval(() => {
               nextPhoto();
               clearInterval(interval);
           }, 3000);
-  
+
           return () => {
               clearInterval(interval.current);
               subscription$.unsubscribe();
@@ -83,17 +82,16 @@ const Gallery = (props) => {
           return (p.source === photo.source);
       });
       setGridPhotos([photo, ...photos])
-      setStartIndex(index);
+      setCurrentIndex(index);
   }
 
   const getRelatedPics = async (photo) => {
       const photos = await photosApi.getPhotosByCollectionId(photo.collection_id);
-      console.log(photos);
       if (!isObjectEmpty(photo)) {
         const possibleDuplicates = photos.filter((p) => p.source === photo.source);
         possibleDuplicates.length < 1
           ? configureStart(photos, photo)
-          : setGridPhotos(photos);
+          : setGridPhotos(photos), setCurrentIndex(0);
       }
   }
 
