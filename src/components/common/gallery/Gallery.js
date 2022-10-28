@@ -3,6 +3,7 @@ import PictureCommunicationService from "../../../rxjs-services/picture-service"
 import * as photosApi from '../../../api/PhotosApi';
 import Spinner from "../loading/Spinner";
 import './Gallery.css';
+import MiniGallery from "../mini-gallery/MiniGallery";
 const Gallery = (props) => {
   
     const [gridPhotos, setGridPhotos] = useState([]);
@@ -137,24 +138,7 @@ const Gallery = (props) => {
             <span><img src = "public/images/right-arrow.svg" onClick={nextPhoto}></img></span>
             </div>
           </div>
-          <div className="overlay-pic-grid-container">
-            <ul className="overlay-pics-container">
-              {gridPhotos.map((photo, index) => {
-                return (
-                  <li
-                    key={index}
-                    id={`grid-photo-${index}`}
-                    className="grid-photo-list-item"
-                    onClick={() => {
-                      setPhoto(index);
-                    }}
-                  >
-                    <img src={photo.source} className="grid-photo"></img>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
+          <MiniGallery photos = {gridPhotos} setPhoto = {setPhoto}></MiniGallery>
         </div>
         <div className="overlay-pic-description-container">
           <p className="overlay-pic-description">
