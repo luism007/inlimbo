@@ -4,18 +4,7 @@ import PhotoTiles from "../photo-tiles/PhotoTiles";
 import './List.css'
 
 const List = (props) => {
-
-  useEffect(() => {
-    if(props.loading) { 
-       const spinner = document.getElementById('spin');
-       spinner.scrollIntoView({behavior: 'smooth', block: 'end'});
-    } else { 
-      const focusedId = `tile-${props.offset}`;
-      const tile = document.getElementById(focusedId);
-      (tile) ? tile.scrollIntoView({behavior: 'smooth', block: 'end'}) : null;
-    }
-  });
-
+  
   const showMore = () => { 
     props.showMoreCallback();
   }
@@ -34,7 +23,7 @@ const List = (props) => {
         </ul>
         { props.loading ? <Spinner/> : 
         <span id = "showMoreButton" onClick={ showMore }>
-          <img src="public/images/dropdown-logo-light.png">
+          <img src="public/images/dropdown-logo.png">
             </img></span> }
       </div>
     );

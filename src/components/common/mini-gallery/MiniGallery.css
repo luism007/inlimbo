@@ -33,8 +33,10 @@
 .grid-photo-list-item:hover { 
     opacity: 1;
     cursor: pointer;
+    transition: opacity 1s;
 }
 
 .focused-el { 
     opacity: 1;
+    transition: opacity 1s;
 }

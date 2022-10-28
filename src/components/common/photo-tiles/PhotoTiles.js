@@ -4,7 +4,6 @@ import PictureCommunicationService from '../../../rxjs-services/picture-service.
 const PhotoTiles = (props) => {
 
   useEffect(()=>{
-    animateTile();
   })
 
   const animateTile = () => {

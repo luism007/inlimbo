@@ -26,10 +26,10 @@ const PhotographyPage = () => {
       setLoading(true);
       setTimeout(async() => { 
         const pics = await photosApi.getPhotosByOffset(offset, limit);
-        setLoading(false); 
         setPicList([...picList, ...pics]);
         const totalLen = picList.length + pics.length;
         setOffset(totalLen);
+        setLoading(false); 
       }, 5000);
 
     }

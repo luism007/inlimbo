@@ -1,9 +1,6 @@
 import React, {useEffect, useState} from "react";
 import './MiniGallery.css';
 const MiniGallery = (props) => {
-    useEffect(() =>{ 
-        console.log('MiniGallery');
-    })
     return(
         <div className = "mini-gallery-grid-container">
             <ul className="mini-gallery-container">

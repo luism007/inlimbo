@@ -1,10 +1,9 @@
 .spinnerContainer { 
     display: block;
-    position: relative;
+    position: absolute;
     height: 100px;
     width: 100%;
-    margin: 20px;
-    background-color: rgba(0, 0, 0, 0.5);
+    margin: auto;
 }
 #spin { 
     display: block;
@@ -13,8 +12,8 @@
     left: 50%;
     height: 80px;
     width: 80px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-bottom: 1px solid white;
+    border: 3px solid rgb(0, 0, 0);
+    border-bottom: 3px solid white;
     border-radius: 50%;
     transform: translate3d(-50%, -50%, 0);
     animation: 1s linear infinite spinning;

@@ -30,6 +30,10 @@
     animation-duration: 0.8s;
 }
 
+.tile:hover{ 
+    cursor: pointer;
+}
+
 @keyframes entering {
     0% {
         z-index: 1000;
