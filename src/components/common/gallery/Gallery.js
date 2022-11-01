@@ -4,25 +4,12 @@ import * as photosApi from '../../../api/PhotosApi';
 import Spinner from "../loading/Spinner";
 import './Gallery.css';
 import MiniGallery from "../mini-gallery/MiniGallery";
+import { fadeInKeyframes, fadeInOptions } from "../../../models/AnimationsModel";
 const Gallery = (props) => {
   
     const [gridPhotos, setGridPhotos] = useState([]);
     const [photoInView, setPhotoInView] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(0);
-    const fadeInKeyframes = [
-        {
-            display: 'none',
-            opacity: 0
-        },
-        {
-            display: 'block',
-            opacity: 1
-        }
-    ];
-    const fadeInOptions =  {
-        duration: 1000,
-        easing: 'ease-in-out'
-    }
     let interval = useRef(null);
     let subscription$;
 
@@ -50,26 +37,15 @@ const Gallery = (props) => {
         (active) ? active.animate(fadeInKeyframes, fadeInOptions) : null;
     }
 
-    const removeFocusedElements = () => {
-      let focused = document.getElementsByClassName('focused-el');
-      for(let f of focused) {
-        f.classList.remove(['focused-el']);
-      }
-    }
 
     const setPhoto = (index) => {
         setCurrentIndex(index);
-        const element = document.getElementById(`grid-photo-${index}`); 
-        removeFocusedElements(); 
         animateActivePhoto();
-        (element) ? element.classList.add(['focused-el']) : null;
         setPhotoInView(gridPhotos[index]);
     }
 
     const nextPhoto = () => {
         let index = currentIndex;
-        const element = document.getElementById(`grid-photo-${index}`);
-        (element) ? element.classList.remove(['focused-el']) : null;
         index += 1;
         if(index >= gridPhotos.length) {
             index = 0;
@@ -138,7 +114,7 @@ const Gallery = (props) => {
             <span><img src = "public/images/right-arrow.svg" onClick={nextPhoto}></img></span>
             </div>
           </div>
-          <MiniGallery photos = {gridPhotos} setPhoto = {setPhoto}></MiniGallery>
+          <MiniGallery photos = {gridPhotos} photoInView = {photoInView} setPhoto = {setPhoto}></MiniGallery>
         </div>
         <div className="overlay-pic-description-container">
           <p className="overlay-pic-description">

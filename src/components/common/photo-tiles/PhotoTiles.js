@@ -2,10 +2,6 @@ import React, { useEffect } from "react";
 import "./PhotoTiles.css";
 import PictureCommunicationService from '../../../rxjs-services/picture-service.js'
 const PhotoTiles = (props) => {
-
-  useEffect(()=>{
-  })
-
   const animateTile = () => {
     const tile = document.getElementById("tileBlock");
     tile.classList.add("enter");

@@ -43,16 +43,6 @@
     padding: 0;
     width: 100%;
 }
-.grid-photo-list-item { 
-    display: block;
-    height: 100%;
-}
-
-.grid-photo { 
-    object-fit: contain;
-    height: 100%;
-    width: 100%;
-}
 
 .overlay-pic-showcase {
     display: block;
@@ -66,19 +56,6 @@
     height: 100%;
 }
 
-
-.grid-photo-list-item{
-    opacity: 0.1;
-}
-
-.grid-photo-list-item:hover { 
-    opacity: 1;
-    cursor: pointer;
-}
-
-.focused-el { 
-    opacity: 1;
-}
 
 .gallery-hide-button-container { 
     display: flex;
