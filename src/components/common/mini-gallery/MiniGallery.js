@@ -10,18 +10,16 @@ const MiniGallery = (props) => {
         const oldPhoto = focusedPhoto;
         if (oldPhoto !== null && oldPhoto !== undefined) {
           const miniGallery = document.getElementsByClassName('grid-photo-list-item');
-          const elementNewPhoto = document.getElementById(`grid-photo-${newPhoto._id}`);
           if(miniGallery !== null) {
             for (let p = 0; p < miniGallery.length; p++) {
                 miniGallery.item(p).classList.remove('focused-el');
             }
           }
-          if (elementNewPhoto !== null) {
+        }
+        const elementNewPhoto = document.getElementById(`grid-photo-${newPhoto._id}`);
+        if (elementNewPhoto !== null) {
             elementNewPhoto.classList.add("focused-el");
             setFocusedPhoto(newPhoto);
-          }
-        } else {
-          setFocusedPhoto(newPhoto);
         }
     }
     return(

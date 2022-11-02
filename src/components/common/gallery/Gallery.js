@@ -63,33 +63,18 @@ const Gallery = (props) => {
     }
 
     const configureStart = (photos, photo) => {
-      const index = photos.findIndex((p) => {
-          return (p.source === photo.source);
+      let index = photos.findIndex((p) => {
+          return (p._id === photo._id);
       });
+      index = (index < 0) ? 0 : index;
       setGridPhotos([photo, ...photos])
       setCurrentIndex(index);
   }
 
   const getRelatedPics = async (photo) => {
-      const photos = await photosApi.getPhotosByCollectionId(photo.collection_id);
-      if (!isObjectEmpty(photo)) {
-        const possibleDuplicates = photos.filter((p) => p.source === photo.source);
-        possibleDuplicates.length < 1
-          ? configureStart(photos, photo)
-          : setGridPhotos(photos), setCurrentIndex(0);
-      }
+      const photos = await photosApi.getPhotosByCollectionId(photo.collection_id, photo.id);
+      configureStart(photos, photo);
   }
-
-  const isObjectEmpty = (obj) => {
-    let val = false;
-
-    if(obj === null || obj === undefined) { 
-      val = true;
-    } else if (Object.keys(obj).length === 0) {
-      val = true;
-    }
-    return val;
-  };
 
     return (
       <div className="overlay-container">
@@ -114,7 +99,7 @@ const Gallery = (props) => {
             <span><img src = "public/images/right-arrow.svg" onClick={nextPhoto}></img></span>
             </div>
           </div>
-          <MiniGallery photos = {gridPhotos} photoInView = {photoInView} setPhoto = {setPhoto}></MiniGallery>
+          {(photoInView && gridPhotos) && <MiniGallery photos = {gridPhotos} photoInView = {photoInView} setPhoto = {setPhoto}></MiniGallery>}
         </div>
         <div className="overlay-pic-description-container">
           <p className="overlay-pic-description">

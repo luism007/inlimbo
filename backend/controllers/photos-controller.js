@@ -31,7 +31,8 @@ const getPhotosByOffset = async(req, res, next) => {
 const getPhotosByCollectionId = async(req, res, next) => {
     try {
         const collectionId = req.body.collectionId;
-        const photos = await retrievePhotosFromCollection(collectionId);
+        const originalPhotoId = req.body._id;
+        const photos = await retrievePhotosFromCollection(collectionId, originalPhotoId);
         res.send(photos).status(200);
      } catch(e) {
         res.sendStatus(500);

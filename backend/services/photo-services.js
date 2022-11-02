@@ -13,8 +13,8 @@ const retrievePhotosByOffset = async (offset, amount) => {
     return photos;
 }
 
-const retrievePhotosFromCollection = async (collectionId) => {
-    const photos = Photo.find({collection_id: collectionId}).limit(5);
+const retrievePhotosFromCollection = async (collectionId, originalPhotoId) => {
+    const photos = Photo.find({_id: {$ne: originalPhotoId}, collection_id: collectionId}).limit(5);
     return photos;
 }
 
