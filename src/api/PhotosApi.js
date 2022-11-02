@@ -8,8 +8,8 @@ export const getPhotosByOffset = async (offset, limit) => {
     return response.json();
 }
 
-export const getPhotosByCollectionId = async (collectionId) => {
-    const ob = {collectionId: collectionId};
+export const getPhotosByCollectionId = async (collectionId, originalPhotoId) => {
+    const ob = {_id: originalPhotoId, collectionId: collectionId};
     const url = 'http://localhost:3001/api/collection';
     const response = await fetch(url, {
         method: 'POST',

@@ -6,6 +6,7 @@ import List from "../common/list/List";
 import Overlay from "../common/overlay/Overlay";
 import './PhotographyPage.css';
 import * as photosApi from '../../api/PhotosApi';
+import { PhotoModel } from "../../models/PhotoModel";
 
 const PhotographyPage = () => {
     useEffect(() => {
@@ -25,11 +26,18 @@ const PhotographyPage = () => {
     const retrievePhotos = async(offset, limit) => {
       setLoading(true);
       setTimeout(async() => { 
-        const pics = await photosApi.getPhotosByOffset(offset, limit);
-        setLoading(false); 
+        let pics = await photosApi.getPhotosByOffset(offset, limit);
+        pics = pics.map((pic) => { return new PhotoModel(
+          pic._id, 
+          pic.source,
+          pic.title,
+          pic.description,
+          pic.type,
+          pic.collection_id)});
         setPicList([...picList, ...pics]);
         const totalLen = picList.length + pics.length;
         setOffset(totalLen);
+        setLoading(false); 
       }, 5000);
 
     }

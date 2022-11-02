@@ -11,6 +11,7 @@ mongoose
 .catch((e) => console.log(e));
 
 const PhotoSchema = new mongoose.Schema({
+    id: String,
     source: String,
     title: String,
     description: String,
