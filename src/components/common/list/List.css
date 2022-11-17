@@ -22,13 +22,26 @@
     height: auto;
 }
 .list-item { 
- /* list-style: none !important; */
-  margin: 10px;
-  height: 300px;
+  margin: 0;
+  height: 200px;
   flex-grow: 1;
   background-color: black;
+  opacity: 0;
+}
+.fadein { 
+    animation: fadeIn 0.9s 1;
+    animation-fill-mode: forwards;
 }
 
+@keyframes fadeIn { 
+    0% {
+        opacity: 0;
+    }
+
+    100% { 
+        opacity: 1;
+    }
+}
 #showMoreButton { 
     display: flex;
     justify-content: center;

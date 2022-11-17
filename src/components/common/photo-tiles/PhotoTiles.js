@@ -1,20 +1,11 @@
 import React, { useEffect } from "react";
 import "./PhotoTiles.css";
 import PictureCommunicationService from '../../../rxjs-services/picture-service.js'
-import { 
-  fadeInKeyframes, 
-  fadeInOptions,
-  slideUpKeyframes,
-  slideUpKeyFrameOptions
-} from "../../../models/AnimationsModel";
+
 const PhotoTiles = (props) => {
   useEffect(()=>{
-    animateTile();
   }, [props])
-  const animateTile = () => {
-   const tile = document.getElementById(props.id);
-   tile?.animate(fadeInKeyframes, fadeInOptions);
-  }
+
   const focusOnPicture = () => {
     PictureCommunicationService.updatePictureSubject(props);
   }
