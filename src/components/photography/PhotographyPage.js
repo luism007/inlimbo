@@ -11,7 +11,7 @@ import { PhotoModel } from "../../models/PhotoModel";
 const PhotographyPage = () => {
     useEffect(() => {
         retrievePhotos(0, 10);
-    }, [])
+    }, [picList])
 
     const [loading, setLoading] = useState(true);
     const [picList, setPicList] = useState([]);

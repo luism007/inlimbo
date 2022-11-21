@@ -4,10 +4,31 @@ import PhotoTiles from "../photo-tiles/PhotoTiles";
 import './List.css'
 
 const List = (props) => {
-  
+  const [offset, setOffset] = useState(0);
+  useEffect(() => {
+    commenceAnimation(offset, props.items);
+  }, [props.items]); 
   const showMore = () => { 
     props.showMoreCallback();
   }
+
+  const commenceAnimation = (offset, items) => {
+    let calcOffset = offset;
+    let delayCounter = 1;
+    for (let i = offset; i < items.length; i++) {
+      animateTile(i, delayCounter * 200);
+      delayCounter += 1;
+      calcOffset += 1;
+    }
+    setOffset(calcOffset);
+  }
+
+  const animateTile = (index, delay) => {
+      setTimeout(()=>{
+        const tile = document.getElementById(`tile-${index}`);
+        tile.classList.add('fadein')
+      }, delay);
+   }
   
     return (
       <div className="list-container">
