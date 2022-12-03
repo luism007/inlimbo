@@ -41,6 +41,11 @@ const Gallery = (props) => {
     const pause = () => {
       setGalleryState('pause');
     }
+
+    const viewMiniGallery = () => {
+      const mini = document.getElementById('miniGallery');
+      mini.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+    }
     const animateActivePhoto = () => {
         let active = document.getElementById('active-photo');
         (active) ? active.animate(fadeInKeyframes, fadeInOptions) : null;
@@ -129,6 +134,7 @@ const Gallery = (props) => {
                 ) : (
                   <img src="public/images/play-button.svg" onClick={play}></img>
                 )}
+                <img src ="public/images/gallery-icon.svg" onClick={viewMiniGallery}></img>
                 <div className="overlay-gallery-button-right">
                   <span>
                     <img
