@@ -13,6 +13,7 @@ mongoose
 const PhotoSchema = new mongoose.Schema({
     id: String,
     source: String,
+    lowres_source: String,
     title: String,
     description: String,
     type: String,

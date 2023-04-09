@@ -30,6 +30,7 @@ const PhotographyPage = () => {
         pics = pics.map((pic) => { return new PhotoModel(
           pic._id, 
           pic.source,
+          pic.lowres_source,
           pic.title,
           pic.description,
           pic.type,
