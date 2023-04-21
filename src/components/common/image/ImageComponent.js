@@ -14,12 +14,11 @@ const ImageComponent = (props) => {
     });
 
     const downloadingImgLoad = useCallback((e) => {
-        console.log('Event', e);
         setImgSrc(downloadingImg.src);
     })
 
     const downloadingProgress = useCallback((e) => {
-        console.log(`${e.type}: ${e.loaded} bytes transferred\n`);
+        // console.log(`${e.type}: ${e.loaded} bytes transferred\n`);
     });
 
 
@@ -38,7 +37,9 @@ const ImageComponent = (props) => {
     }, [props.source, imgSrc, loading])
 
     const focusOnPicture = () => {
-        PictureCommunicationService.updatePictureSubject(props);
+        if(!loading) {
+            PictureCommunicationService.updatePictureSubject(props);
+        }
     }
     return (
         <div className="imgContainer">

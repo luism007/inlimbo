@@ -16,6 +16,7 @@
 
 .isLoading { 
     filter:blur(0.3rem);
+    cursor: not-allowed;
 }
 
 #spin { 
