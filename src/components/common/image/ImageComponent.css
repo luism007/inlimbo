@@ -25,16 +25,19 @@
     width: 100%;
     margin: auto;
     background-size: cover;
-    border-radius: 18px;
+    cursor: wait;
 }
 
 .imageTile { 
     object-fit: cover;
     height: 100%;
     width: 100%;
-    border-radius: 18px;
     box-shadow: -1px 3px 10px 0px rgb(0 0 0 / 40%);
     opacity: 0;
+}
+
+.blur-container.loaded { 
+    cursor: pointer;
 }
 
 .blur-container.loaded::before { 

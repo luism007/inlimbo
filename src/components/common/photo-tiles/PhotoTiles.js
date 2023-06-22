@@ -7,13 +7,9 @@ const PhotoTiles = (props) => {
   useEffect(()=>{
   }, [props])
 
-  const focusOnPicture = () => {
-    PictureCommunicationService.updatePictureSubject(props);
-  }
     return (
      <div className="tile-container">
        <div className="tile" id = "tileBlock">
-         {/* <img id = {props.id} src = {props.source} loading = "lazy" height= "300px" width = "500px" onClick={focusOnPicture} className = "imageTile"></img> */}
          <ImageComponent {...props} ></ImageComponent>
        </div>
      </div>

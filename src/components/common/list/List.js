@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Spinner from "../loading/Spinner";
 import PhotoTiles from "../photo-tiles/PhotoTiles";
 import './List.css'
+import ImageComponent from "../image/ImageComponent";
 
 const List = (props) => {
   const [offset, setOffset] = useState(0);
@@ -37,7 +38,7 @@ const List = (props) => {
           {props.items.map((item, index) => {
             return (
               <li key={index} id = {`tile-${index}`} className="list-item" onClick={props.showOverlay}>
-                <PhotoTiles {...item}></PhotoTiles>
+                <ImageComponent {...item}></ImageComponent>
               </li>
             );
           })}{" "}

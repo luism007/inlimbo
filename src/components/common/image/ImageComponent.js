@@ -23,7 +23,10 @@ const ImageComponent = (props) => {
     }, [props.source, imgSrc, loading])
 
     const focusOnPicture = () => {
-        PictureCommunicationService.updatePictureSubject(props);
+        const img = document.getElementById(props.id);
+        if(img.classList.contains('loaded')) {
+          PictureCommunicationService.updatePictureSubject(props);
+        } 
     }
     return (
         <div className="blur-container" id = {props.id} style = {props.skeleton ? { backgroundImage: 'none' } : { backgroundImage: `url(${props.lowres_source})` }} >
