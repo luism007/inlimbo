@@ -1,9 +1,31 @@
-.imgContainer { 
+.blur-container::before { 
+    content: "";
+    position: absolute;
+    animation: pulse ease-in-out 2s infinite;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 18px;
+    inset: 0;
+}
+@keyframes pulse { 
+    0% {
+        background-color: rgba(255, 255, 255, 0);
+    }
+    50% {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    100% {
+        background-color: rgba(255, 255, 255, 0);
+    }
+}
+
+.blur-container { 
     display: block;
     position: relative;
     height: 100%;
     width: 100%;
     margin: auto;
+    background-size: cover;
+    border-radius: 18px;
 }
 
 .imageTile { 
@@ -12,33 +34,13 @@
     width: 100%;
     border-radius: 18px;
     box-shadow: -1px 3px 10px 0px rgb(0 0 0 / 40%);
+    opacity: 0;
 }
 
-.isLoading { 
-    filter:blur(0.3rem);
+.blur-container.loaded::before { 
+    content: none;
 }
-
-#spin { 
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    height: 80px;
-    width: 80px;
-    border: 3px solid rgb(0, 0, 0);
-    border-bottom: 3px solid white;
-    border-radius: 50%;
-    transform: translate3d(-50%, -50%, 0);
-    animation: 1s linear infinite spinning;
-}
-
-@keyframes spinning {
-    0% {
-        transform: translate3d(-50, -50%, 0) rotate(0deg);
-    }
-
-    100%{
-        transform: translate3d(-50%, -50%, 0) rotate(360deg);
-     }
-    
+.blur-container.loaded > img { 
+    opacity: 1;
+    transition: opacity 0.5s ease-in;
 }
