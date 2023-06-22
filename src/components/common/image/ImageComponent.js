@@ -26,7 +26,7 @@ const ImageComponent = (props) => {
         PictureCommunicationService.updatePictureSubject(props);
     }
     return (
-        <div className="blur-container" id = {props.id} style = {{ backgroundImage: `url(${props.lowres_source})` }} >
+        <div className="blur-container" id = {props.id} style = {props.skeleton ? { backgroundImage: 'none' } : { backgroundImage: `url(${props.lowres_source})` }} >
             <img className = "imageTile"  id = {`${props.id}-img`} alt = {props.title} src = {props.source} loading = "lazy" height= "300px" width = "500px" onClick={focusOnPicture}></img> 
         </div>
     )

@@ -35,7 +35,7 @@ const MiniGallery = (props) => {
                             onClick={() => {
                                 props.setPhoto(index);
                             }}>
-                            <ImageComponent id  = {photo._id} title = {photo.title} lowres_source = {photo.lowres_source} source = {photo.source} ></ImageComponent>
+                            <ImageComponent id  = {photo._id + '-mini-gallery'} title = {photo.title} lowres_source = {photo.lowres_source} source = {photo.source} skeleton = {true}></ImageComponent>
                         </li>
                     )
                 })}
