@@ -9,7 +9,7 @@ const Gallery = (props) => {
   
     const [gridPhotos, setGridPhotos] = useState([]);
     const [photoInView, setPhotoInView] = useState(null);
-    const [galleryState, setGalleryState] = useState('play');
+    const [galleryState, setGalleryState] = useState('pause');
     const [currentIndex, setCurrentIndex] = useState(0);
     let interval = useRef(null);
     let subscription$;
@@ -91,7 +91,7 @@ const Gallery = (props) => {
   }
 
   const close = () => {
-    setGalleryState('play');
+    setGalleryState('pause');
     props.closeOverlay();
   }
 

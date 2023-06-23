@@ -3,29 +3,29 @@
     flex-flow: row;
     justify-content: center;
     align-items: center;
-    width: 20%;
-    height: 100px;
+    width: 100%;
     position: fixed !important;
-    top: 0;
-    right: 0;
-    z-index: 1;
-    background-color: white !important;
-
-
+    margin-top: calc(100px);
+    background-color: rgba(255,255,255, 0.09) !important;
+    backdrop-filter: saturate(60%) blur(30px);
+    z-index: 9998;
 }
 
 .inlimbo-navbar nav { 
     display: flex;
     flex-flow: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    width: 100%;
 }
 
 .inlimbo-navbar nav a { 
-    margin: auto 10px;
-    font-family: 'Oswald', sans-serif;
+    margin: 0 auto 10px auto;
+    font-family: "oscine", sans-serif;
+    font-weight: 300;
+    font-style: normal;
     text-decoration: none;
     color: black;
-    font-size: 1.3em;
+    font-size: 1em;
     padding: 5px;
 }

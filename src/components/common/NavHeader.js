@@ -16,23 +16,23 @@ const NavHeader = () => {
       <div className="inlimbo-navbar">
         <nav>
           <NavLink to="/" activeStyle={activeStyle} exact>
-            <img src= {homeLogo} alt = "Home Icon" aria-label="Home"/>
+            {/* <img src= {homeLogo} alt = "Home Icon" aria-label="Home"/> */}
+            Home
           </NavLink>{" "}
-          {" | "}
           <NavLink to="/photography" activeStyle={activeStyle}>
-            {" "}
-            <img src = {cameraLogo} alt = "Camera Icon" aria-label="Photography"/>
+            {/* <img src = {cameraLogo} alt = "Camera Icon" aria-label="Photography"/> */}
+            Gallery
           </NavLink>{" "}
-          {" | "}
           <NavLink to="/courses" activeStyle={activeStyle}>
             {" "}
-            <img src = {codeLogo} arial-label="Software Projects"/>
+            {/* <img src = {codeLogo} arial-label="Software Projects"/> */}
+            About Me
           </NavLink>{" "}
-          {" | "}
+          {/* {" | "}
           <NavLink to="/nature" activeStyle={activeStyle}>
             {" "}
            <img src = {userLogo} aria-label = "About Me"/>
-          </NavLink>
+          </NavLink> */}
         </nav>
       </div>
     );

@@ -62,13 +62,6 @@ const PhotographyPage = () => {
     return (
       <div className="photography-container">
           <div className="items-container">
-            <div className="dropdown-container">
-              <DropdownComponent
-                options={types}
-                label="Select Photos"
-                callback = { captureSelectedOption }
-              ></DropdownComponent>
-            </div>
             <List 
             items={picList} 
             showMoreCallback = {showMore} 
