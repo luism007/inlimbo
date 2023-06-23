@@ -1,0 +1,40 @@
+@media all and (min-width: 200px) {
+    .header {
+        height: 100px;
+    }
+    .logo img { 
+        height: 60px;
+    }
+    .page-showcase {
+        padding-top: 85px;
+        padding-bottom: 10%;
+    }
+    .list-item {
+        height: 100%;
+    } 
+    .inlimbo-navbar {
+        height: 10%;
+        bottom: 0;
+        background-color: rgba(255,255,255, 0.7);
+    }
+}
+
+@media all and (min-width: 820px) { 
+    .header { 
+        height: 100px;
+    }
+    .logo img { 
+        height: 65px;
+    }
+    .page-showcase { 
+        padding-top: calc(156px);
+        padding-bottom: 0;
+    }
+    .list-item {
+        height: 200px;
+    } 
+    .inlimbo-navbar { 
+        height: 66px;
+        top: 0;
+    }
+}

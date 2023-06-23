@@ -1,5 +1,4 @@
 .page-showcase { 
-    padding-top: calc(156px);
     height: 100vh;
     width: 100vw;
 }
@@ -9,14 +8,9 @@
     flex-flow: row;
     align-items: center;
     justify-content: center;
-    height: 100px;
     position: fixed;
     z-index: 1;
     width: 100%;
     background-color: rgb(255 255 255 / 50%) !important;
     backdrop-filter: saturate(60%) blur(30px);
-}
-
-.logo img { 
-    height: 65px;
 }

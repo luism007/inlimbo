@@ -6,6 +6,7 @@ import NavHeader from "./common/NavHeader";
 import PageNotFound from "./PageNotFound";
 import CoursesPage from "./courses/CoursesPage";
 import "./App.css";
+import "../web-responsive.css";
 import inlimboLogo from '../../public/images/inlimbo-proto.svg';
 const App = () => {
   

@@ -6,6 +6,7 @@ import cameraLogo from '../../../public/images/camera.png';
 import codeLogo from '../../../public/images/code.png';
 import userLogo from '../../../public/images/user.png'
 import "./NavHeader.css";
+import "../../web-responsive.css";
 const NavHeader = () => {
     const activeStyle = { 
         color: 'black',
