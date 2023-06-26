@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import HomePage from "./home/HomePage";
 import PhotographyPage from "./photography/PhotographyPage";
 import NavHeader from "./common/NavHeader";
@@ -19,12 +19,12 @@ const App = () => {
     </div>
     <NavHeader />
     <div className="page-showcase">
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/photography" component={PhotographyPage} />
-        <Route path="/aboutme" component={AboutMe} />
-        <Route component={PageNotFound} />
-      </Switch>
+      <Routes>
+        <Route path="/" element={ <HomePage/> } />
+        <Route path="/photography" element={ <PhotographyPage/> } />
+        <Route path="/aboutme" element={ <AboutMe/> } />
+        <Route element={ <PageNotFound/> } />
+      </Routes>
     </div>
   </div>
 )

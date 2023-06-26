@@ -8,7 +8,7 @@ import userLogo from '../../../public/images/user.png'
 import "./NavHeader.css";
 import "../../web-responsive.css";
 const NavHeader = () => {
-    const activeStyle = { 
+    const activestyle = { 
         color: 'black',
         borderBottom: 'solid black 2px' 
     }
@@ -16,24 +16,16 @@ const NavHeader = () => {
     return (
       <div className="inlimbo-navbar">
         <nav>
-          <NavLink to="/" activeStyle={activeStyle} exact>
-            {/* <img src= {homeLogo} alt = "Home Icon" aria-label="Home"/> */}
+          <NavLink to="/" style={activestyle} exact = "true">
             Home
           </NavLink>{" "}
-          <NavLink to="/photography" activeStyle={activeStyle}>
-            {/* <img src = {cameraLogo} alt = "Camera Icon" aria-label="Photography"/> */}
+          <NavLink to="/photography" style={activestyle}>
             Gallery
           </NavLink>{" "}
-          <NavLink to="/courses" activeStyle={activeStyle}>
+          <NavLink to="/courses" style={activestyle}>
             {" "}
-            {/* <img src = {codeLogo} arial-label="Software Projects"/> */}
             About Me
           </NavLink>{" "}
-          {/* {" | "}
-          <NavLink to="/nature" activeStyle={activeStyle}>
-            {" "}
-           <img src = {userLogo} aria-label = "About Me"/>
-          </NavLink> */}
         </nav>
       </div>
     );
