@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { fadeInKeyframes, fadeInOptions } from "../../../models/AnimationsModel";
+import ImageComponent from "../image/ImageComponent";
 import './MiniGallery.css';
 const MiniGallery = (props) => {
     const [focusedPhoto, setFocusedPhoto] = useState(null);
@@ -34,7 +35,7 @@ const MiniGallery = (props) => {
                             onClick={() => {
                                 props.setPhoto(index);
                             }}>
-                            <img src ={photo.source} className="mini-gallery-photo"></img>
+                            <ImageComponent id  = {photo._id + '-mini-gallery'} title = {photo.title} lowres_source = {photo.lowres_source} source = {photo.source} skeleton = {true}></ImageComponent>
                         </li>
                     )
                 })}
