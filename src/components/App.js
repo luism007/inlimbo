@@ -16,7 +16,7 @@ const App = () => {
       <div className="header">
         <div className="logo">
           <img
-            src="../../public/images/inlimbo-proto-blk-small.svg"
+            src="../../public/images/inlimbo-black-on-white-transparent.svg"
             alt="inlimbo-logo"
             aria-label="INLIMBO"
           ></img>
