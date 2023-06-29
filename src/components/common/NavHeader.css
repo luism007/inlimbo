@@ -29,3 +29,29 @@
     font-size: 1em;
     padding: 5px;
 }
+
+.active {
+    border-bottom: 1px solid black;
+    transition: border-bottom 2s ease-in;
+}
+
+@keyframes activeNav { 
+    0% { 
+        border-bottom: none;
+    }
+    10% { 
+        border-bottom: 0.1px solid rgba(0, 0, 0, 0.5);
+    }
+    20% { 
+        border-bottom: 0.2px solid rgba(0, 0, 0, 0.5);
+    }
+    50% {
+        border-bottom: 0.5px solid rgba(0, 0, 0, 0.5);
+    }
+    75% {
+        border-bottom: 0.8px solid rgba(0, 0, 0, 0.5);
+    }
+    100% { 
+        border-bottom: 1px solid black;
+    }
+}

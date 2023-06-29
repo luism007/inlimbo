@@ -7,7 +7,7 @@ import Overlay from "../common/overlay/Overlay";
 import './PhotographyPage.css';
 import * as photosApi from '../../api/PhotosApi';
 import { PhotoModel } from "../../models/PhotoModel";
-
+import { motion } from "framer-motion";
 const PhotographyPage = () => {
     useEffect(() => {
         retrievePhotos(0, 10);
@@ -25,7 +25,7 @@ const PhotographyPage = () => {
 
     const retrievePhotos = async(offset, limit) => {
       setLoading(true);
-      setTimeout(async() => { 
+
         let pics = await photosApi.getPhotosByOffset(offset, limit);
         pics = pics.map((pic) => { return new PhotoModel(
           pic._id, 
@@ -39,7 +39,7 @@ const PhotographyPage = () => {
         const totalLen = picList.length + pics.length;
         setOffset(totalLen);
         setLoading(false); 
-      }, 5000);
+
 
     }
 
@@ -61,7 +61,13 @@ const PhotographyPage = () => {
 
     return (
       <div className="photography-container">
-          <div className="items-container">
+        
+          <motion.div className="items-container"
+                initial = {{y: '100%', opacity: 0.5}}
+                animate = {{y: 0, opacity: 1}}
+                exit= {{y: '100%', opacity: 0.5}}
+                transition={{duration: 2}}
+          >
             <List 
             items={picList} 
             showMoreCallback = {showMore} 
@@ -69,7 +75,7 @@ const PhotographyPage = () => {
             offset = {offset}
             showOverlay = {showOverlay}
             />
-          </div>
+          </motion.div>
           <Overlay hideOverlay = {hideOverlay} overlay = {overlay}/>
       </div>
     );

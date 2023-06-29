@@ -6,8 +6,13 @@ import "./index.css";
 import './web-responsive.css';
 import App from "./components/App";
 
-render(
-    <Router>
-        <App/>
-    </Router>, 
-document.getElementById("app"));
+import { createRoot } from 'react-dom/client';
+
+const container = document.getElementById("app");
+const root = createRoot(container);
+
+root.render(
+<Router>
+    <App/>
+</Router>
+);
