@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Spinner from "../loading/Spinner";
-import PhotoTiles from "../photo-tiles/PhotoTiles";
 import './List.css'
 import '../../../web-responsive.css';
 import ImageComponent from "../image/ImageComponent";

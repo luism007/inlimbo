@@ -4,6 +4,7 @@
 }
 .tile { 
     display: block;
+    position: relative;
     height: 100%;
     width: 100%;
     padding: 10px;
@@ -33,6 +34,22 @@
 
 .tile:hover{ 
     cursor: pointer;
+}
+
+.content-title { 
+    font-family: "oscine", sans-serif;
+    text-shadow: 0 9px 12px black;
+    text-transform: lowercase;
+    letter-spacing: 4px;
+    position: absolute;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 3em;
+    color: white;
+    left: 50%;
+    top: 65%;
+    transform: translate(-50%, 70%);
+
 }
 
 @keyframes entering {
