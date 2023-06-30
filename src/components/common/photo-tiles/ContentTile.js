@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import './ContentTile.css';
+import '../../../web-responsive.css';
 import PictureCommunicationService from '../../../rxjs-services/picture-service.js'
 import ImageComponent from "../image/ImageComponent";
 
@@ -8,7 +9,7 @@ const ContentTile = (props) => {
     console.log(props.content);
   }, [props])
 
-  const content = props.content[0];
+  const content = props.content;
   console.log(content);
     return (
      <div className="tile-container">

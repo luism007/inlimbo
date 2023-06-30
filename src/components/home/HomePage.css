@@ -29,3 +29,12 @@
 .section-container:nth-child(3) { 
   background-color: #fff;
 }
+.section-container:nth-child(1) p{ 
+  transform: translate(-50%, 70%);
+}
+.section-container:nth-child(2) p{  
+  transform: translate(11%, 60%);
+}
+.section-container:nth-child(3) p{  
+  transform: translate(-50%, -50%);
+}

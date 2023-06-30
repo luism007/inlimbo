@@ -10,6 +10,7 @@ import "./HomePage.css";
 import { photos } from "../../test-data/photos-2";
 import List from "../common/list/List";
 import ContentTile from "../common/photo-tiles/ContentTile";
+import '../../web-responsive.css';
 
 const HomePage = () => {
   const content = [
@@ -21,6 +22,14 @@ const HomePage = () => {
       description: 'Luis & Joe potraiture preview',
       type: 'portrait',
       collection_id: '#preview'
+    }, {
+      id: "649dfdcf44218cd633ff8041",
+      source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1688075595/inlimbo-urban-mobile_r4pbfu.jpg",
+      lowres_source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1688075583/inlimbo-urban-mobile-low-res_qdm1rw.jpg",
+      title: "London & Detroit Urban Section",
+      description: "London & Detroit urban section preview",
+      type: "urban",
+      collection_id: "#preview"
     }
   ];
 
@@ -31,13 +40,13 @@ const HomePage = () => {
   transition={{duration: 2}}
   className="carousel-container">
     <div className="section-container">
-      <ContentTile content = {content} title = {'portraiture'}></ContentTile>
+      <ContentTile content = {content[0]} title = {'portraiture'}></ContentTile>
     </div>
     <div  className="section-container">
-      <ContentTile content = {content}></ContentTile>
+      <ContentTile content = {content[1]} title = {'urban' }></ContentTile>
     </div>
     <div className="section-container">
-      <ContentTile content = {content}></ContentTile>
+      <ContentTile content = {content[1]} title = {'nature'}></ContentTile>
     </div>
   </motion.div>);
 };
