@@ -23,7 +23,6 @@
     position: relative;
     height: 100%;
     width: 100%;
-    margin: auto;
     background-size: cover;
     cursor: wait;
 }

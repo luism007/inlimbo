@@ -12,12 +12,16 @@ const ContentTile = (props) => {
   const content = props.content;
   console.log(content);
     return (
-     <div className="tile-container">
-       <div className="tile" id = "tileBlock">
-         <ImageComponent {...content}></ImageComponent>
-         <p className="content-title"> {props.title }</p>
-       </div>
-     </div>
+      <div className="tile-container">
+        <div className={props.custom ? "tile custom" : "tile"} id="tileBlock">
+          <div className = { props.grid_style ? `tile-grid ${props.grid_style}` : 'tile-grid grid-1-by-2' }>
+            {props.contents.map((con, index) => {
+              return <ImageComponent {...con} key={index}></ImageComponent>;
+            })}
+            <p className="content-title">{props.title}</p>
+          </div>
+        </div>
+      </div>
     );
 };
 

@@ -17,6 +17,10 @@
         bottom: 0;
         background-color: rgba(255,255,255, 0.7);
     }
+
+    .section-container { 
+        height: 300px;
+    }
 }
 
 @media all and (min-width: 820px) { 
