@@ -25,6 +25,7 @@
     width: 100%;
     background-size: cover;
     cursor: wait;
+    overflow: hidden;
 }
 
 .imageTile { 

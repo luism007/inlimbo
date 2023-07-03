@@ -22,17 +22,9 @@
 }
 .section-container { 
   position: relative;
-}
-.section-container:nth-child(1) { 
-  background-color: #333;
-}
-.section-container:nth-child(2) { 
   background-color: #000;
 }
-.section-container:nth-child(3) { 
-  background-color: #fff;
-}
-.section-container:nth-child(1) p{ 
+/* .section-container:nth-child(1) p{ 
   transform: translate(-50%, 70%);
 }
 .section-container:nth-child(2) p{  
@@ -43,4 +35,4 @@
 }
 .section-container:nth-child(3) p{  
   transform: translate(-50%, -50%);
-}
+} */

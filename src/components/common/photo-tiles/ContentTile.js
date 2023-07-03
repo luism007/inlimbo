@@ -18,9 +18,10 @@ const ContentTile = (props) => {
             {props.contents.map((con, index) => {
               return <ImageComponent {...con} key={index}></ImageComponent>;
             })}
-            <p className="content-title">{props.title}</p>
           </div>
         </div>
+        <p className="content-title">{props.title}</p>
+        <p className="content-link"> view more </p>
       </div>
     );
 };
