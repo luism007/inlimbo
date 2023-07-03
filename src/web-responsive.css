@@ -6,14 +6,14 @@
         height: 60px;
     }
     .page-showcase {
-        padding-top: 85px;
-        padding-bottom: 10%;
+        padding-top: 93px;
+        padding-bottom: 73px;
     }
     .list-item {
         height: 100%;
     } 
     .inlimbo-navbar {
-        height: 10%;
+        height: 75px;
         bottom: 0;
         background-color: rgba(255,255,255, 0.7);
     }
