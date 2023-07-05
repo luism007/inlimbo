@@ -6,7 +6,6 @@ import '../../../web-responsive.css';
 
 const ContentTile = (props) => {
   useEffect(()=>{
-    console.log(props.content);
   }, [props])
 
   const content = props.content;

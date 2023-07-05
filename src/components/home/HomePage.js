@@ -33,6 +33,14 @@ const HomePage = () => {
       type: "portrait",
       collection_id: "#preview"
     }, {
+      id: "6386d65df170afe0c42175cb",
+      source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1669778953/inlimbo-photos/detroit-fox-theatre_pzntul.jpg",
+      title: "The Fox Theatre",
+      description: "That's Entertainment...",
+      type: "urban",
+      collection_id: "#detroit_city",
+      lowres_source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1687445616/detroit-fox-theatre-low-res_fizigw.jpg"
+    },  {
       id: "649f2fa844218cd633ff804a",
       source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1688153865/london-inlimbo_snuhkk.jpg",
       lowres_source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1688153874/london-inlimbo-low-res_f8xycg.jpg",
@@ -41,15 +49,6 @@ const HomePage = () => {
       type: "urban",
       collection_id: "#uk"
     },
-    {
-      id: "6386d65df170afe0c42175cb",
-      source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1669778953/inlimbo-photos/detroit-fox-theatre_pzntul.jpg",
-      title: "The Fox Theatre",
-      description: "That's Entertainment...",
-      type: "urban",
-      collection_id: "#detroit_city",
-      lowres_source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1687445616/detroit-fox-theatre-low-res_fizigw.jpg"
-    }, 
     {
       id: "649f220244218cd633ff8046",
       source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1688150172/cliffs-moher-inlimbo_ff5ub3.jpg",
