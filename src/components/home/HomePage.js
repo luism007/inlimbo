@@ -1,5 +1,6 @@
 import Carousel  from "react-bootstrap/Carousel";
 import React from "react";
+import { createPortal } from 'react-dom';
 import { Link } from "react-router-dom";
 import canyonImage from '../../../public/images/canyon-inlimbo-smaller.jpg';
 import tigersImage from '../../../public/images/detroit-tigers-bigger-logo.jpg';
@@ -11,6 +12,7 @@ import { photos } from "../../test-data/photos-2";
 import List from "../common/list/List";
 import ContentTile from "../common/photo-tiles/ContentTile";
 import '../../web-responsive.css';
+import SectionScroller from "../common/section-scroller/SectionScroller";
 
 const HomePage = () => {
   const content = [
@@ -76,6 +78,7 @@ const HomePage = () => {
     }
  ];
 
+ const sections = ["portraiture", "urban", "nature"];
 
   return (<motion.div 
   initial = {{y: '100%', opacity: 0.5}}
@@ -83,15 +86,16 @@ const HomePage = () => {
   exit= {{y: '100%', opacity: 0.5}}
   transition={{duration: 2}}
   className="carousel-container">
-    <div className="section-container">
+    <div className="section-container" id = "portraiture">
       <ContentTile contents = {content.slice(0,2)} title = {'portraiture'} grid_style = {'grid-2-by-1'}></ContentTile>
     </div>
-    <div  className="section-container">
+    <div  className="section-container" id = "urban">
       <ContentTile contents = {content.slice(2,4)} title = {'urban'} grid_style = {'grid-1-by-2-full-and-half'}></ContentTile>
     </div>
-    <div className="section-container">
+    <div className="section-container" id = "nature">
       <ContentTile contents = {content.slice(4,7)} title = {'nature'} grid_style = {'grid-1-by-2'}></ContentTile>
     </div>
+    { createPortal(<SectionScroller sections = {sections}></SectionScroller>, document.body) }
   </motion.div>);
 };
 

@@ -1,0 +1,17 @@
+.section-scroller-container { 
+    position: fixed;
+    right: 0;
+    top: 50%;
+    width: 200px;
+}
+.section-list-container > ul { 
+    padding: 0 2em 0 0;
+    list-style: none;
+}
+
+.section-list-item { 
+    font: normal normal light 1em Klavika Condensed;
+    text-transform: uppercase;
+    color: white;
+    text-align: right;
+}
