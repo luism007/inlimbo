@@ -24,14 +24,20 @@
 }
 
 @media all and (min-width: 600px) { 
-    .grid-2-by-1 div:nth-child(1) { 
-        width: 55%;
-        margin: 0 auto;
-        border-radius: 10px;
-
+    .section-container { 
+        height: 100%;
     }
-    .grid-2-by-1 div:nth-child(2) { 
-        
+    .tile-grid { 
+        grid-template-columns: 33% 33% 33% !important;
+    }
+    .content-title, .content-link {
+        grid-column: 3 / 4 !important;
+    }
+
+    .content-title{ 
+        font-size: 5em !important;
+        text-align: left !important;
+        word-wrap: break-word !important;
     }
 }
 

@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import './ContentTile.css';
-import '../../../web-responsive.css';
 import PictureCommunicationService from '../../../rxjs-services/picture-service.js'
 import ImageComponent from "../image/ImageComponent";
+import '../../../web-responsive.css';
 
 const ContentTile = (props) => {
   useEffect(()=>{
@@ -18,10 +18,10 @@ const ContentTile = (props) => {
             {props.contents.map((con, index) => {
               return <ImageComponent {...con} key={index}></ImageComponent>;
             })}
+            <p className="content-title">{props.title}</p>
+            <p className="content-link"> view more </p>
           </div>
         </div>
-        <p className="content-title">{props.title}</p>
-        <p className="content-link"> view more </p>
       </div>
     );
 };
