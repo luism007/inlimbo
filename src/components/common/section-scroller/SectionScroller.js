@@ -1,31 +1,69 @@
 import React, { useEffect, useState } from "react";
 import './SectionScroller.css';
-const SectionScroller = (props) => {
 
+interface SectionScrollerProps { 
+    sections: []
+}
+const SectionScroller = (props:SectionScrollerProps) => {
+
+    const sectionLinks = props.sections;
     const [ellipsisLocation, setEllipsisLocation] = useState('');
+    const sections = document.querySelectorAll('.section-container');
+    const scrollIntersectionObserver = new IntersectionObserver(intersectionObserverCallback, {threshold: 0.5});
 
     useEffect(() => {
-
+        sections.forEach(section => { scrollIntersectionObserver.observe(section); })
     }, [props, ellipsisLocation]);
 
-    const scrollToSection = (sectionLink, index) => {
-        const section = document.getElementById(sectionLink);
-        const sectionScrollLink = document.getElementById(`${sectionLink}-${index}`);
+    const moveEllipsis = (originalLocation, newLocation) => {
         const ellipsis = document.getElementById('ellipsis');
-        const originalLocation = ellipsisLocation.match(/^/) ? ellipsisLocation : ellipsis.offsetTop;
-        const location = sectionScrollLink.offsetTop + (sectionScrollLink.offsetHeight / 2);
-        setEllipsisLocation(`${location}px`);
+        setEllipsisLocation(`${newLocation}px`);
         const keyframes = [
-            { transform: `translateY(${originalLocation}px)`, opacity: 0},
-            { transform:  `translateY(${location}px)`, opacity: 1}
+            { transform: `translateY(${originalLocation}px)`},
+            { transform:  `translateY(${newLocation}px)`}
         ];
         const timing = {
             duration: 700,
             fill: 'both'
         };
         ellipsis.animate(keyframes, timing);
+    }
+
+    function intersectionObserverCallback(entries) {
+        console.log('OB', entries);
+        entries.forEach((entry) => {
+            if(!entry.isIntersecting) return
+            else {
+                const id = entry.target.id;
+                const _index = sectionLinks.findIndex((section) => section === id);
+                console.log(`Section: ${id}-${_index}`);
+                const location = getSectionLinkLocation(id, _index);
+                const ellipsisLocation = getEllipsisLocation();
+                moveEllipsis(ellipsisLocation,location); 
+            }
+        })
+    }
+
+    const getEllipsisLocation = () => {
+        const ellipsis = document.getElementById('ellipsis');
+        const originalLocation = ellipsisLocation.match(/^/) ? ellipsisLocation : ellipsis.offsetTop;
+        return originalLocation;
+    }
+
+    const getSectionLinkLocation = (section, index) => {
+        const sectionScrollLink = document.getElementById(`${section}-${index}`);
+        const location = sectionScrollLink.offsetTop + (sectionScrollLink.offsetHeight / 2);
+        return location;
+    }
+
+    const scrollToSection = (sectionLink, index) => {
+        const section = document.getElementById(sectionLink);
+        const scrollLinkLocation = getSectionLinkLocation(sectionLink, index);
+        const ellipsisLocation = getEllipsisLocation();
+        moveEllipsis(ellipsisLocation, scrollLinkLocation);
         section.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'start'});
     }
+
     return (
         <div className="section-scroller-container">
             <div className="section-list-container">
