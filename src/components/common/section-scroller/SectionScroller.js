@@ -8,16 +8,20 @@ const SectionScroller = (props:SectionScrollerProps) => {
 
     const sectionLinks = props.sections;
     const [ellipsisLocation, setEllipsisLocation] = useState('');
-    const sections = document.querySelectorAll('.section-container');
-    const scrollIntersectionObserver = new IntersectionObserver(intersectionObserverCallback, {threshold: 0.5});
+    const [scrollLinkClicked, setScrollLinkClicked] = useState(false);
 
     useEffect(() => {
+        const sections = document.querySelectorAll('.section-container');
+        const scrollIntersectionObserver = new IntersectionObserver(intersectionObserverCallback, {threshold: 0.5});
         sections.forEach(section => { scrollIntersectionObserver.observe(section); })
-    }, [props, ellipsisLocation]);
+        return () => {
+            sections.forEach(section => { scrollIntersectionObserver.unobserve(section); });
+        }
+    }, [props, scrollLinkClicked]);
 
     const moveEllipsis = (originalLocation, newLocation) => {
         const ellipsis = document.getElementById('ellipsis');
-        setEllipsisLocation(`${newLocation}px`);
+        setEllipsisLocation(`${newLocation}`);
         const keyframes = [
             { transform: `translateY(${originalLocation}px)`},
             { transform:  `translateY(${newLocation}px)`}
@@ -30,13 +34,11 @@ const SectionScroller = (props:SectionScrollerProps) => {
     }
 
     function intersectionObserverCallback(entries) {
-        console.log('OB', entries);
         entries.forEach((entry) => {
             if(!entry.isIntersecting) return
-            else {
+            else if(!scrollLinkClicked) {
                 const id = entry.target.id;
                 const _index = sectionLinks.findIndex((section) => section === id);
-                console.log(`Section: ${id}-${_index}`);
                 const location = getSectionLinkLocation(id, _index);
                 const ellipsisLocation = getEllipsisLocation();
                 moveEllipsis(ellipsisLocation,location); 
@@ -57,11 +59,13 @@ const SectionScroller = (props:SectionScrollerProps) => {
     }
 
     const scrollToSection = (sectionLink, index) => {
+        setScrollLinkClicked(true);
         const section = document.getElementById(sectionLink);
         const scrollLinkLocation = getSectionLinkLocation(sectionLink, index);
         const ellipsisLocation = getEllipsisLocation();
         moveEllipsis(ellipsisLocation, scrollLinkLocation);
         section.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'start'});
+        setScrollLinkClicked(false);
     }
 
     return (
@@ -72,7 +76,7 @@ const SectionScroller = (props:SectionScrollerProps) => {
                     {props.sections.map((section, index) => {
                         return (
                           <div className="section-list-item-container" key={index}>
-                            <li className="section-list-item" onClick={() => { scrollToSection(section, index) }} id = {`${section}-${index}`}> {section} </li>
+                            <li className="section-list-item" onClick={() => {scrollToSection(section, index) }} id = {`${section}-${index}`}> {section} </li>
                             <span className="section-list-divider"></span>
                           </div>
                         );
