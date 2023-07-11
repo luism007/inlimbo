@@ -22,19 +22,42 @@
     scroll-behavior: smooth;
     background-color: #000;
 }
+#portraiture::before{
+  content: "";
+  background-image: url("../../../public/images/3-in-1-luis.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  z-index: -1;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
+#urban::before{
+  content: "";
+  background-image: url("../../../public/images/london-inlimbo.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  z-index: -1;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
+#nature::before{
+  content: "";
+  background-image: url("../../../public/images/craggin-inlimbo-3.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  z-index: -1;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
 .section-container { 
   position: relative;
-  background-color: #000;
 }
-/* .section-container:nth-child(1) p{ 
-  transform: translate(-50%, 70%);
-}
-.section-container:nth-child(2) p{  
-  bottom: 0;
-  right: 0;
-  left: 58%;
-  top: 75%;
-}
-.section-container:nth-child(3) p{  
-  transform: translate(-50%, -50%);
-} */

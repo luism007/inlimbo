@@ -39,6 +39,7 @@
 
 .blur-container.loaded { 
     cursor: pointer;
+    background-image: none !important;
 }
 
 .blur-container.loaded::before { 

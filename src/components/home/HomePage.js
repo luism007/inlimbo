@@ -32,6 +32,14 @@ const HomePage = () => {
       description: "Joe's Homepage Portrait for Portraiture Preview",
       type: "portrait",
       collection_id: "#preview"
+    },{  
+      id: "64ad88df44218cd633ff80d8",  
+      source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1689094231/luis-riverside-lib-2_iosgf3.jpg",  
+      lowres_source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1689094068/luis-riverside-lib-2_cvmuwc.jpg",  
+      title: "Photoshoot Outside Riverside Library",  
+      description: "Self-portrait outside Riverside Library",  
+      type: "portrait",  
+      collection_id: "#portraiture"
     }, {
       id: "6386d65df170afe0c42175cb",
       source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1669778953/inlimbo-photos/detroit-fox-theatre_pzntul.jpg",
@@ -79,20 +87,42 @@ const HomePage = () => {
 
  const sections = ["portraiture", "urban", "nature"];
 
+ const portraitureTextAnimation = {
+  initialAnimation: {
+   x: '50%', opacity: 0
+  }, 
+  animation: {
+    x: 0, opacity: 1
+  },
+  exitAnimation: {
+    x: 0, opacity: 1
+  },
+  transitionAnimation: {
+    duration: 1
+  }
+ };
+
+ const backgroundImages = [
+ "../../../public/images/3-in-1-luis.jpg",
+ "../../../public/images/london-inlimbo.jpg",
+ "../../../public/images/craggin-inlimbo-3.jpg"
+ ];
+
+
   return (<motion.div 
   initial = {{y: '100%', opacity: 0.5}}
   animate = {{y: 0, opacity: 1}}
   exit= {{y: '100%', opacity: 0.5}}
-  transition={{duration: 2}}
+  transition={{duration: 1.5}}
   className="carousel-container">
     <div className="section-container" id = "portraiture">
-      <ContentTile contents = {content.slice(0,2)} title = {'portraiture'} grid_style = {'grid-2-by-1'}></ContentTile>
+      <ContentTile contents = {content.slice(0,3)} title = {'portraiture'} grid_style = {'grid-3-by-2'} {...portraitureTextAnimation} ></ContentTile>
     </div>
     <div  className="section-container" id = "urban">
-      <ContentTile contents = {content.slice(2,4)} title = {'urban'} grid_style = {'grid-1-by-2-full-and-half'}></ContentTile>
+      <ContentTile contents = {content.slice(3,5)} title = {'urban'} grid_style = {'grid-1-by-2-full-and-half'} {...backgroundImages[1]}></ContentTile>
     </div>
     <div className="section-container" id = "nature">
-      <ContentTile contents = {content.slice(4,7)} title = {'nature'} grid_style = {'grid-1-by-2'}></ContentTile>
+      <ContentTile contents = {content.slice(5,8)} title = {'nature'} grid_style = {'grid-1-by-2'} {...backgroundImages[2]}></ContentTile>
     </div>
     { createPortal(<SectionScroller sections = {sections}></SectionScroller>, document.body) }
   </motion.div>);
