@@ -56,17 +56,7 @@ const HomePage = () => {
       description: "From The Shard, Eyes upon Tower Bridge",
       type: "urban",
       collection_id: "#uk"
-    },
-    {
-      id: "649f220244218cd633ff8046",
-      source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1688150172/cliffs-moher-inlimbo_ff5ub3.jpg",
-      lowres_source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1688150296/cliffs-of-moher-low-res_crsspw.jpg",
-      title: "Cliffs of Moher",
-      description: "Upon the Cliffs of Moher",
-      type: "nature",
-      collection_id: "#ireland"
-    },
-    {
+    }, {
       id: "6386d89af170afe0c42175d2",
       source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1669778965/inlimbo-photos/antelope-canyon-sharp-walls_irz7om.jpg",
       title: "Orange Crush",
@@ -74,6 +64,14 @@ const HomePage = () => {
       type: "nature",
       collection_id: "#antelope_canyon",
       lowres_source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1687445615/antelope-canyon-sharp-walls-low-res_ralcmn.jpg"
+    }, {
+      id: "649f220244218cd633ff8046",
+      source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1688150172/cliffs-moher-inlimbo_ff5ub3.jpg",
+      lowres_source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1688150296/cliffs-of-moher-low-res_crsspw.jpg",
+      title: "Cliffs of Moher",
+      description: "Upon the Cliffs of Moher",
+      type: "nature",
+      collection_id: "#ireland"
     },{
       id: "6386db11f170afe0c42175e3",
       source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1669778961/inlimbo-photos/antelope-canyon-perched-raven_vwf65d.jpg",
@@ -122,7 +120,7 @@ const HomePage = () => {
       <ContentTile contents = {content.slice(3,5)} title = {'urban'} grid_style = {'grid-1-by-2-full-and-half'} {...backgroundImages[1]}></ContentTile>
     </div>
     <div className="section-container" id = "nature">
-      <ContentTile contents = {content.slice(5,8)} title = {'nature'} grid_style = {'grid-1-by-2'} {...backgroundImages[2]}></ContentTile>
+      <ContentTile contents = {content.slice(5,8)} title = {'nature'} grid_style = {'grid-3-by-3'} {...backgroundImages[2]}></ContentTile>
     </div>
     { createPortal(<SectionScroller sections = {sections}></SectionScroller>, document.body) }
   </motion.div>);
