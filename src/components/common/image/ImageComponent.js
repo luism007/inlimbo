@@ -9,6 +9,7 @@ const ImageComponent = (props) => {
     const onImgLoad = useCallback(() => {
         const blurDiv = document.getElementById(props.id);
         blurDiv.classList.add("loaded");
+        setLoading(false);
     });
 
 
@@ -29,8 +30,8 @@ const ImageComponent = (props) => {
         } 
     }
     return (
-        <div className="blur-container" id = {props.id} style = {props.skeleton ? { backgroundImage: 'none' } : { backgroundImage: `url(${props.lowres_source})` }} >
-            <img className = "imageTile"  id = {`${props.id}-img`} alt = {props.title} src = {props.source} loading = "lazy" height= "300px" width = "500px" onClick={focusOnPicture}></img> 
+        <div className="blur-container" id = {props.id} style = {(props.skeleton && loading) ? { backgroundImage: 'none' } : { backgroundImage: `url(${props.lowres_source})` }} >
+            <img className = "imageTile"  id = {`${props.id}-img`} alt = {props.title} src = {props.source} style = {{objectFit: `${props.objectFit}`}}loading = "lazy" height= "300px" width = "500px" onClick={focusOnPicture}></img> 
         </div>
     )
 };

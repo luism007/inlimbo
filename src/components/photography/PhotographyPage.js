@@ -66,7 +66,7 @@ const PhotographyPage = () => {
                 initial = {{y: '100%', opacity: 0.5}}
                 animate = {{y: 0, opacity: 1}}
                 exit= {{y: '100%', opacity: 0.5}}
-                transition={{duration: 2}}
+                transition={{duration: 1.5}}
           >
             <List 
             items={picList} 

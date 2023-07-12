@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Spinner from "../loading/Spinner";
-import PhotoTiles from "../photo-tiles/PhotoTiles";
 import './List.css'
 import '../../../web-responsive.css';
 import ImageComponent from "../image/ImageComponent";
@@ -28,7 +27,7 @@ const List = (props) => {
   const animateTile = (index, delay) => {
       setTimeout(()=>{
         const tile = document.getElementById(`tile-${index}`);
-        tile.classList.add('fadein')
+        tile?.classList.add('fadein')
       }, delay);
    }
   
@@ -39,7 +38,7 @@ const List = (props) => {
           {props.items.map((item, index) => {
             return (
               <li key={index} id = {`tile-${index}`} className="list-item" onClick={props.showOverlay}>
-                <ImageComponent {...item}></ImageComponent>
+                <ImageComponent {...item} objectFit = {'cover'}></ImageComponent>
               </li>
             );
           })}{" "}
