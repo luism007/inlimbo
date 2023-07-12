@@ -39,8 +39,14 @@
     font-style: normal;
     margin-bottom: 0;
     color: white;
+    justify-self: center;
+    align-self: center;
 }
 
+.content-title {
+ font-size: 6.5em;
+ margin-top: 1%;
+}
 .content-link { 
     font-size: 1.3em;
     font-style: italic;
@@ -50,6 +56,7 @@
 
 .tile-grid {
     height: 100%;
+    width: 100%;
     display: grid;
     column-gap: 16px;
     row-gap: 5px;
