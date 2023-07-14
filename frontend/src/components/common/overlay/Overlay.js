@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as photosApi from '../../../api/PhotosApi';
-import Gallery from '../../common/gallery/Gallery';
+import Gallery from '../gallery/Gallery';
 import PictureCommunicationService from '../../../rxjs-services/picture-service';
 import './Overlay.css';
 

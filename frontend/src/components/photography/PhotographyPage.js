@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
-import  Spinner  from '../../components/common/loading/Spinner';
+import  Spinner  from '../common/loading/Spinner';
 import DropdownComponent from "../common/dropdown/Dropdown";
 import List from "../common/list/List";
 import Overlay from "../common/overlay/Overlay";
