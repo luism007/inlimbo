@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
+const dotEnv = require('dotenv-webpack');
 process.env.NODE_ENV = 'development';
 
 module.exports = {
@@ -26,7 +26,14 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: 'src/index.html',
             favicon: 'src/favicon.ico'
-        })
+        }),
+
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify('development')
+            }
+        }),
+        new dotEnv()
     ],
     module: {
         rules: [

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 mongoose
-.connect(process.env.MONGO_DB_URI, {
+.connect(`mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@sandbox.buuvy.mongodb.net/${process.env.MONGO_DB_NAME}?retryWrites=true&w=majority`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
