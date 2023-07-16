@@ -15,10 +15,14 @@ module.exports = {
         filename: 'bundle.js'
     },
     devServer: {
-        stats: 'minimal',
-        overlay: true,
+        client: {
+            overlay: true
+        },
+        devMiddleware: {
+            stats: 'minimal'
+        },
         historyApiFallback: true,
-        disableHostCheck: true,
+        allowedHosts: "all",
         headers: {"Access-Control-Allow-Origin": "*"},
         https: false
     },
