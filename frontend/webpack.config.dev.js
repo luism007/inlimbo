@@ -12,19 +12,8 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, "build"),
         publicPath: '/',
+        hashFunction: 'xxhash64',
         filename: 'bundle.js'
-    },
-    devServer: {
-        client: {
-            overlay: true
-        },
-        devMiddleware: {
-            stats: 'minimal'
-        },
-        historyApiFallback: true,
-        allowedHosts: "all",
-        headers: {"Access-Control-Allow-Origin": "*"},
-        https: false
     },
     plugins: [
         new HtmlWebpackPlugin({
