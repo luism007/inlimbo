@@ -1,4 +1,5 @@
 FROM node:alpine
-WORKDIR /inlimbo-site
-COPY package*.json ./
-RUN npm install
+WORKDIR /app
+COPY ./package*.json ./
+RUN npm i
+COPY . .
