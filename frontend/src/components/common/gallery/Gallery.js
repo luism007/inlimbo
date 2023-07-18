@@ -102,7 +102,7 @@ const Gallery = (props) => {
             <div className="gallery-hide-button-container">
               <span className="close-btn">
                 <img
-                  src="public/images/close-x.svg"
+                  src="images/close-x.svg"
                   onClick={close}
                 ></img>
               </span>
@@ -121,24 +121,24 @@ const Gallery = (props) => {
                 <div className="overlay-gallery-button-left">
                   <span>
                     <img
-                      src="public/images/left-arrow.svg"
+                      src="images/left-arrow.svg"
                       onClick={prevPhoto}
                     ></img>
                   </span>
                 </div>
                 {galleryState === "play" ? (
                   <img
-                    src="public/images/pause-button.svg"
+                    src="images/pause-button.svg"
                     onClick={pause}
                   ></img>
                 ) : (
-                  <img src="public/images/play-button.svg" onClick={play}></img>
+                  <img src="images/play-button.svg" onClick={play}></img>
                 )}
-                <img src ="public/images/gallery-icon.svg" onClick={viewMiniGallery}></img>
+                <img src ="images/gallery-icon.svg" onClick={viewMiniGallery}></img>
                 <div className="overlay-gallery-button-right">
                   <span>
                     <img
-                      src="public/images/right-arrow.svg"
+                      src="images/right-arrow.svg"
                       onClick={nextPhoto}
                     ></img>
                   </span>

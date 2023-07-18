@@ -45,7 +45,7 @@ const List = (props) => {
         </ul>
         { props.loading ? <Spinner/> : 
         <span id = "showMoreButton" onClick={ showMore }>
-          <img src="public/images/dropdown-logo.png">
+          <img src="images/dropdown-logo.png">
             </img></span> }
       </div>
     );
