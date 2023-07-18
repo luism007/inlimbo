@@ -1,7 +1,4 @@
 import React, {useEffect, useState} from "react";
-import { Link } from "react-router-dom";
-import  Spinner  from '../common/loading/Spinner';
-import DropdownComponent from "../common/dropdown/Dropdown";
 import List from "../common/list/List";
 import Overlay from "../common/overlay/Overlay";
 import './PhotographyPage.css';
@@ -17,11 +14,7 @@ const PhotographyPage = () => {
     const [picList, setPicList] = useState([]);
     const [offset, setOffset] = useState(0);
     const [overlay, setOverlay] = useState(false);
-    const types = ['all', 'nature', 'portrait', 'urban'];
 
-    const captureSelectedOption = (option) => {
-        console.log(option);
-    }
 
     const retrievePhotos = async(offset, limit) => {
       setLoading(true);

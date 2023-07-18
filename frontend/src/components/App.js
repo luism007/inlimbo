@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import HomePage from "./home/HomePage";
 import PhotographyPage from "./photography/PhotographyPage";
@@ -7,7 +7,7 @@ import PageNotFound from "./PageNotFound";
 import "./App.css";
 import "../web-responsive.css";
 import AboutMe from "./about-me/AboutMe";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 const App = () => {
   const location  = useLocation();
   return (

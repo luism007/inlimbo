@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as photosApi from '../../../api/PhotosApi';
 import Gallery from '../gallery/Gallery';
-import PictureCommunicationService from '../../../rxjs-services/picture-service';
 import './Overlay.css';
 
 const Overlay = (props) => {
@@ -67,9 +66,6 @@ const Overlay = (props) => {
         <div id="overlay" className="overlay-wrapper">
             <Gallery
               closeOverlay = {closeOverlay}
-            //   photos={gridPhotos}
-            //   photo={photo}
-            //   startIndex={startIndex}
             ></Gallery>    
         </div>
       )

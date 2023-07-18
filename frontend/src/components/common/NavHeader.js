@@ -4,10 +4,6 @@ import "./NavHeader.css";
 import "../../web-responsive.css";
 import { motion } from "framer-motion";
 const NavHeader = () => {
-    const activestyle = { 
-        color: 'black',
-        borderBottom: 'solid black 2px' 
-    }
 
     return (
       <div className="inlimbo-navbar">

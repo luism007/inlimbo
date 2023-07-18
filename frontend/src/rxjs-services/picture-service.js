@@ -1,4 +1,4 @@
-import { BehaviorSubject, Subject } from  'rxjs';
+import { Subject } from  'rxjs';
 const pictureSubject$ = new Subject();
 
 const PictureCommunicationService = {

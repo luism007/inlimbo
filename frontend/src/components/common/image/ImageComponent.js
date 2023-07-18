@@ -3,7 +3,6 @@ import PictureCommunicationService from '../../../rxjs-services/picture-service'
 import "./ImageComponent.css";
 const ImageComponent = (props) => {
 
-    const [imgSrc, setImgSrc] = useState(props.lowres_source || "");
     const [loading, setLoading] = useState(true);
     
     const onImgLoad = useCallback(() => {
@@ -21,7 +20,7 @@ const ImageComponent = (props) => {
         return () => {
             img.removeEventListener("load", onImgLoad);
         }
-    }, [props.source, imgSrc, loading])
+    }, [props.source, loading])
 
     const focusOnPicture = () => {
         const img = document.getElementById(props.id);

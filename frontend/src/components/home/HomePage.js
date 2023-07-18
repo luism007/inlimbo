@@ -1,11 +1,7 @@
-import Carousel  from "react-bootstrap/Carousel";
 import React from "react";
 import { createPortal } from 'react-dom';
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./HomePage.css";
-import { photos } from "../../test-data/photos-2";
-import List from "../common/list/List";
 import ContentTile from "../common/photo-tiles/ContentTile";
 import '../../web-responsive.css';
 import SectionScroller from "../common/section-scroller/SectionScroller";

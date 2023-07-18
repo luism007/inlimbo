@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-import { fadeInKeyframes, fadeInOptions } from "../../../models/AnimationsModel";
 import ImageComponent from "../image/ImageComponent";
 import './MiniGallery.css';
 const MiniGallery = (props) => {
