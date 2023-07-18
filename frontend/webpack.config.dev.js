@@ -3,6 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 process.env.NODE_ENV = 'development';
+process.env.WDS_SOCKET_PORT=0;
 
 module.exports = {
     mode: 'development',
