@@ -1,9 +1,10 @@
-const webpack = require('webpack');
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
-process.env.NODE_ENV = 'development';
-process.env.WDS_SOCKET_PORT=0;
+const webpack = require("webpack");
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const Dotenv = require("dotenv-webpack");
+const ESLintPlugin = require('eslint-webpack-plugin');
+process.env.NODE_ENV = "development";
+process.env.WDS_SOCKET_PORT = 0;
 
 module.exports = {
   mode: "development",
@@ -22,22 +23,25 @@ module.exports = {
       favicon: "src/favicon.ico",
     }),
     new Dotenv(),
+    new ESLintPlugin({
+        extensions: ['ts', 'js', 'jsx']
+    })
   ],
   devServer: {
     client: {
       overlay: {
         warnings: false,
         errors: false,
-        runtimeErrors: false
-      }
-    }
+        runtimeErrors: false,
+      },
+    },
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ["babel-loader", "eslint-loader"],
+        use: ["babel-loader"],
       },
       {
         test: /(\.css)$/,
