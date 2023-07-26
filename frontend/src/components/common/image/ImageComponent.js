@@ -15,11 +15,11 @@ const ImageComponent = (props) => {
     useEffect(() =>{
         const img = document.getElementById(`${props.id}-img`);
         img.addEventListener("load", onImgLoad);
+        // if image has been cached, then call onImgLoad
         if (img?.complete) { 
             onImgLoad();
         }
-
-
+        
         return () => {
             img.removeEventListener("load", onImgLoad);
         }

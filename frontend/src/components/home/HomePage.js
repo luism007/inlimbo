@@ -99,23 +99,46 @@ const HomePage = () => {
  ];
 
 
-  return (<motion.div 
-  initial = {{y: '100%', opacity: 0.5}}
-  animate = {{y: 0, opacity: 1}}
-  exit= {{y: '100%', opacity: 0.5}}
-  transition={{duration: 1.5}}
-  className="carousel-container">
-    <div className="section-container" id = "portraiture">
-      <ContentTile contents = {content.slice(0,3)} title = {'portraiture'} grid_style = {'grid-3-by-2'} {...portraitureTextAnimation} ></ContentTile>
+  return (
+    <div className="homepage-container">
+      <motion.div
+        initial={{ y: "100%", opacity: 0.5 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: "100%", opacity: 0.5 }}
+        transition={{ duration: 1.5 }}
+        className="carousel-container"
+      >
+        <div className="section-container" id="portraiture">
+          <ContentTile
+            contents={content.slice(0, 3)}
+            title={"portraiture"}
+            grid_style={"grid-3-by-2"}
+            {...portraitureTextAnimation}
+          ></ContentTile>
+        </div>
+        <div className="section-container" id="urban">
+          <ContentTile
+            contents={content.slice(3, 5)}
+            title={"urban"}
+            grid_style={"grid-1-by-2-full-and-half"}
+            {...backgroundImages[1]}
+          ></ContentTile>
+        </div>
+        <div className="section-container" id="nature">
+          <ContentTile
+            contents={content.slice(5, 8)}
+            title={"nature"}
+            grid_style={"grid-3-by-3"}
+            {...backgroundImages[2]}
+          ></ContentTile>
+        </div>
+        {createPortal(
+          <SectionScroller sections={sections}></SectionScroller>,
+          document.body
+        )}
+      </motion.div>
     </div>
-    <div  className="section-container" id = "urban">
-      <ContentTile contents = {content.slice(3,5)} title = {'urban'} grid_style = {'grid-1-by-2-full-and-half'} {...backgroundImages[1]}></ContentTile>
-    </div>
-    <div className="section-container" id = "nature">
-      <ContentTile contents = {content.slice(5,8)} title = {'nature'} grid_style = {'grid-3-by-3'} {...backgroundImages[2]}></ContentTile>
-    </div>
-    { createPortal(<SectionScroller sections = {sections}></SectionScroller>, document.body) }
-  </motion.div>);
+  );
 };
 
 export default HomePage;
