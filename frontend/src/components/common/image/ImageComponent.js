@@ -15,6 +15,9 @@ const ImageComponent = (props) => {
     useEffect(() =>{
         const img = document.getElementById(`${props.id}-img`);
         img.addEventListener("load", onImgLoad);
+        if (img?.complete) { 
+            onImgLoad();
+        }
 
 
         return () => {
@@ -24,7 +27,7 @@ const ImageComponent = (props) => {
 
     const focusOnPicture = () => {
         const img = document.getElementById(props.id);
-        if(img.classList.contains('loaded')) {
+        if(img.classList.contains('loaded') || img?.complete) {
           PictureCommunicationService.updatePictureSubject(props);
         } 
     }
