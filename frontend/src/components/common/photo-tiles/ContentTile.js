@@ -3,9 +3,15 @@ import './ContentTile.css';
 import ImageComponent from "../image/ImageComponent";
 import '../../../web-responsive.css';
 import { motion } from "framer-motion";
+import PictureCommunicationService from "../../../rxjs-services/picture-service";
 const ContentTile = (props) => {
   useEffect(()=>{
   }, [props])
+
+  const showOverlay = () => {
+    PictureCommunicationService.updatePictureSubject(props.contents[0]);
+    props.showOverlay();
+  }
 
     return (
       <div className="tile-container">
@@ -35,7 +41,7 @@ const ContentTile = (props) => {
             >
               {props.title}
             </motion.p>
-            <p className="content-link"> view more </p>
+            <p className="content-link" onClick={showOverlay}> view more </p>
           </div>
         </div>
       </div>

@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState }  from "react";
 import { createPortal } from 'react-dom';
 import { motion } from "framer-motion";
 import "./HomePage.css";
 import ContentTile from "../common/photo-tiles/ContentTile";
 import '../../web-responsive.css';
 import SectionScroller from "../common/section-scroller/SectionScroller";
-
+import Overlay from "../common/overlay/Overlay";
 const HomePage = () => {
   const content = [
     {
@@ -15,7 +15,7 @@ const HomePage = () => {
       title: "Luis's Portrait Mobile",
       description: "Luis's Homepage Portrait for Portraiture Preview",
       type: "portrait",
-      collection_id: "#preview"
+      collection_id: "#portraiture"
     }, {
       id: "649f394344218cd633ff804c",
       source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1688156295/joe-riverside-library-mobile_qy1yxe.jpg",
@@ -23,7 +23,7 @@ const HomePage = () => {
       title: "Joe Portrait Mobile",
       description: "Joe's Homepage Portrait for Portraiture Preview",
       type: "portrait",
-      collection_id: "#preview"
+      collection_id: "#portraiture"
     },{  
       id: "64ad88df44218cd633ff80d8",  
       source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1689094231/luis-riverside-lib-2_iosgf3.jpg",  
@@ -97,7 +97,15 @@ const HomePage = () => {
  "../../../public/images/london-inlimbo.jpg",
  "../../../public/images/craggin-inlimbo-3.jpg"
  ];
+ const [overlay, setOverlay] = useState(false);
+ 
+ const hideOverlay = () => {
+   setOverlay(false);
+ };
 
+ const showOverlay = () => {
+   setOverlay(true);
+ };
 
   return (
     <div className="homepage-container">
@@ -113,6 +121,7 @@ const HomePage = () => {
             contents={content.slice(0, 3)}
             title={"portraiture"}
             grid_style={"grid-3-by-2"}
+            showOverlay = {showOverlay}
             {...portraitureTextAnimation}
           ></ContentTile>
         </div>
@@ -121,6 +130,7 @@ const HomePage = () => {
             contents={content.slice(3, 5)}
             title={"urban"}
             grid_style={"grid-1-by-2-full-and-half"}
+            showOverlay = {showOverlay}
             {...backgroundImages[1]}
           ></ContentTile>
         </div>
@@ -129,6 +139,7 @@ const HomePage = () => {
             contents={content.slice(5, 8)}
             title={"nature"}
             grid_style={"grid-3-by-3"}
+            showOverlay = {showOverlay}
             {...backgroundImages[2]}
           ></ContentTile>
         </div>
@@ -137,6 +148,7 @@ const HomePage = () => {
           document.body
         )}
       </motion.div>
+      <Overlay hideOverlay = {hideOverlay} overlay = {overlay}/>
     </div>
   );
 };
