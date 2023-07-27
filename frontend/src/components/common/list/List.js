@@ -3,6 +3,7 @@ import Spinner from "../loading/Spinner";
 import './List.css'
 import '../../../web-responsive.css';
 import ImageComponent from "../image/ImageComponent";
+import downArrowIcon from '../../../assets/dropdown-logo.png'
 
 const List = (props) => {
   const [offset, setOffset] = useState(0);
@@ -45,7 +46,7 @@ const List = (props) => {
         </ul>
         { props.loading ? <Spinner/> : 
         <span id = "showMoreButton" onClick={ showMore }>
-          <img src="images/dropdown-logo.png">
+          <img src= {downArrowIcon}>
             </img></span> }
       </div>
     );

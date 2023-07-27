@@ -8,6 +8,7 @@ import "./App.css";
 import "../web-responsive.css";
 import AboutMe from "./about-me/AboutMe";
 import { AnimatePresence } from "framer-motion";
+import inlimboLogo from '../assets/inlimbo-black-on-white-transparent.svg'
 const App = () => {
   const location  = useLocation();
   return (
@@ -15,7 +16,7 @@ const App = () => {
       <div className="header">
         <div className="logo">
           <img
-            src="images/inlimbo-black-on-white-transparent.svg"
+            src= {inlimboLogo}
             alt="inlimbo-logo"
             aria-label="INLIMBO"
           ></img>

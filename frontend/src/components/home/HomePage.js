@@ -93,9 +93,9 @@ const HomePage = () => {
  };
 
  const backgroundImages = [
- "../../../public/images/3-in-1-luis.jpg",
- "../../../public/images/london-inlimbo.jpg",
- "../../../public/images/craggin-inlimbo-3.jpg"
+ "/src/assets/3-in-1-luis.jpg",
+ "/src/assets/london-inlimbo.jpg",
+ "/src/assets/craggin-inlimbo-3.jpg"
  ];
  const [overlay, setOverlay] = useState(false);
  

@@ -5,6 +5,13 @@ import Spinner from "../loading/Spinner";
 import './Gallery.css';
 import MiniGallery from "../mini-gallery/MiniGallery";
 import { fadeInKeyframes, fadeInOptions } from "../../../models/AnimationsModel";
+import leftIcon from '../../../assets/left-arrow.svg';
+import rightIcon from '../../../assets/right-arrow.svg';
+import playIcon from '../../../assets/play-button.svg';
+import pauseIcon from '../../../assets/pause-button.svg';
+import galleryIcon from '../../../assets/gallery-icon.svg';
+import closeIcon from "../../../assets/close-x.svg";
+
 const Gallery = (props) => {
   
     const [gridPhotos, setGridPhotos] = useState([]);
@@ -102,7 +109,7 @@ const Gallery = (props) => {
             <div className="gallery-hide-button-container">
               <span className="close-btn">
                 <img
-                  src="images/close-x.svg"
+                  src= {closeIcon}
                   onClick={close}
                 ></img>
               </span>
@@ -121,24 +128,24 @@ const Gallery = (props) => {
                 <div className="overlay-gallery-button-left">
                   <span>
                     <img
-                      src="images/left-arrow.svg"
+                      src= {leftIcon}
                       onClick={prevPhoto}
                     ></img>
                   </span>
                 </div>
                 {galleryState === "play" ? (
                   <img
-                    src="images/pause-button.svg"
+                    src= {pauseIcon}
                     onClick={pause}
                   ></img>
                 ) : (
-                  <img src="images/play-button.svg" onClick={play}></img>
+                  <img src= {playIcon} onClick={play}></img>
                 )}
-                <img src ="images/gallery-icon.svg" onClick={viewMiniGallery}></img>
+                <img src = {galleryIcon} onClick={viewMiniGallery}></img>
                 <div className="overlay-gallery-button-right">
                   <span>
                     <img
-                      src="images/right-arrow.svg"
+                      src={rightIcon}
                       onClick={nextPhoto}
                     ></img>
                   </span>

@@ -30,7 +30,7 @@
 }
 #portraiture::before{
   content: "";
-  background-image: url("../../../public/images/3-in-1-luis.jpg");
+  background-image: url("../../assets/3-in-1-luis.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   filter: blur(8px);
@@ -42,7 +42,7 @@
 }
 #urban::before{
   content: "";
-  background-image: url("../../../public/images/london-inlimbo.jpg");
+  background-image: url("../../assets/london-inlimbo.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   filter: blur(8px);
@@ -54,7 +54,7 @@
 }
 #nature::before{
   content: "";
-  background-image: url("../../../public/images/craggin-inlimbo-3.jpg");
+  background-image: url("../../assets/craggin-inlimbo-3.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   filter: blur(8px);
