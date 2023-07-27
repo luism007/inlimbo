@@ -1,0 +1,28 @@
+.about-me-wrapper { 
+    display: flex;
+    flex-flow: column;
+    margin: 0 auto;
+}
+
+.about-me-header { 
+    justify-self: center;
+    align-self: center;
+    margin: 1em auto;
+    font-family: Klavika Basic;
+}
+.about-me-description { 
+    line-height: 2.00625em;
+    font-size: 1.25em;
+    padding: 0 10em;
+    font-family: Klavika Basic;
+}
+.luis-picture { 
+    justify-self: center;
+    align-self: center;
+    background-image: url('../../assets/luis-riverside-monochrome-mist-2.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 600px;
+    width: 400px;
+
+}

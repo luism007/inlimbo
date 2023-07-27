@@ -1,0 +1,17 @@
+.photography-container, .items-container {
+  display: flex;
+  flex-flow: wrap;
+  height: 100%;
+  width: 100%;
+}
+
+.dropdown-container { 
+    display: flex;
+    flex-flow: row;
+    width: 100%;
+    justify-content: end;
+}
+
+h1 {
+  color: white;
+}

@@ -1,0 +1,52 @@
+.blur-container::before { 
+    content: "";
+    position: absolute;
+    animation: pulse ease-in-out 2s infinite;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 18px;
+    inset: 0;
+}
+@keyframes pulse { 
+    0% {
+        background-color: rgba(255, 255, 255, 0);
+    }
+    50% {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    100% {
+        background-color: rgba(255, 255, 255, 0);
+    }
+}
+
+.blur-container { 
+    display: block;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    cursor: wait;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.imageTile { 
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    box-shadow: -1px 3px 10px 0px rgb(0 0 0 / 40%);
+    opacity: 0;
+    border-radius: 10px;
+}
+
+.blur-container.loaded { 
+    cursor: pointer;
+    background-image: none !important;
+}
+
+.blur-container.loaded::before { 
+    content: none;
+}
+.blur-container.loaded > img { 
+    opacity: 1;
+    transition: opacity 0.5s ease-in;
+}
