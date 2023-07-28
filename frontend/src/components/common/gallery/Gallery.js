@@ -117,7 +117,6 @@ const Gallery = (props) => {
 
     return (
       <div className="overlay-container">
-        {console.log('Photo in View', photoInView)}
         <div className="overlay-preview-container">
           <div className="overlay-pic-showcase-container">
             <div className="gallery-hide-button-container">
