@@ -103,6 +103,18 @@ const Gallery = (props) => {
     props.closeOverlay();
   }
 
+  const toggleInfo = () => {
+    const info = document.getElementById('pic-info');
+    if (info.classList.contains('openInfo')) { 
+      info.classList.remove('openInfo');
+      info.classList.toggle('closeInfo');
+    } else if (info.classList.contains('closeInfo')) { 
+      info.classList.remove('closeInfo');
+      info.classList.toggle('openInfo');
+    }
+  }
+
+
     return (
       <div className="overlay-container">
         {console.log('Photo in View', photoInView)}
@@ -124,7 +136,7 @@ const Gallery = (props) => {
                     id="active-photo"
                     src={photoInView.source}
                   ></img>
-                  <div className="overlay-pic-description-container"> 
+                  <div className="overlay-pic-description-container closeInfo" id = "pic-info"> 
                     <p className="overlay-pic-description"> {photoInView.description}</p>
                     <p className="overlay-pic-metadata"> {photoInView.photo_meta_data} </p>
                   </div>
@@ -145,12 +157,13 @@ const Gallery = (props) => {
                   <img
                     src= {pauseIcon}
                     onClick={pause}
+                    className="gallery-icons"
                   ></img>
                 ) : (
-                  <img src= {playIcon} onClick={play}></img>
+                  <img src= {playIcon} onClick={play} className="gallery-icons"></img>
                 )}
-                <img src = {infoIcon}></img>
-                <img src = {galleryIcon} onClick={viewMiniGallery}></img>
+                <img src = {infoIcon} onClick={toggleInfo} id = "infoButton" className="gallery-icons"></img>
+                <img src = {galleryIcon} onClick={viewMiniGallery} className="gallery-icons"></img>
                 <div className="overlay-gallery-button-right">
                   <span>
                     <img
