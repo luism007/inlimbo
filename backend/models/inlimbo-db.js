@@ -17,7 +17,8 @@ const PhotoSchema = new mongoose.Schema({
     title: String,
     description: String,
     type: String,
-    collection_id: String
+    collection_id: String,
+    photo_meta_data: String
 });
 
 module.exports = {

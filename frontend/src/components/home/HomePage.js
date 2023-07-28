@@ -13,9 +13,10 @@ const HomePage = () => {
       source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1688156350/luis-inlimbo-headshot_dbjmfi.jpg",
       lowres_source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1688156341/luis-inlimbo-headshot_rujyxn.jpg",
       title: "Luis's Portrait Mobile",
-      description: "Luis's Homepage Portrait for Portraiture Preview",
+      description: "This photo was taken outside the Riverside Public Library in Riverside, CA. One of the walls provided be a perfect orange/redish backdrop that would just let the subject pop. It’s always fun to find unconventional places for a photoshoot!",
       type: "portrait",
-      collection_id: "#portraiture"
+      collection_id: "#portraiture",
+      photo_meta_data: "Sony Alpha 7 IV 85mm f/2.8"
     }, {
       id: "649f394344218cd633ff804c",
       source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1688156295/joe-riverside-library-mobile_qy1yxe.jpg",
@@ -23,7 +24,8 @@ const HomePage = () => {
       title: "Joe Portrait Mobile",
       description: "Joe's Homepage Portrait for Portraiture Preview",
       type: "portrait",
-      collection_id: "#portraiture"
+      collection_id: "#portraiture",
+      photo_meta_data: ""
     },{  
       id: "64ad88df44218cd633ff80d8",  
       source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1689094231/luis-riverside-lib-2_iosgf3.jpg",  
@@ -31,7 +33,8 @@ const HomePage = () => {
       title: "Photoshoot Outside Riverside Library",  
       description: "Self-portrait outside Riverside Library",  
       type: "portrait",  
-      collection_id: "#portraiture"
+      collection_id: "#portraiture",
+      photo_meta_data: ""
     }, {
       id: "6386d65df170afe0c42175cb",
       source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1669778953/inlimbo-photos/detroit-fox-theatre_pzntul.jpg",
@@ -39,7 +42,8 @@ const HomePage = () => {
       description: "That's Entertainment...",
       type: "urban",
       collection_id: "#detroit_city",
-      lowres_source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1687445616/detroit-fox-theatre-low-res_fizigw.jpg"
+      lowres_source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1687445616/detroit-fox-theatre-low-res_fizigw.jpg",
+      photo_meta_data: ""
     },  {
       id: "649f2fa844218cd633ff804a",
       source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1688153865/london-inlimbo_snuhkk.jpg",
@@ -47,7 +51,8 @@ const HomePage = () => {
       title: "Tower Bridge London",
       description: "From The Shard, Eyes upon Tower Bridge",
       type: "urban",
-      collection_id: "#uk"
+      collection_id: "#uk",
+      photo_meta_data: ""
     }, {
       id: "6386d89af170afe0c42175d2",
       source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1669778965/inlimbo-photos/antelope-canyon-sharp-walls_irz7om.jpg",
@@ -55,7 +60,8 @@ const HomePage = () => {
       description: "No such thing as claustrophobia here ...",
       type: "nature",
       collection_id: "#antelope_canyon",
-      lowres_source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1687445615/antelope-canyon-sharp-walls-low-res_ralcmn.jpg"
+      lowres_source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1687445615/antelope-canyon-sharp-walls-low-res_ralcmn.jpg",
+      photo_meta_data: ""
     }, {
       id: "649f220244218cd633ff8046",
       source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1688150172/cliffs-moher-inlimbo_ff5ub3.jpg",
@@ -63,7 +69,8 @@ const HomePage = () => {
       title: "Cliffs of Moher",
       description: "Upon the Cliffs of Moher",
       type: "nature",
-      collection_id: "#ireland"
+      collection_id: "#ireland",
+      photo_meta_data: ""
     },{
       id: "6386db11f170afe0c42175e3",
       source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1669778961/inlimbo-photos/antelope-canyon-perched-raven_vwf65d.jpg",
@@ -71,7 +78,8 @@ const HomePage = () => {
       description: "Perched within the canyon walls ...",
       type: "nature",
       collection_id: "#antelope_canyon",
-      lowres_source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1687445615/antelope-canyon-perched-raven-low-res_kbgeuh.jpg"
+      lowres_source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1687445615/antelope-canyon-perched-raven-low-res_kbgeuh.jpg",
+      photo_meta_data: ""
     }
  ];
 

@@ -7,10 +7,11 @@ import MiniGallery from "../mini-gallery/MiniGallery";
 import { fadeInKeyframes, fadeInOptions } from "../../../models/AnimationsModel";
 import leftIcon from '../../../assets/left-arrow.svg';
 import rightIcon from '../../../assets/right-arrow.svg';
-import playIcon from '../../../assets/play-button.svg';
+import playIcon from '../../../assets/play-pause-button.svg';
 import pauseIcon from '../../../assets/pause-button.svg';
-import galleryIcon from '../../../assets/gallery-icon.svg';
+import galleryIcon from '../../../assets/gallery-button.svg';
 import closeIcon from "../../../assets/close-x.svg";
+import infoIcon from '../../../assets/info-icon.svg';
 
 const Gallery = (props) => {
   
@@ -104,6 +105,7 @@ const Gallery = (props) => {
 
     return (
       <div className="overlay-container">
+        {console.log('Photo in View', photoInView)}
         <div className="overlay-preview-container">
           <div className="overlay-pic-showcase-container">
             <div className="gallery-hide-button-container">
@@ -116,11 +118,17 @@ const Gallery = (props) => {
             </div>
             <div className="overlay-pic-showcase">
               {photoInView ? (
-                <img
-                  className="overlay-pic"
-                  id="active-photo"
-                  src={photoInView.source}
-                ></img>
+                <div className="overlay-pic-container">
+                  <img
+                    className="overlay-pic"
+                    id="active-photo"
+                    src={photoInView.source}
+                  ></img>
+                  <div className="overlay-pic-description-container"> 
+                    <p className="overlay-pic-description"> {photoInView.description}</p>
+                    <p className="overlay-pic-metadata"> {photoInView.photo_meta_data} </p>
+                  </div>
+                </div>
               ) : (
                 <Spinner></Spinner>
               )}
@@ -141,6 +149,7 @@ const Gallery = (props) => {
                 ) : (
                   <img src= {playIcon} onClick={play}></img>
                 )}
+                <img src = {infoIcon}></img>
                 <img src = {galleryIcon} onClick={viewMiniGallery}></img>
                 <div className="overlay-gallery-button-right">
                   <span>

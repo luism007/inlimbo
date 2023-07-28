@@ -27,7 +27,9 @@ const PhotographyPage = () => {
           pic.title,
           pic.description,
           pic.type,
-          pic.collection_id)});
+          pic.collection_id,
+          pic.photo_meta_data
+        )});
         setPicList([...picList, ...pics]);
         const totalLen = picList.length + pics.length;
         setOffset(totalLen);
