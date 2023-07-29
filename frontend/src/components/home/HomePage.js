@@ -1,4 +1,4 @@
-import React, { useState }  from "react";
+import React, { useEffect, useState }  from "react";
 import { createPortal } from 'react-dom';
 import { motion } from "framer-motion";
 import "./HomePage.css";
@@ -7,6 +7,9 @@ import '../../web-responsive.css';
 import SectionScroller from "../common/section-scroller/SectionScroller";
 import Overlay from "../common/overlay/Overlay";
 const HomePage = () => {
+
+  useEffect(() => {}, [overlay]);
+  const [overlay, setOverlay] = useState(false);
   const content = [
     {
       id: "649f396544218cd633ff804e",
@@ -105,7 +108,6 @@ const HomePage = () => {
  "/src/assets/london-inlimbo.jpg",
  "/src/assets/craggin-inlimbo-3.jpg"
  ];
- const [overlay, setOverlay] = useState(false);
  
  const hideOverlay = () => {
    setOverlay(false);
@@ -118,9 +120,9 @@ const HomePage = () => {
   return (
     <div className="homepage-container">
       <motion.div
-        initial={{ y: "100%", opacity: 0.5 }}
-        animate={{ y: 0, opacity: 1 }}
-        exit={{ y: "100%", opacity: 0.5 }}
+        initial={{ transform: 'translateY(100%)', opacity: 0.5 }}
+        animate={{ transform: 'translateY(0%)', opacity: 1 }}
+        exit={{ transform: 'translateY(0%)', opacity: 0.5 }}
         transition={{ duration: 1.5 }}
         className="carousel-container"
       >

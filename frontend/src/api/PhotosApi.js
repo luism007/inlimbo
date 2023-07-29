@@ -17,6 +17,6 @@ export const getPhotosByCollectionId = async (collectionId, originalPhotoId) => 
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(ob)
-    });
+    }).catch((e) => console.log(e));
     return response.json();
 }

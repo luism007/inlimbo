@@ -5,6 +5,10 @@
   width: 100%;
 }
 
+.photography-container { 
+  justify-content: center;
+}
+
 .dropdown-container { 
     display: flex;
     flex-flow: row;

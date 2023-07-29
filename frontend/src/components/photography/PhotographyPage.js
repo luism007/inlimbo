@@ -5,15 +5,17 @@ import './PhotographyPage.css';
 import * as photosApi from '../../api/PhotosApi';
 import { PhotoModel } from "../../models/PhotoModel";
 import { motion } from "framer-motion";
+import ToastComponent from "../common/toast/Toast";
 const PhotographyPage = () => {
     useEffect(() => {
         retrievePhotos(0, 10);
-    }, [picList])
+    }, [picList, overlay, loading, offset])
 
     const [loading, setLoading] = useState(true);
     const [picList, setPicList] = useState([]);
     const [offset, setOffset] = useState(0);
     const [overlay, setOverlay] = useState(false);
+    const [toast, setToast] = useState(false);
 
 
     const retrievePhotos = async(offset, limit) => {
@@ -30,6 +32,11 @@ const PhotographyPage = () => {
           pic.collection_id,
           pic.photo_meta_data
         )});
+
+        if(pics.length < 1) { 
+          setToast(true);
+        }
+
         setPicList([...picList, ...pics]);
         const totalLen = picList.length + pics.length;
         setOffset(totalLen);
@@ -58,9 +65,9 @@ const PhotographyPage = () => {
       <div className="photography-container">
         
           <motion.div className="items-container"
-                initial = {{y: '100%', opacity: 0.5}}
-                animate = {{y: 0, opacity: 1}}
-                exit= {{y: '100%', opacity: 0.5}}
+                initial = {{transform: 'translateY(100%)', opacity: 0.5}}
+                animate = {{transform: 'translateY(0%)', opacity: 1}}
+                exit= {{transform: 'translateY(0%)', opacity: 0.5}}
                 transition={{duration: 1.5}}
           >
             <List 
@@ -72,6 +79,7 @@ const PhotographyPage = () => {
             />
           </motion.div>
           <Overlay hideOverlay = {hideOverlay} overlay = {overlay}/>
+         <ToastComponent message = { 'Looks like that\'s all for now ... Please check again later!' } state = {toast}></ToastComponent>
       </div>
     );
 };

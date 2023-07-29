@@ -5,9 +5,9 @@ import luisPhotographyPicture from '../../assets/luis-riverside-monochrome-mist-
 const AboutMe = () => { 
     return (
       <motion.div
-      initial = {{y: '100%', opacity: 0.5}}
-      animate = {{y: 0, opacity: 1}}
-      exit= {{y: '100%', opacity: 0.5}}
+      initial = {{transform: 'translateY(100%)', opacity: 0.5}}
+      animate = {{transform: 'translateY(0%)', opacity: 1}}
+      exit= {{transform: 'translateY(0%)', opacity: 0.5}}
       transition={{duration: 2}}
       >
         <div className='about-me-wrapper'>
