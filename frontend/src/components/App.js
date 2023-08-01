@@ -19,10 +19,8 @@ const App = () => {
         <div className="logo">
           <img src={inlimboLogo} alt="inlimbo-logo" aria-label="INLIMBO"></img>
         </div>
-        <div className="navbar-wrapper">
-          <NavHeader />
-        </div>
       </div>
+      <NavHeader />
       <AnimatePresence mode="wait">
         <div className="page-showcase">
           <Routes location={location} key={location.key}>
