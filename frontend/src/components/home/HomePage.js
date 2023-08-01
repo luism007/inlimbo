@@ -150,11 +150,6 @@ const HomePage = () => {
             </h3>
           </div>
         </div>
-        <div className="section-container" id = "footer">
-          <div className="section-wrapper" id = "footer-wrapper">
-            <h3 className="section-header" id = "footer-header"> FOOTER </h3>
-          </div>
-        </div>
         {createPortal(
           <SectionScroller sections={sections}></SectionScroller>,
           document.body
