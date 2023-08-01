@@ -8,7 +8,7 @@ import "./App.css";
 import "../web-responsive.css";
 import AboutMe from "./about-me/AboutMe";
 import { AnimatePresence } from "framer-motion";
-import inlimboLogo from '../assets/inlimbo-black-on-white-transparent.svg'
+import inlimboLogo from '../assets/inlimbo-light-gray-on-white.svg'
 const App = () => {
   const location  = useLocation();
   return (
@@ -21,8 +21,10 @@ const App = () => {
             aria-label="INLIMBO"
           ></img>
         </div>
+        <div className="navbar-wrapper">
+          <NavHeader />
+        </div>
       </div>
-      <NavHeader />
       <AnimatePresence mode="wait">
         <div className="page-showcase">
             <Routes location={location} key={location.key} >

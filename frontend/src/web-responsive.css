@@ -6,7 +6,7 @@
         height: 60px;
     }
     .page-showcase {
-        padding-top: 93px;
+        padding-top: 100px;
         padding-bottom: 73px;
     }
     .list-item {
@@ -15,7 +15,7 @@
     .inlimbo-navbar {
         height: 75px;
         bottom: 0;
-        background-color: rgba(255,255,255, 0.7);
+        /* background-color: rgba(255,255,255, 0.7); */
     }
 
     .section-container { 
@@ -210,7 +210,7 @@
         height: 65px;
     }
     .page-showcase { 
-        padding-top: 166px;
+        padding-top: 100px;
         padding-bottom: 0;
     }
     .list-item {

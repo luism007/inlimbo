@@ -120,45 +120,47 @@ const HomePage = () => {
   return (
     <div className="homepage-container">
       <motion.div
-        initial={{ transform: 'translateY(100%)', opacity: 0.5 }}
-        animate={{ transform: 'translateY(0%)', opacity: 1 }}
-        exit={{ transform: 'translateY(0%)', opacity: 0.5 }}
+        initial={{ transform: "translateY(100%)", opacity: 0.5 }}
+        animate={{ transform: "translateY(0%)", opacity: 1 }}
+        exit={{ transform: "translateY(0%)", opacity: 0.5 }}
         transition={{ duration: 1.5 }}
         className="carousel-container"
       >
         <div className="section-container" id="portraiture">
-          <ContentTile
-            contents={content.slice(0, 3)}
-            title={"portraiture"}
-            grid_style={"grid-3-by-2"}
-            showOverlay = {showOverlay}
-            {...portraitureTextAnimation}
-          ></ContentTile>
+          <div className="section-wrapper" id="portraiture-wrapper">
+            <h3 className="section-header" id="portraiture-header">
+              {" "}
+              portraiture
+            </h3>
+          </div>
         </div>
         <div className="section-container" id="urban">
-          <ContentTile
-            contents={content.slice(3, 5)}
-            title={"urban"}
-            grid_style={"grid-1-by-2-full-and-half"}
-            showOverlay = {showOverlay}
-            {...backgroundImages[1]}
-          ></ContentTile>
+          <div className="section-wrapper" id="urban-wrapper">
+            <h3 className="section-header" id="urban-header">
+              {" "}
+              urban
+            </h3>
+          </div>
         </div>
         <div className="section-container" id="nature">
-          <ContentTile
-            contents={content.slice(5, 8)}
-            title={"nature"}
-            grid_style={"grid-3-by-3"}
-            showOverlay = {showOverlay}
-            {...backgroundImages[2]}
-          ></ContentTile>
+          <div className="section-wrapper" id="nature-wrapper">
+            <h3 className="section-header" id="nature-header">
+              {" "}
+              nature
+            </h3>
+          </div>
+        </div>
+        <div className="section-container" id = "footer">
+          <div className="section-wrapper" id = "footer-wrapper">
+            <h3 className="section-header" id = "footer-header"> FOOTER </h3>
+          </div>
         </div>
         {createPortal(
           <SectionScroller sections={sections}></SectionScroller>,
           document.body
         )}
       </motion.div>
-      <Overlay hideOverlay = {hideOverlay} overlay = {overlay}/>
+      <Overlay hideOverlay={hideOverlay} overlay={overlay} />
     </div>
   );
 };

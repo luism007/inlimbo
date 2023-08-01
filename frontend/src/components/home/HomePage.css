@@ -28,7 +28,7 @@
     scroll-behavior: smooth;
     background-color: #000;
 }
-#portraiture::before{
+/* #portraiture::before{
   content: "";
   background-image: url("../../assets/3-in-1-luis.jpg");
   background-size: cover;
@@ -39,7 +39,7 @@
   position: fixed;
   height: 100%;
   width: 100%;
-}
+} */
 #urban::before{
   content: "";
   background-image: url("../../assets/london-inlimbo.jpg");
@@ -66,4 +66,44 @@
 }
 .section-container { 
   position: relative;
+}
+
+.section-container { 
+  width: 100%;
+}
+
+.section-wrapper { 
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+
+}
+.section-header { 
+  text-transform: uppercase;
+  font: normal normal 300 1em Klavika Basic;
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  font-size: 8em;
+}
+
+#portraiture-wrapper { 
+  background-image: url("../../assets/matt-great-causeway-cutout-2.jpg");
+}
+
+#urban-wrapper { 
+  background-image: url("../../assets/detroit-tigers-inlimbo-site.jpg");
+}
+
+#nature-wrapper { 
+  background-image: url("../../assets/monu-valley-color.jpg");
+}
+
+#portraiture-header { 
+  color: black;
 }
