@@ -6,6 +6,7 @@ import ContentTile from "../common/photo-tiles/ContentTile";
 import '../../web-responsive.css';
 import SectionScroller from "../common/section-scroller/SectionScroller";
 import Overlay from "../common/overlay/Overlay";
+import PictureCommunicationService from "../../rxjs-services/picture-service";
 const HomePage = () => {
 
   useEffect(() => {}, [overlay]);
@@ -113,8 +114,9 @@ const HomePage = () => {
    setOverlay(false);
  };
 
- const showOverlay = () => {
-   setOverlay(true);
+ const showOverlay = (content) => {
+  PictureCommunicationService.updatePictureSubject(content);
+  setOverlay(true);
  };
 
   return (
@@ -128,26 +130,53 @@ const HomePage = () => {
       >
         <div className="section-container" id="portraiture">
           <div className="section-wrapper" id="portraiture-wrapper">
-            <h3 className="section-header content-title" id="portraiture-header">
-              {" "}
-              portraiture
-            </h3>
+            <div className="section-content-wrapper" id ="portraiture-conent-wrapper">
+              <h3 className="section-header content-title" id="portraiture-header">
+                {" "}
+                portraiture
+              </h3>
+              <div
+                className="section-button-wrapper"
+                id="portraiture-button-wrapper"
+                onClick={() => {showOverlay(content[0])}}
+                >
+                <h3 className="section-button-text" id="portraiture-button-text"> view more </h3>
+              </div>
+            </div>
           </div>
         </div>
         <div className="section-container" id="urban">
           <div className="section-wrapper" id="urban-wrapper">
-            <h3 className="section-header content-title" id="urban-header">
-              {" "}
-              urban
-            </h3>
+            <div className="section-content-wrapper" id="urban-content-wrapper">
+              <h3 className="section-header content-title" id="urban-header">
+                {" "}
+                urban
+              </h3>
+              <div
+                className="section-button-wrapper"
+                id="urban-button-wrapper"
+                onClick={() => {showOverlay(content[4])}}
+              >
+                <h3 className="section-button-text" id="urban-button-text"> view more </h3>
+              </div>
+            </div>
           </div>
         </div>
         <div className="section-container" id="nature">
           <div className="section-wrapper" id="nature-wrapper">
-            <h3 className="section-header content-title" id="nature-header">
-              {" "}
-              nature
-            </h3>
+            <div className="section-content-wrapper" id="nature-content-wrapper">
+              <h3 className="section-header content-title" id="nature-header">
+                {" "}
+                nature
+              </h3>
+              <div
+                className="section-button-wrapper"
+                id="nature-button-wrapper"
+                onClick={() => {showOverlay(content[7])}}
+              >
+                <h3 className="section-button-text" id="nature-button-text"> view more </h3>
+              </div>
+            </div>
           </div>
         </div>
         {createPortal(

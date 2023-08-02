@@ -73,6 +73,8 @@
 }
 
 .section-wrapper { 
+  display: flex;
+  flex-flow: wrap;
   position: relative;
   background-size: cover;
   background-repeat: no-repeat;
@@ -104,6 +106,36 @@
   background-image: url("../../assets/monu-valley-color.jpg");
 }
 
-#portraiture-header { 
-  color: black;
+.section-content-wrapper, .section-button-wrapper { 
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+.section-content-wrapper {
+  position: absolute;
+  height: 35%;
+  width: 100%;
+  top: 50%;
+  justify-content: space-evenly;
+}
+.section-button-wrapper { 
+  margin-top: 10%;
+}
+
+.section-button-text { 
+  text-transform: uppercase;
+  font: normal normal 300 1em Klavika Basic;
+  box-shadow: 1px 0px 17px 0px black;
+  border: solid 1px white;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 10px;
+  color: white;
+  
+}
+
+#urban-button-text, #nature-button-text { 
+  border: solid 1px white;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
 }

@@ -32,28 +32,48 @@ const App = () => {
         </div>
       </AnimatePresence>
       <footer>
-        <div className="footer-container" id="footer">
-          <div id="footer-wrapper">
-            <div className="footer-logo-wrapper">
-              <img src={inlimboLogo} alt="inlimbo-logo" aria-label="INLIMBO"></img>
+            <div className="footer-container" id="footer">
+              <div id="footer-wrapper">
+                <div className="footer-logo-wrapper">
+                  <img
+                    src={inlimboLogo}
+                    alt="inlimbo-logo"
+                    aria-label="INLIMBO"
+                  ></img>
+                </div>
+                <ul className="footer-contact-list">
+                  <li>
+                    <div className="footer-contact-list-item-wrapper">
+                      <img src={mailIcon}></img>
+                      <a
+                        className="footer-list-items-text"
+                        href="mailto:inlimbo.photography@gmail.com?subject=Service%20Inquiry"
+                        target="_top"
+                      >
+                        {" "}
+                        Contact Me{" "}
+                      </a>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="footer-contact-list-item-wrapper">
+                      <img src={instagramIcon}></img>
+                      <a
+                        className="footer-list-items-text"
+                        href="https://www.instagram.com/inlimbo.studios/"
+                      >
+                        {" "}
+                        Follow Me{" "}
+                      </a>
+                    </div>
+                  </li>
+                </ul>
+                <p className="footer-list-items-text">
+                  {" "}
+                  Developed & Designed by INLIMBO 2023
+                </p>
+              </div>
             </div>
-            <ul className="footer-contact-list">
-              <li> 
-                <div className="footer-contact-list-item-wrapper">
-                  <img src = {mailIcon}></img>
-                  <a className="footer-list-items-text" href="mailto:inlimbo.photography@gmail.com?subject=Service%20Inquiry" target="_top"> Contact Me </a>
-                </div>
-              </li>
-              <li>
-                <div className="footer-contact-list-item-wrapper">
-                    <img src = {instagramIcon}></img>
-                    <a className="footer-list-items-text" href="https://www.instagram.com/inlimbo.studios/"> Follow Me </a>
-                </div>
-              </li>
-            </ul>
-            <p className="footer-list-items-text"> Developed & Designed by  INLIMBO 2023</p>
-          </div>
-        </div>
       </footer>
     </div>
   );
