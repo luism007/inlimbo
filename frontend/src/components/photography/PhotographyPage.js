@@ -18,7 +18,7 @@ const PhotographyPage = () => {
     const [picList, setPicList] = useState([]);
     const [offset, setOffset] = useState(0);
     const [overlay, setOverlay] = useState(false);
-    const [toast, setToast] = useState(false);
+    const [toast, setToast] = useState('');
     let timeout = useRef(null);
 
 
@@ -37,7 +37,7 @@ const PhotographyPage = () => {
           pic.photo_meta_data
         )});
 
-        if(pics.length < 1) { 
+        if(pics?.length < 1 && !loading) { 
           setToast(true);
           timeout = setTimeout(() => { setToast(false)} , 2500);
         }
@@ -84,7 +84,7 @@ const PhotographyPage = () => {
             />
           </motion.div>
           <Overlay hideOverlay = {hideOverlay} overlay = {overlay}/>
-           <ToastComponent message = { 'Looks like that\'s all for now ... Please check again later!' } state = {toast}></ToastComponent>
+          <ToastComponent message = { 'Looks like that\'s all for now ... Please check again later!' } state = {toast} ></ToastComponent>
       </div>
     );
 };

@@ -128,7 +128,7 @@ const HomePage = () => {
       >
         <div className="section-container" id="portraiture">
           <div className="section-wrapper" id="portraiture-wrapper">
-            <h3 className="section-header" id="portraiture-header">
+            <h3 className="section-header content-title" id="portraiture-header">
               {" "}
               portraiture
             </h3>
@@ -136,7 +136,7 @@ const HomePage = () => {
         </div>
         <div className="section-container" id="urban">
           <div className="section-wrapper" id="urban-wrapper">
-            <h3 className="section-header" id="urban-header">
+            <h3 className="section-header content-title" id="urban-header">
               {" "}
               urban
             </h3>
@@ -144,7 +144,7 @@ const HomePage = () => {
         </div>
         <div className="section-container" id="nature">
           <div className="section-wrapper" id="nature-wrapper">
-            <h3 className="section-header" id="nature-header">
+            <h3 className="section-header content-title" id="nature-header">
               {" "}
               nature
             </h3>
