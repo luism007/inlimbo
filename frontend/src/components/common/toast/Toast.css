@@ -4,11 +4,13 @@
     flex-flow: row;
     justify-content: center;
     align-items: center;
-    width: max-content;
+    width: 95%;
+    height: 15vh;
     padding: 2em;
-    background-color: #333;
-    /* bottom: 2%; */
-    border-radius: 10px;
+    background-color: rgb(31 31 31 / 97%);
+    border-radius: 15px;
+    z-index: 1;
+    bottom: -25%;
 }
 
 .toast-message {
@@ -21,7 +23,7 @@
 
 .true { 
     animation-name: up;
-    animation-fill-mode: both;
+    animation-fill-mode: forwards;
     animation-duration: 1s;
     animation-timing-function: ease-in-out;
 
@@ -29,26 +31,26 @@
 
 .false { 
     animation-name: down;
-    animation-fill-mode: both;
+    animation-fill-mode: forwards;
     animation-duration: 1s;
     animation-timing-function: ease-in-out;
 }
 
 @keyframes up { 
     from  {
-        bottom: -1%;
+        bottom: -25%;
     }
     to { 
-        bottom:  2%;
+        bottom: 10%;
     }
 }
 
 
 @keyframes down { 
     from  {
-        bottom: 2%;
+        bottom: 10%;
     }
     to { 
-        bottom:  -1%;
+        bottom: -25%;
     }
 }

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import List from "../common/list/List";
 import Overlay from "../common/overlay/Overlay";
 import './PhotographyPage.css';
@@ -9,6 +9,9 @@ import ToastComponent from "../common/toast/Toast";
 const PhotographyPage = () => {
     useEffect(() => {
         retrievePhotos(0, 10);
+        return () => {
+          clearTimeout(timeout);
+        };
     }, [picList, overlay, loading, offset])
 
     const [loading, setLoading] = useState(true);
@@ -16,6 +19,7 @@ const PhotographyPage = () => {
     const [offset, setOffset] = useState(0);
     const [overlay, setOverlay] = useState(false);
     const [toast, setToast] = useState(false);
+    let timeout = useRef(null);
 
 
     const retrievePhotos = async(offset, limit) => {
@@ -35,6 +39,7 @@ const PhotographyPage = () => {
 
         if(pics.length < 1) { 
           setToast(true);
+          timeout = setTimeout(() => { setToast(false)} , 2500);
         }
 
         setPicList([...picList, ...pics]);
@@ -79,7 +84,7 @@ const PhotographyPage = () => {
             />
           </motion.div>
           <Overlay hideOverlay = {hideOverlay} overlay = {overlay}/>
-         <ToastComponent message = { 'Looks like that\'s all for now ... Please check again later!' } state = {toast}></ToastComponent>
+           <ToastComponent message = { 'Looks like that\'s all for now ... Please check again later!' } state = {toast}></ToastComponent>
       </div>
     );
 };
