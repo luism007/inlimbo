@@ -9,10 +9,10 @@ const SectionScroller = (props:SectionScrollerProps) => {
     const sectionLinks = props.sections;
     const [ellipsisLocation, setEllipsisLocation] = useState('');
     const [clicked, setClicked] = useState(false);
-    let scrollIntersectionObserver = new IntersectionObserver(intersectionObserverCallback, {threshold: 0.5});
+    let scrollIntersectionObserver = new IntersectionObserver(intersectionObserverCallback, {threshold: 0.8});
     useEffect(() => {
         const sections = document.querySelectorAll('.section-container');
-        scrollIntersectionObserver = new IntersectionObserver(intersectionObserverCallback, {threshold: 0.5});
+        // scrollIntersectionObserver = new IntersectionObserver(intersectionObserverCallback, {threshold: 0.5});
         sections.forEach(section => { 
             if(clicked) return;
             scrollIntersectionObserver.observe(section); 

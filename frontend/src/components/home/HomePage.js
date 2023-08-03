@@ -7,184 +7,85 @@ import '../../web-responsive.css';
 import SectionScroller from "../common/section-scroller/SectionScroller";
 import Overlay from "../common/overlay/Overlay";
 import PictureCommunicationService from "../../rxjs-services/picture-service";
+import ImageComponent from "../common/image/ImageComponent";
 const HomePage = () => {
 
-  useEffect(() => {}, [overlay]);
-  const [overlay, setOverlay] = useState(false);
-  const content = [
-    {
-      id: "649f396544218cd633ff804e",
-      source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1688156350/luis-inlimbo-headshot_dbjmfi.jpg",
-      lowres_source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1688156341/luis-inlimbo-headshot_rujyxn.jpg",
-      title: "Luis's Portrait Mobile",
-      description: "This photo was taken outside the Riverside Public Library in Riverside, CA. One of the walls provided be a perfect orange/redish backdrop that would just let the subject pop. It’s always fun to find unconventional places for a photoshoot!",
-      type: "portrait",
-      collection_id: "#portraiture",
-      photo_meta_data: "Sony Alpha 7 IV 85mm f/2.8"
-    }, {
-      id: "649f394344218cd633ff804c",
-      source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1688156295/joe-riverside-library-mobile_qy1yxe.jpg",
-      lowres_source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1688156309/joe-riverside-library-mobile-low-res_caalg2.jpg",
-      title: "Joe Portrait Mobile",
-      description: "Joe's Homepage Portrait for Portraiture Preview",
-      type: "portrait",
-      collection_id: "#portraiture",
-      photo_meta_data: ""
-    },{  
-      id: "64ad88df44218cd633ff80d8",  
-      source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1689094231/luis-riverside-lib-2_iosgf3.jpg",  
-      lowres_source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1689094068/luis-riverside-lib-2_cvmuwc.jpg",  
-      title: "Photoshoot Outside Riverside Library",  
-      description: "Self-portrait outside Riverside Library",  
-      type: "portrait",  
-      collection_id: "#portraiture",
-      photo_meta_data: ""
-    }, {
-      id: "6386d65df170afe0c42175cb",
-      source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1669778953/inlimbo-photos/detroit-fox-theatre_pzntul.jpg",
-      title: "The Fox Theatre",
-      description: "That's Entertainment...",
-      type: "urban",
-      collection_id: "#detroit_city",
-      lowres_source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1687445616/detroit-fox-theatre-low-res_fizigw.jpg",
-      photo_meta_data: ""
-    },  {
-      id: "649f2fa844218cd633ff804a",
-      source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1688153865/london-inlimbo_snuhkk.jpg",
-      lowres_source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1688153874/london-inlimbo-low-res_f8xycg.jpg",
-      title: "Tower Bridge London",
-      description: "From The Shard, Eyes upon Tower Bridge",
-      type: "urban",
-      collection_id: "#uk",
-      photo_meta_data: ""
-    }, {
-      id: "6386d89af170afe0c42175d2",
-      source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1669778965/inlimbo-photos/antelope-canyon-sharp-walls_irz7om.jpg",
-      title: "Orange Crush",
-      description: "No such thing as claustrophobia here ...",
-      type: "nature",
-      collection_id: "#antelope_canyon",
-      lowres_source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1687445615/antelope-canyon-sharp-walls-low-res_ralcmn.jpg",
-      photo_meta_data: ""
-    }, {
-      id: "649f220244218cd633ff8046",
-      source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1688150172/cliffs-moher-inlimbo_ff5ub3.jpg",
-      lowres_source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1688150296/cliffs-of-moher-low-res_crsspw.jpg",
-      title: "Cliffs of Moher",
-      description: "Upon the Cliffs of Moher",
-      type: "nature",
-      collection_id: "#ireland",
-      photo_meta_data: ""
-    },{
-      id: "6386db11f170afe0c42175e3",
-      source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1669778961/inlimbo-photos/antelope-canyon-perched-raven_vwf65d.jpg",
-      title: "The Raven",
-      description: "Perched within the canyon walls ...",
-      type: "nature",
-      collection_id: "#antelope_canyon",
-      lowres_source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1687445615/antelope-canyon-perched-raven-low-res_kbgeuh.jpg",
-      photo_meta_data: ""
-    }
- ];
-
- const sections = ["portraiture", "urban", "nature"];
-
- const portraitureTextAnimation = {
-  initialAnimation: {
-   x: '50%', opacity: 0
-  }, 
-  animation: {
-    x: 0, opacity: 1
+ const [overlay, setOverlay] = useState(false);
+ const sections = [
+  {
+    source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1691099673/luis-monochrome-garage-4_yvad1e.jpg",
+    lowres_source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1691099671/luis-monochrome-garage-4-lowres_gl3ltd.jpg",
+    title: "Heartfelt Monocrhomatic",
+    description: "I was experimenting with different light angles & I settled with this one. Although shadow-side is traditionally the best side to take photos, this one was just stood out to me more.",
+    type: "portrait",
+    collection_id: "#portraiture",
+    photo_meta_data: "Sony Alpha 7 IV 85mm f/2 1/250",
+    id: "64cc23f82179a7daa0b949cb",
+    label: "portraiture"
   },
-  exitAnimation: {
-    x: 0, opacity: 1
+  {
+    source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1669778960/inlimbo-photos/az-flagstaff-hotel-montevista_eo3pem.jpg",
+    title: "Hotel Monte Vista",
+    description: "A cozy place to stay in the cozy town of Flagstaff, AZ.",
+    type: "urban",
+    collection_id: "#urban_scenes",
+    lowres_source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1687445615/az-flagstaff-hotel-montevista-low-res_jdbdaa.jpg",
+    photo_meta_data: "",
+    id: "6386d403f170afe0c42175c3",
+    label: "urban"
   },
-  transitionAnimation: {
-    duration: 1
+  {
+    source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1669778963/inlimbo-photos/antelope-az-heart-of-the-canyon_unftts.jpg",
+    title: "Heart of the Canyon",
+    description: "It's hard to not love Antelope Canyon. ",
+    type: "nature",
+    collection_id: "#antelope_canyon",
+    lowres_source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1687445616/inlimbo-antelope-canyon-heart-watermark-lowres_xfqao7.jpg",
+    photo_meta_data: "",
+    id: "6386d9ebf170afe0c42175d9",
+    label: "nature"
   }
- };
-
- const backgroundImages = [
- "/src/assets/3-in-1-luis.jpg",
- "/src/assets/london-inlimbo.jpg",
- "/src/assets/craggin-inlimbo-3.jpg"
  ];
- 
- const hideOverlay = () => {
-   setOverlay(false);
- };
+ const photograpySections = (section) => {
+  return (
+    <div key = {section?.id}className="homepage-content-wrapper">
+      <div className="homepage-content-photo-container">
+        <ImageComponent {...section}></ImageComponent>
+        <p className="homepage-content-photo-label"> {section.label} </p>
+      </div>
+    </div>
+  )
+ } 
 
- const showOverlay = (content) => {
-  PictureCommunicationService.updatePictureSubject(content);
-  setOverlay(true);
- };
+
+ useEffect(() => {
+ }, [overlay]);
+
 
   return (
     <div className="homepage-container">
       <motion.div
         initial={{ transform: "translateY(100%)", opacity: 0.5 }}
         animate={{ transform: "translateY(0%)", opacity: 1 }}
-        exit={{ transform: "translateY(0%)", opacity: 0.5 }}
-        transition={{ duration: 1.5 }}
         className="carousel-container"
       >
-        <div className="section-container" id="portraiture">
-          <div className="section-wrapper" id="portraiture-wrapper">
-            <div className="section-content-wrapper" id ="portraiture-conent-wrapper">
-              <h3 className="section-header content-title" id="portraiture-header">
-                {" "}
-                portraiture
-              </h3>
-              <div
-                className="section-button-wrapper"
-                id="portraiture-button-wrapper"
-                onClick={() => {showOverlay(content[0])}}
-                >
-                <h3 className="section-button-text" id="portraiture-button-text"> view more </h3>
-              </div>
-            </div>
+        <div className="homepage-content-container">
+          <div className="homepage-content-photos-container">
+            { sections.map((section) => {
+              return photograpySections(section)
+            })}
+          </div>
+          <div className="homepage-content-text-container">
+            <p className="homepage-content-text">
+              Welcome to my creative outlet INLIMBO ©. My goal is to make you
+              look the best because you deserve nothing less. It doesn’t matter
+              the setting, the person, or the place, I embrace all types of
+              photography and excel in variety. Like any strong portfolio,
+              diversification is key. View my full gallery here.{" "}
+            </p>
           </div>
         </div>
-        <div className="section-container" id="urban">
-          <div className="section-wrapper" id="urban-wrapper">
-            <div className="section-content-wrapper" id="urban-content-wrapper">
-              <h3 className="section-header content-title" id="urban-header">
-                {" "}
-                urban
-              </h3>
-              <div
-                className="section-button-wrapper"
-                id="urban-button-wrapper"
-                onClick={() => {showOverlay(content[4])}}
-              >
-                <h3 className="section-button-text" id="urban-button-text"> view more </h3>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="section-container" id="nature">
-          <div className="section-wrapper" id="nature-wrapper">
-            <div className="section-content-wrapper" id="nature-content-wrapper">
-              <h3 className="section-header content-title" id="nature-header">
-                {" "}
-                nature
-              </h3>
-              <div
-                className="section-button-wrapper"
-                id="nature-button-wrapper"
-                onClick={() => {showOverlay(content[7])}}
-              >
-                <h3 className="section-button-text" id="nature-button-text"> view more </h3>
-              </div>
-            </div>
-          </div>
-        </div>
-        {createPortal(
-          <SectionScroller sections={sections}></SectionScroller>,
-          document.body
-        )}
       </motion.div>
-      <Overlay hideOverlay={hideOverlay} overlay={overlay} />
     </div>
   );
 };
