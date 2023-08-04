@@ -8,10 +8,22 @@ import SectionScroller from "../common/section-scroller/SectionScroller";
 import Overlay from "../common/overlay/Overlay";
 import PictureCommunicationService from "../../rxjs-services/picture-service";
 import ImageComponent from "../common/image/ImageComponent";
+import hiResLondon from  '../../assets/london-atop-eye-monochrome.jpg';
+import lowResLondon from '../../assets/london-inlimbo.jpg'
 const HomePage = () => {
 
  const [overlay, setOverlay] = useState(false);
  const sections = [
+  {
+    id: "64cd77082179a7daa0b949e6",
+    source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1691186688/joe-riverside-lib_qhzdmw.jpg",  
+    lowres_source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1691186746/joe-riverside-lib-lowres_almlgv.jpg", 
+    title: "Rays Off the Wall",
+    description: "We we're walking past a wall in Downtown Riverside, CA when I noticed how the sun reflected off a chrome beam towards a wall. It looked so cool, so I told my brother to get in-frame so I can take this shot. ",  
+    type: "portrait",  
+    collection_id: "#portraiture",  
+    photo_meta_data: "Sony Alpha 7 IV 85mm f/4 1/800"
+  },
   {
     source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1691099673/luis-monochrome-garage-4_yvad1e.jpg",
     lowres_source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1691099671/luis-monochrome-garage-4-lowres_gl3ltd.jpg",
@@ -46,12 +58,23 @@ const HomePage = () => {
     label: "nature"
   }
  ];
+
+ const london = {
+  source: hiResLondon,
+  title: "Atop London Eye",
+  description: "Checking out Tower Bridge from the London Eye",
+  type: "urban",
+  collection_id: "#uk",
+  lowres_source: lowResLondon,
+  photo_meta_data: "",
+  id: "6386d9ebf170afe0c42175d9",
+  label: "urban"
+ }
  const photograpySections = (section) => {
   return (
     <div key = {section?.id}className="homepage-content-wrapper">
       <div className="homepage-content-photo-container">
         <ImageComponent {...section}></ImageComponent>
-        <p className="homepage-content-photo-label"> {section.label} </p>
       </div>
     </div>
   )
@@ -63,30 +86,60 @@ const HomePage = () => {
 
 
   return (
-    <div className="homepage-container">
-      <motion.div
-        initial={{ transform: "translateY(100%)", opacity: 0.5 }}
-        animate={{ transform: "translateY(0%)", opacity: 1 }}
-        className="carousel-container"
-      >
-        <div className="homepage-content-container">
-          <div className="homepage-content-photos-container">
-            { sections.map((section) => {
-              return photograpySections(section)
-            })}
+    <motion.div 
+    initial={{ transform: "translateY(100%)", opacity: 0.5 }}
+    animate={{ transform: "translateY(0%)", opacity: 1 }}
+    className="parallax-layer">
+        <div className="parallax-group">
+          <div className="background-section">
+            <ImageComponent {...london}></ImageComponent>
           </div>
-          <div className="homepage-content-text-container">
-            <p className="homepage-content-text">
-              Welcome to my creative outlet INLIMBO ©. My goal is to make you
-              look the best because you deserve nothing less. It doesn’t matter
-              the setting, the person, or the place, I embrace all types of
-              photography and excel in variety. Like any strong portfolio,
-              diversification is key. View my full gallery here.{" "}
-            </p>
+          <div className="welcome-section">
+            <p className="home-text welcome-text"> Welcome. </p>
+            <p className="home-text welcome-text"> Bienvenidos. </p>
+            <p className="home-text welcome-text"> Bem-venidos. </p>
           </div>
         </div>
-      </motion.div>
-    </div>
+        <div className="parallax-group">
+          <div className="photography-section">
+            <div className="homepage-content-photos-container">
+              {sections.map((section) => {
+                return photograpySections(section);
+              })}
+            </div>
+            <div className="homepage-content-text-container">
+              <h3 className="home-text"> Embracing Variety </h3>
+              <p className="home-text">
+                Welcome to my creative outlet INLIMBO ©. My goal is to make you
+                look the best because you deserve nothing less. It doesn’t matter
+                the setting, the person, or the place, I embrace all types of
+                photography and excel in variety. Like any strong portfolio,
+                diversification is key. View my full gallery here.{" "}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="parallax-group">
+          <div className="photography-section">
+            <div className="homepage-content-photos-container">
+              {sections.map((section) => {
+                return photograpySections(section);
+              })}
+            </div>
+            <div className="homepage-content-text-container">
+              <h3 className="home-text"> Unbounded Reality </h3>
+              <p className="home-text">
+                Welcome to my creative outlet INLIMBO ©. My goal is to make you
+                look the best because you deserve nothing less. It doesn’t matter
+                the setting, the person, or the place, I embrace all types of
+                photography and excel in variety. Like any strong portfolio,
+                diversification is key. View my full gallery here.{" "}
+              </p>
+            </div>
+          </div>
+        </div>
+    </motion.div>
   );
 };
 

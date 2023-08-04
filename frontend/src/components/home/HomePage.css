@@ -1,5 +1,74 @@
+.page-showcase { 
+  padding-top: 0px !important;
+}
+.header { 
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+.parallax-layer { 
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  perspective: 1px;
+}
+
+.parallax-group { 
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+}
+.background-section,
+.welcome-section,
+.photography-section { 
+  position: absolute;
+}
+
+.background-section { 
+  transform: translateZ(-1px) scale(2);
+  opacity: 0.68;
+}
+
+.welcome-section,
+.photography-section { 
+  transform: translateZ(0px) scale(1);
+}
+
+.welcome-section {
+  height: 300px; 
+  width: 100%;
+  bottom: calc(300px + 1%);
+}
+
+.home-text { 
+  color: white;
+  font-family: "articulat-cf", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.welcome-text { 
+  font-size: 3em;
+  margin-left: 5%;
+}
+
+.welcome-text:nth-of-type(1) { 
+  font-weight: bold;
+}
+
+.welcome-text:nth-of-type(2) { 
+  font-weight: lighter;
+}
+
+.welcome-text:nth-of-type(3) { 
+  font-weight: bold;
+  font-style: oblique;
+}
+
 .homepage-container, 
 .homepage-content-container, 
+.homepage-top-section,
 .homepage-content-photos-container,
 .homepage-content-text-container  { 
   display: flex;
@@ -8,6 +77,10 @@
   width: 100%;
 }
 
+
+.homepage-foreground-wrapper { 
+  margin-top: 10%;
+}
 .image-container {
   display: block;
   width: 90% !important;
@@ -25,15 +98,20 @@
 
 .carousel-container { 
     display: block;
+    position: absolute;
     height: 100%;
     width: 100%;
     overflow-y: auto;
     scroll-behavior: smooth;
     background-color: #000;
+    transform: translateZ(0px);
 }
 
 .homepage-content-container {
   justify-content: space-between;
+  margin-bottom: 50px;
+  transform-origin: 0;
+  transform: translateZ(6px) scale(1);
 }
 
 .homepage-content-photos-container {
