@@ -10,6 +10,10 @@ import PictureCommunicationService from "../../rxjs-services/picture-service";
 import ImageComponent from "../common/image/ImageComponent";
 import hiResLondon from  '../../assets/london-atop-eye-monochrome.jpg';
 import lowResLondon from '../../assets/london-inlimbo.jpg'
+
+import hiResMonuValley from '../../assets/monu-valley-color.jpg';
+import lowResMonuValley from '../../assets/monu-valley-color-lowres.jpg';
+
 const HomePage = () => {
 
  const [overlay, setOverlay] = useState(false);
@@ -70,14 +74,25 @@ const HomePage = () => {
   id: "6386d9ebf170afe0c42175d9",
   label: "urban"
  }
+
+ const monuValley = {
+  source:hiResMonuValley,
+  title: "Monument Valley on the Horizon",
+  description: "This photo was taken right after the storm. The clouds were finally clearing out and the setting sun appeared. It was just the perfect time to be there for not only taking pictures, but just to witness the beauty of Monument Valley. ",
+  type: "nature",
+  collection_id: "#az_monu_valley",
+  lowres_source: lowResMonuValley,
+  photo_meta_data: "",
+  id: "6386d9ebf170afe0c421789",
+  label: "nature"
+ }
+
  const photograpySections = (section) => {
   return (
-    <div key = {section?.id}className="homepage-content-wrapper">
-      <div className="homepage-content-photo-container">
-        <ImageComponent {...section}></ImageComponent>
-      </div>
+    <div key={section?.id} className="homepage-content-photo-container">
+      <ImageComponent {...section}></ImageComponent>
     </div>
-  )
+  );
  } 
 
 
@@ -100,42 +115,44 @@ const HomePage = () => {
             <p className="home-text welcome-text"> Bem-venidos. </p>
           </div>
         </div>
+        <div className="parallax-group gap"></div>
         <div className="parallax-group">
           <div className="photography-section">
-            <div className="homepage-content-photos-container">
               {sections.map((section) => {
                 return photograpySections(section);
               })}
-            </div>
             <div className="homepage-content-text-container">
               <h3 className="home-text"> Embracing Variety </h3>
-              <p className="home-text">
-                Welcome to my creative outlet INLIMBO ©. My goal is to make you
-                look the best because you deserve nothing less. It doesn’t matter
-                the setting, the person, or the place, I embrace all types of
-                photography and excel in variety. Like any strong portfolio,
-                diversification is key. View my full gallery here.{" "}
+              <p className="home-text description-text">
+                Welcome to my creative outlet INLIMBO ©. My goal is to showcase you at your best.
+                Monochrome, color, inside, or out. People, places, it doesn't matter. 
+                I embrace all types of photography and excel in variety. Like any strong portfolio,
+                diversification is key.
               </p>
+              <div className="home-button-wrapper">
+                <p className="home-button-text"> explore gallery </p>
+              </div>
             </div>
           </div>
         </div>
-
+        <div className="parallax-group gap"></div>
         <div className="parallax-group">
           <div className="photography-section">
-            <div className="homepage-content-photos-container">
               {sections.map((section) => {
                 return photograpySections(section);
               })}
-            </div>
             <div className="homepage-content-text-container">
-              <h3 className="home-text"> Unbounded Reality </h3>
-              <p className="home-text">
+              <h3 className="home-text"> Embracing Variety </h3>
+              <p className="home-text description-text">
                 Welcome to my creative outlet INLIMBO ©. My goal is to make you
                 look the best because you deserve nothing less. It doesn’t matter
                 the setting, the person, or the place, I embrace all types of
                 photography and excel in variety. Like any strong portfolio,
                 diversification is key. View my full gallery here.{" "}
               </p>
+              <div className="home-button-wrapper">
+                <p className="home-button-text"> explore gallery </p>
+              </div>
             </div>
           </div>
         </div>

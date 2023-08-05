@@ -19,10 +19,20 @@
   position: relative;
   transform-style: preserve-3d;
 }
+.gap { 
+  height: 40vh;
+}
 .background-section,
 .welcome-section,
-.photography-section { 
+.photography-section,
+.retouching-section,
+.background-section-monu { 
   position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: 0;
 }
 
 .background-section { 
@@ -31,7 +41,8 @@
 }
 
 .welcome-section,
-.photography-section { 
+.photography-section,
+.retouching-section { 
   transform: translateZ(0px) scale(1);
 }
 
@@ -39,6 +50,7 @@
   height: 300px; 
   width: 100%;
   bottom: calc(300px + 1%);
+  top: calc(300px + 1%);
 }
 
 .home-text { 
@@ -46,6 +58,10 @@
   font-family: "articulat-cf", sans-serif;
   font-weight: 400;
   font-style: normal;
+}
+
+.description-text { 
+  font-weight: lighter;
 }
 
 .welcome-text { 
@@ -64,6 +80,54 @@
 .welcome-text:nth-of-type(3) { 
   font-weight: bold;
   font-style: oblique;
+}
+
+.photography-section { 
+  display: grid;
+  grid-template-columns: 25% 25% 50%;
+  grid-template-rows: 45% 15% 45%;
+  padding: 10%;
+  column-gap: 10px;
+  row-gap: 10px;
+}
+
+.photography-section div:nth-of-type(1) {
+  grid-column: 1 / 2; 
+  grid-row: 1 / 2;
+}
+
+.photography-section div:nth-of-type(2) {
+  grid-column: 1 / 2; 
+  grid-row: 2 / 4;
+}
+
+.photography-section div:nth-of-type(3) {
+  grid-column: 2 / 4; 
+  grid-row: 1 / 3;
+}
+
+.home-content-wrapper div:nth-of-type(4) {
+  grid-column: 2 / 3; 
+  grid-row: 2 / 3;
+}
+
+
+.home-button-wrapper { 
+  display: flex;
+  height: auto;
+  width: auto;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,0);
+  border: 1px solid #fff;
+  padding: 2%;
+}
+
+.home-button-text { 
+  font: normal normal normal 1em Klavika Basic;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0;
 }
 
 .homepage-container, 
@@ -126,7 +190,7 @@
 
 .homepage-content-photo-container {
   position: relative;
-  height: 455px;
+  height: auto;
 }
 
 .homepage-content-photo-label { 
@@ -144,6 +208,7 @@
 
 .homepage-content-text-container { 
   height: 35%;
+  padding: 5%;
 }
 
 .homepage-content-text { 
