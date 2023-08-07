@@ -20,11 +20,11 @@ import lowResMattCutout from '../../assets/matt-great-causeway-cutout-lowres.jpg
 import hiResMattGc from '../../assets/matt-great-causeway.jpg';
 import lowResMattGc from '../../assets/matt-great-causeway-lowres.jpg';
 
-import { Splitter, SplitterPanel } from 'primereact/splitter';
 import { ImgComparisonSlider } from '@img-comparison-slider/react';
 
 const HomePage = () => {
 
+let sectionObserver = new IntersectionObserver(sectionCallback, {threshold: 1});
  const [overlay, setOverlay] = useState(false);
  const sections = [
   {
@@ -130,8 +130,29 @@ const HomePage = () => {
 
 
  useEffect(() => {
+
+  const sections = document.querySelectorAll('.parallax-group');
+  sections.forEach(section => {
+    sectionObserver.observe(section);
+  })
+  return () => {
+    sections.forEach(section => { sectionObserver.unobserve(section); });
+  }
  }, [overlay]);
 
+
+ function sectionCallback(entries){
+  entries.forEach((entry) => {
+    const section = entry;
+    if(section?.target?.id !== 'welcome-section') { 
+      const header = document.getElementById('inlimbo-header');
+      header.style.backgroundColor = "black";
+    } else { 
+      const header = document.getElementById('inlimbo-header');
+      header.style.backgroundColor = "rgba(0,0,0,0)";
+    }
+  });
+ } 
 
   return (
     <motion.div
@@ -139,7 +160,7 @@ const HomePage = () => {
       animate={{ transform: "translateY(0%)", opacity: 1 }}
       className="parallax-layer"
     >
-      <div className="parallax-group">
+      <div className="parallax-group" id = "welcome-section">
         <div className="background-section">
           <ImageComponent {...london}></ImageComponent>
         </div>

@@ -11,27 +11,25 @@ import { AnimatePresence } from "framer-motion";
 import inlimboLogo from '../assets/inlimbo-light-gray-on-white.svg'
 import instagramIcon from '../assets/instagram-icon.svg';
 import mailIcon from '../assets/envelope-icon.svg';
-import {PrimeReactProvider} from 'primereact/api'; 
 const App = () => {
   const location  = useLocation();
   return (
     <div>
-      <div className="header">
+      <div className="header" id = "inlimbo-header">
         <div className="logo">
           <img src={inlimboLogo} alt="inlimbo-logo" aria-label="INLIMBO"></img>
         </div>
       </div>
       <NavHeader />
       <AnimatePresence mode="wait">
-        <PrimeReactProvider>
-          <div className="page-showcase">
-            <Routes location={location} key={location.key}>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/photography" element={<PhotographyPage />} />
-              <Route path="/aboutme" element={<AboutMe />} />
-              <Route element={<PageNotFound />} />
-            </Routes>
-            <footer>
+        <div className="page-showcase">
+          <Routes location={location} key={location.key}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/photography" element={<PhotographyPage />} />
+            <Route path="/aboutme" element={<AboutMe />} />
+            <Route element={<PageNotFound />} />
+          </Routes>
+          <footer>
             <div className="footer-container" id="footer">
               <div id="footer-wrapper">
                 <div className="footer-logo-wrapper">
@@ -74,9 +72,8 @@ const App = () => {
                 </p>
               </div>
             </div>
-            </footer>
-          </div>
-        </PrimeReactProvider>
+          </footer>
+        </div>
       </AnimatePresence>
     </div>
   );

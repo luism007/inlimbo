@@ -6,9 +6,7 @@ import "./web-responsive.css";
 import App from "./components/App";
 
 import { createRoot } from "react-dom/client";
-//core
-import "primereact/resources/primereact.min.css"; 
-import 'primeflex/primeflex.css';  
+
 
 const container = document.getElementById("app");
 const root = createRoot(container);

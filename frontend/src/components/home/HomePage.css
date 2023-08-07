@@ -2,7 +2,7 @@
   padding-top: 0px !important;
 }
 .header { 
-  background-color: rgba(0, 0, 0, 0) !important;
+  background-color: rgba(0, 0, 0, 0);
 }
 .parallax-layer { 
   height: 100vh;
