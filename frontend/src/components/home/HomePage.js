@@ -14,6 +14,15 @@ import lowResLondon from '../../assets/london-inlimbo.jpg'
 import hiResMonuValley from '../../assets/monu-valley-color.jpg';
 import lowResMonuValley from '../../assets/monu-valley-color-lowres.jpg';
 
+import hiResMattCutout from '../../assets/matt-great-causeway-cutout-2.jpg';
+import lowResMattCutout from '../../assets/matt-great-causeway-cutout-lowres.jpg';
+
+import hiResMattGc from '../../assets/matt-great-causeway.jpg';
+import lowResMattGc from '../../assets/matt-great-causeway-lowres.jpg';
+
+import { Splitter, SplitterPanel } from 'primereact/splitter';
+import { ImgComparisonSlider } from '@img-comparison-slider/react';
+
 const HomePage = () => {
 
  const [overlay, setOverlay] = useState(false);
@@ -87,6 +96,30 @@ const HomePage = () => {
   label: "nature"
  }
 
+ const mattCutout = {
+  source:hiResMattCutout,
+  title: "Retouched Photo",
+  description: "Retouched photo",
+  type: "portrait",
+  collection_id: "#retouch",
+  lowres_source: lowResMattCutout,
+  photo_meta_data: "",
+  id: "6386d9ebf1700ee0c421789",
+  label: "portraiture"
+ }
+
+ const mattNonCutout = {
+  source:hiResMattGc,
+  title: "Non-retouched Photo",
+  description: "Non-retouched photo",
+  type: "portrait",
+  collection_id: "#retouch",
+  lowres_source: lowResMattGc,
+  photo_meta_data: "",
+  id: "6386d9ebf170wfr0c421789",
+  label: "portraiture"
+ }
+
  const photograpySections = (section) => {
   return (
     <div key={section?.id} className="homepage-content-photo-container">
@@ -101,61 +134,75 @@ const HomePage = () => {
 
 
   return (
-    <motion.div 
-    initial={{ transform: "translateY(100%)", opacity: 0.5 }}
-    animate={{ transform: "translateY(0%)", opacity: 1 }}
-    className="parallax-layer">
-        <div className="parallax-group">
-          <div className="background-section">
-            <ImageComponent {...london}></ImageComponent>
-          </div>
-          <div className="welcome-section">
-            <p className="home-text welcome-text"> Welcome. </p>
-            <p className="home-text welcome-text"> Bienvenidos. </p>
-            <p className="home-text welcome-text"> Bem-venidos. </p>
-          </div>
+    <motion.div
+      initial={{ transform: "translateY(100%)", opacity: 0.5 }}
+      animate={{ transform: "translateY(0%)", opacity: 1 }}
+      className="parallax-layer"
+    >
+      <div className="parallax-group">
+        <div className="background-section">
+          <ImageComponent {...london}></ImageComponent>
         </div>
-        <div className="parallax-group gap"></div>
-        <div className="parallax-group">
-          <div className="photography-section">
-              {sections.map((section) => {
-                return photograpySections(section);
-              })}
-            <div className="homepage-content-text-container">
-              <h3 className="home-text"> Embracing Variety </h3>
-              <p className="home-text description-text">
-                Welcome to my creative outlet INLIMBO ©. My goal is to showcase you at your best.
-                Monochrome, color, inside, or out. People, places, it doesn't matter. 
-                I embrace all types of photography and excel in variety. Like any strong portfolio,
-                diversification is key.
-              </p>
-              <div className="home-button-wrapper">
-                <p className="home-button-text"> explore gallery </p>
-              </div>
+        <div className="welcome-section">
+          <p className="welcome-text"> Welcome. </p>
+          <p className="welcome-text"> Bienvenidos. </p>
+          <p className="welcome-text"> Bem-venidos. </p>
+        </div>
+      </div>
+      <div className="parallax-group gap"></div>
+      <div className="parallax-group">
+        <div className="photography-section">
+          {sections.map((section) => {
+            return photograpySections(section);
+          })}
+          <div className="homepage-content-text-container">
+            <h3 className="home-text"> Embracing Variety </h3>
+            <p className="description-text">
+              Welcome to my creative outlet INLIMBO ©. My goal is to showcase
+              you at your best. Monochrome, color, inside, or out. People,
+              places, it doesn&apos;t matter. I embrace all types of photography
+              and excel in variety. Like any strong portfolio, diversification
+              is key.
+            </p>
+            <div className="home-button-wrapper">
+              <p className="home-button-text"> explore gallery </p>
             </div>
           </div>
         </div>
-        <div className="parallax-group gap"></div>
-        <div className="parallax-group">
-          <div className="photography-section">
-              {sections.map((section) => {
-                return photograpySections(section);
-              })}
-            <div className="homepage-content-text-container">
-              <h3 className="home-text"> Embracing Variety </h3>
-              <p className="home-text description-text">
-                Welcome to my creative outlet INLIMBO ©. My goal is to make you
-                look the best because you deserve nothing less. It doesn’t matter
-                the setting, the person, or the place, I embrace all types of
-                photography and excel in variety. Like any strong portfolio,
-                diversification is key. View my full gallery here.{" "}
-              </p>
-              <div className="home-button-wrapper">
-                <p className="home-button-text"> explore gallery </p>
-              </div>
+      </div>
+      <div className="parallax-group gap"></div>
+      <div className="parallax-group">
+        <div className="retouch-section">
+          <div className="home-text-wrapper">
+            <h3 className="home-text"> Unbounded Realization </h3>
+          </div>
+          <div className="home-img-comparison-slider-wrapper">
+            <ImgComparisonSlider>
+              <img
+                className="slider-img"
+                slot="first"
+                src= {hiResMattGc}
+              />
+              <img
+                className="slider-img"
+                slot="second"
+                src= {hiResMattCutout}
+              />
+            </ImgComparisonSlider>
+          </div>
+          <div className="homepage-content-text-container">
+            <p className="description-text">
+              Photos are not only taken, but can be re-touched however you like.
+              I&apos;m committed to get your vision across and to evoke the message you
+              want. You want the perfect shot and so do I. So let&apos;s work
+              together.
+            </p>
+            <div className="home-button-wrapper">
+              <p className="home-button-text"> contact me </p>
             </div>
           </div>
         </div>
+      </div>
     </motion.div>
   );
 };
