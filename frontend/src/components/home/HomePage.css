@@ -1,5 +1,5 @@
 .page-showcase { 
-  padding-top: 0px !important;
+  padding-top: 0px;
 }
 .header { 
   background-color: rgba(0, 0, 0, 0);
@@ -305,9 +305,38 @@ img-comparison-slider {
 }
 
 @media all and (min-width: 800px) { 
-  .gap { 
-    height: 30vh;
+
+  .photography-section div:nth-of-type(1) {
+    grid-column: 1 / 2; 
+    grid-row: 1 / 4;
   }
+  
+  .photography-section div:nth-of-type(2) {
+    grid-column: 1 / 2; 
+    grid-row: 4 / 6;
+  }
+  
+  .photography-section div:nth-of-type(3) {
+    grid-column: 2 / 4; 
+    grid-row: 1 / 4;
+  }
+
+  .photography-section div:nth-of-type(4) { 
+    grid-column: 1 / 4;
+    grid-row: 4 / 5;
+    display: none;
+  }
+
+  .photography-section div:nth-of-type(5) { 
+    grid-column: 2 / 4;
+    grid-row: 4 / 6;
+  }  
+
+
+  .gap { 
+    height: 55vh;
+  }
+
   .home-button-wrapper { 
     padding: 5%;
   }

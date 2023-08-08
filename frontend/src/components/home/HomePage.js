@@ -146,10 +146,12 @@ let sectionObserver = new IntersectionObserver(sectionCallback, {threshold: 1});
     const section = entry;
     if(section?.target?.id !== 'welcome-section') { 
       const header = document.getElementById('inlimbo-header');
-      header.style.backgroundColor = "black";
+      header.style.backgroundColor = "rgba(0,0,0,0.8)";
+      header.style.display = 'hidden';
     } else { 
       const header = document.getElementById('inlimbo-header');
       header.style.backgroundColor = "rgba(0,0,0,0)";
+      header.style.display = 'flex';
     }
   });
  } 
