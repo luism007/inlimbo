@@ -185,6 +185,10 @@ img-comparison-slider {
   padding: 2%;
 }
 
+.home-button-wrapper:hover { 
+  cursor: pointer;
+}
+
 .home-button-text { 
   font: normal normal normal 1em Klavika Basic;
   font-family: klavika-web, sans-serif;

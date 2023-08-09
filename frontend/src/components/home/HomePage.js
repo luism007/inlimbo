@@ -21,9 +21,10 @@ import hiResMattGc from '../../assets/matt-great-causeway.jpg';
 import lowResMattGc from '../../assets/matt-great-causeway-lowres.jpg';
 
 import { ImgComparisonSlider } from '@img-comparison-slider/react';
+import { useNavigate } from "react-router";
 
 const HomePage = () => {
-
+const navigate = useNavigate();
 let sectionObserver = new IntersectionObserver(sectionCallback, {threshold: 1});
  const [overlay, setOverlay] = useState(false);
  const sections = [
@@ -187,7 +188,7 @@ let sectionObserver = new IntersectionObserver(sectionCallback, {threshold: 1});
               and excel in variety. Like any strong portfolio, diversification
               is key.
             </p>
-            <div className="home-button-wrapper">
+            <div className="home-button-wrapper" onClick={() => { console.log('Clicked'); navigate('/photography');}}>
               <p className="home-button-text"> explore gallery </p>
             </div>
           </div>
@@ -220,8 +221,12 @@ let sectionObserver = new IntersectionObserver(sectionCallback, {threshold: 1});
               want. You want the perfect shot and so do I. So let&apos;s work
               together.
             </p>
-            <div className="home-button-wrapper">
-              <p className="home-button-text"> contact me </p>
+            <div className="home-button-wrapper" onClick={() => navigate('/')}>
+              <p className="home-button-text" 
+              href="mailto:inlimbo.photography@gmail.com?subject=Service%20Inquiry"
+              target="_top"> 
+              contact me 
+              </p>
             </div>
           </div>
         </div>
