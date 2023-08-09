@@ -13,6 +13,7 @@
     z-index: 1;
     width: 100%;
     background-color: black;
+    backdrop-filter: saturate(180%) blur(20px);
 }
 
 .logo { 
