@@ -10,10 +10,6 @@
         padding-top: 100px;
         /* padding-bottom: 100px; */
     }
-    .list-item {
-        height: 100%;
-    } 
-
     .section-container { 
         height: 100%;
     }
@@ -221,9 +217,6 @@
         padding-top: 100px;
         padding-bottom: 0;
     }
-    .list-item {
-        height: 200px;
-    } 
     .inlimbo-navbar { 
         left: 0;
         bottom: 0;

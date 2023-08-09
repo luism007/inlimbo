@@ -187,6 +187,7 @@ img-comparison-slider {
 
 .home-button-text { 
   font: normal normal normal 1em Klavika Basic;
+  font-family: klavika-web, sans-serif;
   text-transform: uppercase;
   color: #fff;
   margin: 0;

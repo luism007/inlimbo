@@ -25,6 +25,7 @@
 .inlimbo-navbar nav a { 
     margin: 0 auto 10px auto;
     font: normal normal bold 3em Klavika Basic;
+    font-family: klavika-web, sans-serif;
     font-weight: 100;
     font-style: normal;
     text-decoration: none;
