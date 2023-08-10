@@ -28,7 +28,11 @@ const AboutMe = () => {
           </div>
           <div className='container'>
             <div className="button-wrapper">
-                  <p className="button-text"> contact me </p>
+              <a className="home-button-text" 
+                href="mailto:inlimbo.photography@gmail.com?subject=Service%20Inquiry"
+                target="_top"> 
+                contact me 
+                </a>
             </div>
           </div>
         </div>

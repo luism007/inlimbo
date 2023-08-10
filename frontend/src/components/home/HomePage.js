@@ -81,7 +81,7 @@ let sectionObserver = new IntersectionObserver(sectionCallback, {threshold: 1});
   collection_id: "#uk",
   lowres_source: lowResLondon,
   photo_meta_data: "",
-  id: "6386d9ebf170afe0c42175d9",
+  id: "649f2fa844218cd633ff804a",
   label: "urban"
  }
 
@@ -123,7 +123,7 @@ let sectionObserver = new IntersectionObserver(sectionCallback, {threshold: 1});
 
  const photograpySections = (section) => {
   return (
-    <div key={section?.id} className="homepage-content-photo-container">
+    <div key={`${section?.id}-section`} className="homepage-content-photo-container">
       <ImageComponent {...section}></ImageComponent>
     </div>
   );
@@ -222,11 +222,11 @@ let sectionObserver = new IntersectionObserver(sectionCallback, {threshold: 1});
               together.
             </p>
             <div className="home-button-wrapper" onClick={() => navigate('/')}>
-              <p className="home-button-text" 
+              <a className="home-button-text" 
               href="mailto:inlimbo.photography@gmail.com?subject=Service%20Inquiry"
               target="_top"> 
               contact me 
-              </p>
+              </a>
             </div>
           </div>
         </div>

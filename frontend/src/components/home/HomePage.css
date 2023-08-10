@@ -1,3 +1,6 @@
+a { 
+  text-decoration: none;
+}
 .page-showcase { 
   padding-top: 0px;
 }
@@ -123,11 +126,11 @@ img-comparison-slider {
   display: grid;
   column-gap: 10px;
   row-gap: 10px;
-  padding: 10%;
+  padding: 0 10%;
 }
 .photography-section { 
   grid-template-columns: 25% 25% 50%;
-  grid-template-rows: 45% 15% 45%;
+  grid-template-rows: 45% 15% 15%;
 }
 
 .photography-section div:nth-of-type(1) {
@@ -217,9 +220,7 @@ img-comparison-slider {
 
 
 @media all and (min-width: 200px) { 
-  .home-text{ 
-    font-size: 3em;
-  }
+
   .welcome-text { 
     font-size: 2em;
   }
@@ -299,6 +300,81 @@ img-comparison-slider {
   }
 }
 
+@media all and (min-width: 200px) { 
+  .home-text { 
+    font-size: 1.5em;
+  }
+
+  .description-text { 
+    font-size: 1em;
+  }
+
+  .photography-section div:nth-of-type(1) {
+    grid-column: 1 / 2; 
+    grid-row: 1 / 2;
+  }
+  .photography-section div:nth-of-type(2) {
+    grid-column: 1 / 2; 
+    grid-row: 1 / 2;
+  }
+  .photography-section div:nth-of-type(3) {
+    grid-column: 2 / 4; 
+    grid-row: 1 / 2;
+  }
+  .photography-section div:nth-of-type(5) { 
+    grid-column: 1 / 4;
+    grid-row: 2 / 6;
+  } 
+}
+
+@media all and (min-width: 300px) {
+  .home-text { 
+    font-size: 2.5em;
+  }
+
+  .description-text { 
+    font-size: 1em;
+  }
+}
+
+@media all and (min-width: 600px) { 
+
+  .home-text{ 
+    font-size: 3em;
+  }
+  /* .home-text {
+    font-size: 4em;
+    font-style: normal;
+  } */
+  
+  .description-text { 
+    font-size: 1.3em;
+    font-weight: lighter;
+  }
+}
+
+@media all and (min-width: 700px) { 
+  .home-button-wrapper { 
+    margin: 1% auto;
+  }
+  .photography-section div:nth-of-type(1) {
+    grid-column: 1 / 2; 
+    grid-row: 1 / 2;
+  }
+  .photography-section div:nth-of-type(2) {
+    grid-column: 1 / 2; 
+    grid-row: 2 / 4;
+  }
+  .photography-section div:nth-of-type(3) {
+    grid-column: 2 / 4; 
+    grid-row: 1 / 2;
+  }
+  .photography-section div:nth-of-type(5) { 
+    grid-column: 2 / 4;
+    grid-row: 2 / 6;
+  } 
+}
+
 @media all and (min-width: 768px) { 
   .home-button-wrapper { 
     padding: 5%;
@@ -309,32 +385,51 @@ img-comparison-slider {
   }
 }
 
+@media all and (min-width: 799px) { 
+  .photography-section div:nth-of-type(1) {
+    grid-column: 1 / 2; 
+    grid-row: 1 / 2;
+  }
+  .photography-section div:nth-of-type(2) {
+    grid-column: 1 / 2; 
+    grid-row: 2 / 4;
+  }
+  .photography-section div:nth-of-type(3) {
+    grid-column: 2 / 4; 
+    grid-row: 1 / 2;
+  }
+  .photography-section div:nth-of-type(5) { 
+    grid-column: 2 / 4;
+    grid-row: 2 / 6;
+  } 
+}
+
 @media all and (min-width: 800px) { 
 
   .photography-section div:nth-of-type(1) {
     grid-column: 1 / 2; 
-    grid-row: 1 / 4;
+    grid-row: 1 / 2;
   }
   
   .photography-section div:nth-of-type(2) {
     grid-column: 1 / 2; 
-    grid-row: 4 / 6;
+    grid-row: 2 / 5;
   }
   
   .photography-section div:nth-of-type(3) {
-    grid-column: 2 / 4; 
-    grid-row: 1 / 4;
+    grid-column: 3 / 4; 
+    grid-row: 1 / 2;
   }
 
   .photography-section div:nth-of-type(4) { 
-    grid-column: 1 / 4;
-    grid-row: 4 / 5;
-    display: none;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    display: block;
   }
 
   .photography-section div:nth-of-type(5) { 
     grid-column: 2 / 4;
-    grid-row: 4 / 6;
+    grid-row: 2 / 6;
   }  
 
 
@@ -355,6 +450,34 @@ img-comparison-slider {
 
 @media all and (min-width: 900px) {
 
+}
+
+@media all and (min-width: 1063px) { 
+  .photography-section div:nth-of-type(1) {
+    grid-column: 1 / 2; 
+    grid-row: 1 / 2;
+  }
+  
+  .photography-section div:nth-of-type(2) {
+    grid-column: 1 / 2; 
+    grid-row: 2 / 5;
+  }
+  
+  .photography-section div:nth-of-type(3) {
+    grid-column: 2 / 4; 
+    grid-row: 1 / 2;
+  }
+
+  .photography-section div:nth-of-type(4) { 
+    grid-column: 2 / 3;
+    grid-row: 2 / 5;
+    display: block;
+  }
+
+  .photography-section div:nth-of-type(5) { 
+    grid-column: 3 / 4;
+    grid-row: 2 / 6;
+  }  
 }
 
 @media all and (min-width: 1024px) and (min-height: 600px) { 
