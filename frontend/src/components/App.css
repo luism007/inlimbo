@@ -1,16 +1,30 @@
 .page-showcase { 
     height: 100vh;
     width: 100vw;
+    background-color: #000;
 }
 
 .header { 
     display: flex;
     flex-flow: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     position: fixed;
     z-index: 1;
     width: 100%;
-    background-color: rgb(255 255 255 / 50%) !important;
-    backdrop-filter: saturate(60%) blur(30px);
+    background-color: black;
+    backdrop-filter: saturate(180%) blur(20px);
+}
+
+.logo { 
+    width: 25%;
+    margin: auto;
+    display: contents;
+}
+
+.navbar-wrapper { 
+    width: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }

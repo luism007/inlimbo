@@ -5,6 +5,13 @@
   width: 100%;
 }
 
+.photography-container { 
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 100px 0;
+}
+
 .dropdown-container { 
     display: flex;
     flex-flow: row;
@@ -14,4 +21,21 @@
 
 h1 {
   color: white;
+}
+
+@media all and (min-width: 374px) { 
+  .photography-container { 
+    /* padding-bottom: 0px; */
+  }
+}
+@media all and (min-width: 911px) { 
+  .photography-container { 
+    padding-bottom: 100px;
+  }
+}
+
+@media all and (min-width: 411px) { 
+  .photography-container { 
+    padding-bottom: 100px;
+  }
 }

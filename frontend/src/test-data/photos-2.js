@@ -228,7 +228,7 @@ export const photos = [{
   "type": "urban",
   "collection_id": "#urban_scenes",
   "__v": 0,
-  "lowres_source": "https://res.cloudinary.com/inlimbo-studios/image/upload/v1682045565/detroit-unbeatable-low-res_za9wxv.jpg"
+  "lowres_source": ""
 },{
   "_id": {
     "$oid": "6386e0d8f170afe0c421760b"
@@ -239,7 +239,7 @@ export const photos = [{
   "type": "urban",
   "collection_id": "#urban_scenes",
   "__v": 0,
-  "lowres_source": "https://res.cloudinary.com/inlimbo-studios/image/upload/v1682046329/ontario-ranch-shit-shak-carseat-1-low-res_ns8x6q.jpg"
+  "lowres_source": ""
 },{
   "_id": {
     "$oid": "6386e12ef170afe0c421760e"
@@ -250,7 +250,7 @@ export const photos = [{
   "type": "urban",
   "collection_id": "#detroit_city",
   "__v": 0,
-  "lowres_source": "https://res.cloudinary.com/inlimbo-studios/image/upload/v1682044861/detroit-enter-fox-city-low-res_cpdsp0.jpg"
+  "lowres_source": ""
 },{
   "_id": {
     "$oid": "63e03b829c2624c64be5e6a0"

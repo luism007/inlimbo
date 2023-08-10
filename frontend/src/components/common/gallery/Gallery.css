@@ -6,7 +6,7 @@
     overflow-y: auto;
 }
 
-.overlay-preview-container, .overlay-pic-description-container{
+.overlay-preview-container {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -15,9 +15,7 @@
 .overlay-preview-container {
     height: 100%;
 }
-.overlay-pic-description-container{
-    height: 30%;
-}
+
 .overlay-pic-showcase-container {
     display: flex;
     flex-flow: row;
@@ -46,7 +44,10 @@
 }
 
 .overlay-pic-showcase {
-    display: block;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    align-items: center;
     height: 90%;
     width: 90%;
 }
@@ -85,4 +86,83 @@
 }
 .overlay-gallery-button-right:hover, .overlay-gallery-button-left:hover{
     cursor: pointer;
+}
+
+.overlay-pic-container { 
+    display: flex;
+    position: relative;
+    width: max-content;
+    justify-content: center;
+    overflow: hidden;
+    height: 90%;
+}
+
+.overlay-pic-description-container {
+    display: flex; 
+    position: absolute;
+    bottom: 0;
+    flex-flow: wrap;
+    justify-content: center;
+    word-break: break-all;
+    overflow-y: auto;
+    width: 100%;
+    height: 30%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.overlay-pic-description, .overlay-pic-metadata { 
+    font-family: oscine, sans-serif;
+    color: #fff;
+    font-size: 1em;
+    margin: 1em 2em;
+    word-break: break-word;
+    text-align: left;
+}
+
+.overlay-pic-metadata { 
+    font-style: italic;
+    font-weight: lighter;
+}
+
+.openInfo {
+    opacity: 1;
+    animation-name: showInfo;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+
+.closeInfo { 
+    opacity: 0;
+    animation-name: hideInfo;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes showInfo { 
+    from { 
+        opacity: 0;
+    }
+    to { 
+        opacity: 1;
+    }
+}
+
+@keyframes hideInfo { 
+    from {
+        opacity: 1;
+    }
+    to { 
+        opacity: 0;
+    }
+}
+
+#infoButton:hover {
+    cursor: pointer;
+}
+
+.gallery-icons {
+    height: 48px;
+    width: 48px;
 }

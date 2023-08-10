@@ -1,0 +1,56 @@
+.toast-container { 
+    display: flex;
+    position: absolute;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    height: 15vh;
+    padding: 2em;
+    background-color: rgb(31 31 31 / 97%);
+    border-radius: 15px;
+    z-index: 1;
+    bottom: -100%;
+}
+
+.toast-message {
+    font-family: oscine, sans-serif;
+    color: #fff;
+    font-size: 1em;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.true { 
+    animation-name: up;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+
+}
+
+.false { 
+    animation-name: down;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes up { 
+    from  {
+        bottom: -25%;
+    }
+    to { 
+        bottom: 10%;
+    }
+}
+
+
+@keyframes down { 
+    from  {
+        bottom: 10%;
+    }
+    to { 
+        bottom: -25%;
+    }
+}

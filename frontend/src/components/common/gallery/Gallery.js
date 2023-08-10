@@ -7,10 +7,11 @@ import MiniGallery from "../mini-gallery/MiniGallery";
 import { fadeInKeyframes, fadeInOptions } from "../../../models/AnimationsModel";
 import leftIcon from '../../../assets/left-arrow.svg';
 import rightIcon from '../../../assets/right-arrow.svg';
-import playIcon from '../../../assets/play-button.svg';
+import playIcon from '../../../assets/play-pause-button.svg';
 import pauseIcon from '../../../assets/pause-button.svg';
-import galleryIcon from '../../../assets/gallery-icon.svg';
+import galleryIcon from '../../../assets/gallery-button.svg';
 import closeIcon from "../../../assets/close-x.svg";
+import infoIcon from '../../../assets/info-icon.svg';
 
 const Gallery = (props) => {
   
@@ -102,6 +103,18 @@ const Gallery = (props) => {
     props.closeOverlay();
   }
 
+  const toggleInfo = () => {
+    const info = document.getElementById('pic-info');
+    if (info.classList.contains('openInfo')) { 
+      info.classList.remove('openInfo');
+      info.classList.toggle('closeInfo');
+    } else if (info.classList.contains('closeInfo')) { 
+      info.classList.remove('closeInfo');
+      info.classList.toggle('openInfo');
+    }
+  }
+
+
     return (
       <div className="overlay-container">
         <div className="overlay-preview-container">
@@ -116,11 +129,17 @@ const Gallery = (props) => {
             </div>
             <div className="overlay-pic-showcase">
               {photoInView ? (
-                <img
-                  className="overlay-pic"
-                  id="active-photo"
-                  src={photoInView.source}
-                ></img>
+                <div className="overlay-pic-container">
+                  <img
+                    className="overlay-pic"
+                    id="active-photo"
+                    src={photoInView.source}
+                  ></img>
+                  <div className="overlay-pic-description-container closeInfo" id = "pic-info"> 
+                    <p className="overlay-pic-description"> {photoInView.description}</p>
+                    <p className="overlay-pic-metadata"> {photoInView.photo_meta_data} </p>
+                  </div>
+                </div>
               ) : (
                 <Spinner></Spinner>
               )}
@@ -137,11 +156,13 @@ const Gallery = (props) => {
                   <img
                     src= {pauseIcon}
                     onClick={pause}
+                    className="gallery-icons"
                   ></img>
                 ) : (
-                  <img src= {playIcon} onClick={play}></img>
+                  <img src= {playIcon} onClick={play} className="gallery-icons"></img>
                 )}
-                <img src = {galleryIcon} onClick={viewMiniGallery}></img>
+                <img src = {infoIcon} onClick={toggleInfo} id = "infoButton" className="gallery-icons"></img>
+                <img src = {galleryIcon} onClick={viewMiniGallery} className="gallery-icons"></img>
                 <div className="overlay-gallery-button-right">
                   <span>
                     <img

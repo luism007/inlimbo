@@ -15,9 +15,9 @@
     flex-wrap: wrap;
     list-style: none !important;
     margin: 0;
-    padding: 10px;
+    padding: 10px 4em;
     justify-content: center;
-    align-items: start;
+    align-items: stretch;
     width: 100%;
     height: auto;
 }
@@ -27,6 +27,8 @@
   opacity: 0;
   border-radius: 18px;
   overflow: hidden;
+  width: 300px;
+  height: auto;
 }
 .fadein { 
     animation: fadeIn 0.9s 1;
