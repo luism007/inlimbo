@@ -1,24 +1,14 @@
 import React, { useEffect, useState }  from "react";
-import { createPortal } from 'react-dom';
 import { motion } from "framer-motion";
 import "./HomePage.css";
-import ContentTile from "../common/photo-tiles/ContentTile";
 import '../../web-responsive.css';
-import SectionScroller from "../common/section-scroller/SectionScroller";
-import Overlay from "../common/overlay/Overlay";
-import PictureCommunicationService from "../../rxjs-services/picture-service";
 import ImageComponent from "../common/image/ImageComponent";
 import hiResLondon from  '../../assets/london-atop-eye-monochrome.jpg';
 import lowResLondon from '../../assets/london-inlimbo.jpg'
 
-import hiResMonuValley from '../../assets/monu-valley-color.jpg';
-import lowResMonuValley from '../../assets/monu-valley-color-lowres.jpg';
-
 import hiResMattCutout from '../../assets/matt-great-causeway-cutout-2.jpg';
-import lowResMattCutout from '../../assets/matt-great-causeway-cutout-lowres.jpg';
 
 import hiResMattGc from '../../assets/matt-great-causeway.jpg';
-import lowResMattGc from '../../assets/matt-great-causeway-lowres.jpg';
 
 import { ImgComparisonSlider } from '@img-comparison-slider/react';
 import { useNavigate } from "react-router";
@@ -85,41 +75,6 @@ let sectionObserver = new IntersectionObserver(sectionCallback, {threshold: 1});
   label: "urban"
  }
 
- const monuValley = {
-  source:hiResMonuValley,
-  title: "Monument Valley on the Horizon",
-  description: "This photo was taken right after the storm. The clouds were finally clearing out and the setting sun appeared. It was just the perfect time to be there for not only taking pictures, but just to witness the beauty of Monument Valley. ",
-  type: "nature",
-  collection_id: "#az_monu_valley",
-  lowres_source: lowResMonuValley,
-  photo_meta_data: "",
-  id: "6386d9ebf170afe0c421789",
-  label: "nature"
- }
-
- const mattCutout = {
-  source:hiResMattCutout,
-  title: "Retouched Photo",
-  description: "Retouched photo",
-  type: "portrait",
-  collection_id: "#retouch",
-  lowres_source: lowResMattCutout,
-  photo_meta_data: "",
-  id: "6386d9ebf1700ee0c421789",
-  label: "portraiture"
- }
-
- const mattNonCutout = {
-  source:hiResMattGc,
-  title: "Non-retouched Photo",
-  description: "Non-retouched photo",
-  type: "portrait",
-  collection_id: "#retouch",
-  lowres_source: lowResMattGc,
-  photo_meta_data: "",
-  id: "6386d9ebf170wfr0c421789",
-  label: "portraiture"
- }
 
  const photograpySections = (section) => {
   return (
