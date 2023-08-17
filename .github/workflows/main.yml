@@ -1,0 +1,41 @@
+name: Deployment From Github to AWS Elastic Beanstalk
+on:
+  push:
+    branches:
+    - master
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout latest changes in master branch
+        uses: actions/checkout@master
+
+      - name: Generate Deployment Package
+        # EBS takes in a ZIP file to place inside an S3 bucket.
+        # ZIP all files recursively (-r) then call the zip file 'deploy.zip'
+        # Copy everything inside (*), but exclude (-x) all node_modules
+        run: zip -r deploy.zip * -x "**node_modules**"
+
+      - name: Get timestamp
+        uses: gerred/actions/current-time@master
+        id: current-time
+
+      - name: Run string replace
+        uses: frabert/replace-string-action@master
+        id: format-time
+        with:
+          pattern: '[:\.]+'
+          string: "${{ steps.current-time.outputs.time }}"
+          replace-with: '-'
+          flags: 'g'
+
+      - name: Deploy to EBS
+        uses: einaregilsson/beanstalk-deploy@v21
+        with:
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          application_name: inlimbo-site
+          environment_name: inlimbo-site-env
+          version_label: "inlimbo-site-deployment-${{steps.format-time}}"
+          region: us-west-1
+          deployment_package: deploy.zip
