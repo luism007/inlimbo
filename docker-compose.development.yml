@@ -1,0 +1,37 @@
+version: '3'
+services:
+  nginx:
+    depends_on:
+      - api
+      - client
+    restart: always
+    build:
+      dockerfile: Dockerfile.development
+      context: ./nginx
+    ports:
+      - "3000:80"
+  api:
+    build:
+      dockerfile: Dockerfile
+      context: ./backend
+    volumes:
+      - '/app/node_modules'
+      - './backend:/app'
+    environment:
+      - MONGO_USERNAME=test-user
+      - MONGO_PASSWORD=test-1996
+      - MONGO_DB_NAME=inlimbo-photography
+      - SERVER_PORT=3001
+    command: npm start
+  client:
+    build: 
+      dockerfile: Dockerfile.development
+      context: ./frontend
+    volumes:
+      - '/app/node_modules'
+      - './frontend:/app'
+    environment:
+      - WDS_SOCKET_PORT=0
+    tty: true
+    stdin_open: true
+
