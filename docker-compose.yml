@@ -14,6 +14,7 @@ services:
     build:
       dockerfile: Dockerfile
       context: ./backend
+    restart: on-failure
     volumes:
       - '/app/node_modules'
       - './backend:/app'
@@ -22,7 +23,6 @@ services:
       - MONGO_PASSWORD=test-1996
       - MONGO_DB_NAME=inlimbo-photography
       - SERVER_PORT=3001
-    command: npm start
   client:
     build: 
       dockerfile: Dockerfile

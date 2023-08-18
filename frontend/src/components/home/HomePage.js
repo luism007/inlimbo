@@ -64,15 +64,14 @@ let sectionObserver = new IntersectionObserver(sectionCallback, {threshold: 1});
  ];
 
  const london = {
-  source: hiResLondon,
-  title: "Atop London Eye",
-  description: "Checking out Tower Bridge from the London Eye",
-  type: "urban",
-  collection_id: "#uk",
-  lowres_source: lowResLondon,
-  photo_meta_data: "",
-  id: "649f2fa844218cd633ff804a",
-  label: "urban"
+  source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1692384618/london-atop-eye-monochrome_nnjhzu.jpg",
+  lowres_source: "https://res.cloudinary.com/inlimbo-studios/image/upload/v1688153874/london-inlimbo-low-res_f8xycg.jpg",
+  title: "London - No Logo",
+  description: "Seeing Tower Bridge through the London Eye.",
+  type: "preview",
+  collection_id: "#preview",
+  photo_meta_data: "Sony Alpha 7 IV 50mm f/3.5 1/1000",
+  id: "64dfbe4e5e00d800d92e1f2d"
  }
 
 
@@ -160,12 +159,12 @@ let sectionObserver = new IntersectionObserver(sectionCallback, {threshold: 1});
               <img
                 className="slider-img"
                 slot="first"
-                src= {hiResMattGc}
+                src= "https://res.cloudinary.com/inlimbo-studios/image/upload/v1692385052/matt-great-causeway_kyniwu.jpg"
               />
               <img
                 className="slider-img"
                 slot="second"
-                src= {hiResMattCutout}
+                src= "https://res.cloudinary.com/inlimbo-studios/image/upload/v1692385069/matt-great-causeway-cutout_fdyyps.jpg"
               />
             </ImgComparisonSlider>
           </div>
