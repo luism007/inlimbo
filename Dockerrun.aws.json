@@ -1,5 +1,9 @@
 {
     "AWSEBDockerrunVersion": "3",
+    "Authentication": {
+        "Bucket": "inlimbo-config",
+        "Key": ".dockercfg"
+    },
     "containerDefinitions": [
         {
             "name": "nginx",
