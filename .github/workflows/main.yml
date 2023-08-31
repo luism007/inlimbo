@@ -23,6 +23,6 @@ jobs:
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           application_name: inlimbo-site
           environment_name: inlimbo-site-env
-          version_label: "inlimbo-site-svg"
+          version_label: "inlimbo-site-prime"
           region: us-west-1
           deployment_package: deploy.zip
