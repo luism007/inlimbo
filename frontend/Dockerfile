@@ -1,4 +1,4 @@
-FROM node:18-alpine AS build
+FROM node:18-alpine
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
@@ -10,4 +10,4 @@ FROM nginx:stable
 EXPOSE 3000
 # Copy build assets from build/ folder & place them in nginx/html
 COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
-COPY --from=build /app/build /usr/share/nginx/html
+COPY --from=0 /app/build /usr/share/nginx/html
