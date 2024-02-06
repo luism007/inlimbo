@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, HashRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 import "./web-responsive.css";
@@ -12,7 +12,7 @@ const container = document.getElementById("app");
 const root = createRoot(container);
 
 root.render(
-  <Router>
+  <HashRouter>
     <App />
-  </Router>
+  </HashRouter>
 );
