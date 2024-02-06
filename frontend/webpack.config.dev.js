@@ -12,7 +12,7 @@ module.exports = {
   entry: "./src/index",
   output: {
     path: path.resolve(__dirname, "build"),
-    publicPath: "/",
+    publicPath: "/inlimbo/",
     hashFunction: "xxhash64",
     filename: "bundle.js",
   },
