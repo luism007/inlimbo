@@ -4,7 +4,6 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
 const ESLintPlugin = require('eslint-webpack-plugin');
 process.env.NODE_ENV = "development";
-process.env.WDS_SOCKET_PORT = 0;
 
 module.exports = {
   mode: "development",
@@ -22,7 +21,7 @@ module.exports = {
       template: "src/index.html",
       favicon: "src/favicon.ico",
     }),
-    new Dotenv(),
+    new Dotenv({path: './.env'}),
     new ESLintPlugin({
         extensions: ['ts', 'js', 'jsx']
     })

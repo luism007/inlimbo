@@ -1,28 +1,66 @@
-name: Deployment From Github to AWS Elastic Beanstalk
+name: CI/CD of Inlimbo Site
 on:
-  push:
-    branches:
-    - master
+    push:
+        branches:
+            - master
+    pull_request:
+        branches:
+            - master
+env:
+  DOCKER_HUB_USERNAME: ${{secrets.DOCKER_HUB_USERNAME}}
+  PLATFORM: ${{secrets.AZURE_PLATFORM}}
+  DOCKER_IMAGE_TAG: ${{secrets.DOCKER_IMAGE_TAG}}
+  DOCKER_HUB_PASSWORD: ${{secrets.DOCKER_HUB_PASSWORD}}
+  MONGO_USERNAME: ${{secrets.MONGO_USERNAME}}
+  MONGO_DB_NAME: ${{secrets.MONGO_DB_NAME}}
+  MONGO_PASSWORD: ${{secrets.MONGO_PASSWORD}}
+  GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout latest changes in master branch
-        uses: actions/checkout@master
-
-      - name: Generate Deployment Package
-        # EBS takes in a ZIP file to place inside an S3 bucket.
-        # ZIP all files recursively (-r) then call the zip file 'deploy.zip'
-        # Copy everything inside (*), but exclude (-x) all node_modules
-        run: zip -r deploy.zip * -x "**node_modules**"
-
-      - name: Deploy to EBS
-        uses: einaregilsson/beanstalk-deploy@v21
-        with:
-          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          application_name: inlimbo-site
-          environment_name: inlimbo-site-env
-          version_label: "inlimbo-site-tron"
-          region: us-west-1
-          deployment_package: deploy.zip
+    backend:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@master
+        - name: Install Dependencies
+          run: npm i
+        - name: Build Docker Image
+          uses: docker/build-push-action@v5
+          with:
+            build-args: | 
+            MONGO_USERNAME=${MONGO_USERNAME} 
+            MONGO_PASSWORD=${MONGO_PASSWORD} 
+            MONGO_DB_NAME=${MONGO_DB_NAME}
+          run: docker build --platform=${PLATFORM} -t ${DOCKER_IMAGE_TAG} --build-arg MONGO_USERNAME=${MONGO_USERNAME} --build-arg MONGO_PASSWORD=${MONGO_PASSWORD} --build_arg MONGO_DB_NAME=${MONGO_DB_NAME} .
+        - name: Login to Docker
+          uses: docker/login-action@v3
+          with:
+            username: ${DOCKER_HUB_USERNAME}
+            password: ${DOCKER_HUB_PASSWORD}
+        - name: Push Docker Image
+          uses: docker/build-push-action@v5
+          with:
+            push: true
+            tags: ${DOCKER_IMAGE_TAG}
+    frontend:
+        permissions:
+          pages: write
+          contents: write
+          id-token: write
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@master
+            - name: Install Dependencies
+              run: npm install
+            - name: Make envfile
+              uses: SpicyPizza/create-envfile@v2.0
+              with:
+                envkey_REACT_APP_API_URL_PROD: ${{secrets.REACT_APP_API_URL_PROD}}
+                directory: ./
+                file_name: .env
+            - name: Run Pre-deploy script
+              run: npm run predeploy
+            - name: Run Deploy Script
+              run: | 
+                git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+                npm run deploy -- -u "github-actions-bot <support+actions@github.com>"

@@ -4,7 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const app = express();
-const port = process.env.SERVER_PORT || 3001;
+const port = process.env.SERVER_PORT || 8080;
 
 const photosRoutes = require('./routes/photos-routes');
 
@@ -17,6 +17,10 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 app.use('/api/', photosRoutes);
+
+app.get('/', (req, res) => {
+    res.status(404).send('404 Not Found');
+});
 
 app.listen(port, () => {
     console.log(`Inlimbo Site listening on port ${port}`);

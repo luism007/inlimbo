@@ -3,7 +3,8 @@
   "description": "Inlimbo Photography site.",
   "scripts": {
     "start": "webpack serve --config webpack.config.dev.js --port 3000",
-    "build": "webpack --config webpack.config.dev.js --mode production"
+    "build": "webpack --config webpack.config.dev.js --mode production",
+    "predeploy": "rm -rf node_modules/.cache/gh-pages && npm run build"
   },
   "dependencies": {
     "@img-comparison-slider/react": "^8.0.0",
