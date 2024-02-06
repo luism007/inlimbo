@@ -15,6 +15,7 @@ env:
   MONGO_DB_NAME: ${{secrets.MONGO_DB_NAME}}
   MONGO_PASSWORD: ${{secrets.MONGO_PASSWORD}}
   GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+  REACT_APP_API_URL_PROD: ${{secrets.REACT_APP_API_URL_PROD}}
 jobs:
     backend:
       runs-on: ubuntu-latest
@@ -49,7 +50,7 @@ jobs:
             - name: Make envfile
               uses: SpicyPizza/create-envfile@v2.0
               with:
-                envkey_REACT_APP_API_URL_PROD: ${{secrets.REACT_APP_API_URL_PROD}}
+                envkey_REACT_APP_API_URL_PROD: ${REACT_APP_API_URL_PROD}
                 directory: ./
                 file_name: .env
             - name: Run Pre-deploy script
