@@ -4,7 +4,8 @@
   "scripts": {
     "start": "webpack serve --config webpack.config.dev.js --port 3000",
     "build": "webpack --config webpack.config.dev.js --mode production",
-    "predeploy": "rm -rf node_modules/.cache/gh-pages && npm run build"
+    "predeploy": "rm -rf node_modules/.cache/gh-pages && npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@img-comparison-slider/react": "^8.0.0",
