@@ -48,11 +48,13 @@ jobs:
             - name: Install Dependencies
               run: npm install
             - name: Make envfile
-              uses: SpicyPizza/create-envfile@v2.0
-              with:
-                envkey_REACT_APP_API_URL_PROD: ${REACT_APP_API_URL_PROD}
-                directory: ./
-                file_name: .env
+              run: echo "${REACT_APP_API_URL_PROD}" > .env
+            # - name: Make envfile
+            #   uses: SpicyPizza/create-envfile@v2.0
+            #   with:
+            #     envkey_REACT_APP_API_URL_PROD: ${REACT_APP_API_URL_PROD}
+            #     directory: ./
+            #     file_name: .env
             - name: Run Pre-deploy script
               run: npm run predeploy
             - name: Run Deploy Script
