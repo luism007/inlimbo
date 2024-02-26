@@ -30,7 +30,6 @@ const App = () => {
             <Route path="/aboutme" element={<AboutMe />} />
             <Route element={<PageNotFound />} />
           </Routes>
-          <Footer></Footer>
         </div>
       </AnimatePresence>
     </div>
