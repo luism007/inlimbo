@@ -138,7 +138,6 @@ let sectionObserver = new IntersectionObserver(sectionCallback, {threshold: 1});
             <div
               className="home-button-wrapper"
               onClick={() => {
-                console.log("Clicked");
                 navigate("/photography");
               }}
             >
