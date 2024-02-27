@@ -14,7 +14,6 @@ a {
   overflow-x: hidden;
   overflow-y: auto;
   perspective: 1px;
-  padding-bottom: 299.13px;
 }
 
 .parallax-group { 
@@ -22,6 +21,9 @@ a {
   width: 100%;
   position: relative;
   transform-style: preserve-3d;
+}
+.parallax-group.footerGroup { 
+  height: auto;
 }
 .gap { 
   height: 40vh;
@@ -91,12 +93,23 @@ img-comparison-slider {
   justify-content: center;
 }
 
+
+
 .home-text, .description-text, .welcome-text { 
   color: white;
   font-family: "articulat-cf", sans-serif;
   font-weight: 400;
   font-size: 4em;
   font-style: normal;
+}
+
+#app > div > div.page-showcase > div > div:nth-child(2) > div > div.homepage-content-text-container > h3,
+#app > div > div.page-showcase > div > div:nth-child(2) > div > div.homepage-content-text-container > p,
+#app > div > div.page-showcase > div > div:nth-child(2) > div > div.homepage-content-text-container > div > p { 
+  color: #000;
+}
+#app > div > div.page-showcase > div > div:nth-child(2) > div > div.homepage-content-text-container > div { 
+  border-color: #000;
 }
 
 .description-text { 
@@ -126,9 +139,10 @@ img-comparison-slider {
   display: grid;
   column-gap: 10px;
   row-gap: 10px;
-  padding: 0 10%;
+  padding: 5% 10%;
 }
 .photography-section { 
+  background-color: white;
   grid-template-columns: 25% 25% 50%;
   grid-template-rows: 45% 15% 15%;
 }
@@ -228,11 +242,10 @@ img-comparison-slider {
     height: 100vh;
   }
   .parallax-layer { 
-    padding-bottom: 399.13px;
   }
   .home-button-wrapper { 
-    padding: 10%;
-    margin: 5% auto;
+    padding: 5%;
+    margin: 6% auto;
   }
   .photography-section div:nth-of-type(1) {
     grid-column: 2 / 4; 
@@ -267,10 +280,17 @@ img-comparison-slider {
   }
 }
 
+
+@media all and (max-width: 600px) { 
+  .parallax-group.footerGroup { 
+    padding-bottom: 100px;
+  }
+}
+
 @media all and (min-width: 280px) { 
   .retouch-section {
     grid-template-columns: 100%;
-    grid-template-rows: 15% 60% 15%;
+    grid-template-rows: 15% 40% 15%;
     justify-items: center;
   }
 }
@@ -329,11 +349,12 @@ img-comparison-slider {
 
 @media all and (min-width: 300px) {
   .home-text { 
-    font-size: 2.5em;
+    font-size: 2em;
   }
 
   .description-text { 
     font-size: 1em;
+    margin-bottom: 0em;
   }
 }
 
@@ -489,7 +510,7 @@ img-comparison-slider {
   }
   .retouch-section {
     grid-template-columns: 100%;
-    grid-template-rows: 10% 90% 10%;
+    grid-template-rows: 10% 60% 10%;
     justify-items: center;
   }
 }

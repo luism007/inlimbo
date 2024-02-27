@@ -3,15 +3,9 @@ import { motion } from "framer-motion";
 import "./HomePage.css";
 import '../../web-responsive.css';
 import ImageComponent from "../common/image/ImageComponent";
-import hiResLondon from  '../../assets/london-atop-eye-monochrome.jpg';
-import lowResLondon from '../../assets/london-inlimbo.jpg'
-
-import hiResMattCutout from '../../assets/matt-great-causeway-cutout-2.jpg';
-
-import hiResMattGc from '../../assets/matt-great-causeway.jpg';
-
 import { ImgComparisonSlider } from '@img-comparison-slider/react';
 import { useNavigate } from "react-router";
+import Footer from "../common/footer/Footer";
 
 const HomePage = () => {
 const navigate = useNavigate();
@@ -117,7 +111,7 @@ let sectionObserver = new IntersectionObserver(sectionCallback, {threshold: 1});
       animate={{ transform: "translateY(0%)", opacity: 1 }}
       className="parallax-layer"
     >
-      <div className="parallax-group" id = "welcome-section">
+      <div className="parallax-group" id="welcome-section">
         <div className="background-section">
           <ImageComponent {...london}></ImageComponent>
         </div>
@@ -127,7 +121,6 @@ let sectionObserver = new IntersectionObserver(sectionCallback, {threshold: 1});
           <p className="welcome-text"> Bem-venidos. </p>
         </div>
       </div>
-      <div className="parallax-group gap"></div>
       <div className="parallax-group">
         <div className="photography-section">
           {sections.map((section) => {
@@ -142,13 +135,17 @@ let sectionObserver = new IntersectionObserver(sectionCallback, {threshold: 1});
               and excel in variety. Like any strong portfolio, diversification
               is key.
             </p>
-            <div className="home-button-wrapper" onClick={() => { console.log('Clicked'); navigate('/photography');}}>
+            <div
+              className="home-button-wrapper"
+              onClick={() => {
+                navigate("/photography");
+              }}
+            >
               <p className="home-button-text"> explore gallery </p>
             </div>
           </div>
         </div>
       </div>
-      <div className="parallax-group gap"></div>
       <div className="parallax-group">
         <div className="retouch-section">
           <div className="home-text-wrapper">
@@ -159,31 +156,36 @@ let sectionObserver = new IntersectionObserver(sectionCallback, {threshold: 1});
               <img
                 className="slider-img"
                 slot="first"
-                src= "https://res.cloudinary.com/inlimbo-studios/image/upload/v1692385052/matt-great-causeway_kyniwu.jpg"
+                src="https://res.cloudinary.com/inlimbo-studios/image/upload/v1692385052/matt-great-causeway_kyniwu.jpg"
               />
               <img
                 className="slider-img"
                 slot="second"
-                src= "https://res.cloudinary.com/inlimbo-studios/image/upload/v1692385069/matt-great-causeway-cutout_fdyyps.jpg"
+                src="https://res.cloudinary.com/inlimbo-studios/image/upload/v1692385069/matt-great-causeway-cutout_fdyyps.jpg"
               />
             </ImgComparisonSlider>
           </div>
           <div className="homepage-content-text-container">
             <p className="description-text">
               Photos are not only taken, but can be re-touched however you like.
-              I&apos;m committed to get your vision across and to evoke the message you
-              want. You want the perfect shot and so do I. So let&apos;s work
-              together.
+              I&apos;m committed to get your vision across and to evoke the
+              message you want. You want the perfect shot and so do I. So
+              let&apos;s work together.
             </p>
-            <div className="home-button-wrapper" onClick={() => navigate('/')}>
-              <a className="home-button-text" 
-              href="mailto:inlimbo.photography@gmail.com?subject=Service%20Inquiry"
-              target="_top"> 
-              contact me 
+            <div className="home-button-wrapper" onClick={() => navigate("/")}>
+              <a
+                className="home-button-text"
+                href="mailto:inlimbo.photography@gmail.com?subject=Service%20Inquiry"
+                target="_top"
+              >
+                contact me
               </a>
             </div>
           </div>
         </div>
+      </div>
+      <div className="parallax-group footerGroup">
+        <Footer></Footer>
       </div>
     </motion.div>
   );

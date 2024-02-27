@@ -1,0 +1,22 @@
+version: '3'
+services:
+  nginx:
+    depends_on:
+      - client
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    ports:
+      - "3000:80"
+  client:
+    build: 
+      dockerfile: Dockerfile
+      context: ./frontend
+    volumes:
+      - '/app/node_modules'
+      - './frontend:/app'
+    environment:
+      - WDS_SOCKET_PORT=0
+    tty: true
+    stdin_open: true

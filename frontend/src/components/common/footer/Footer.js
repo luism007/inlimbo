@@ -30,18 +30,7 @@ const Footer = () => {
                   </a>
                 </div>
               </li>
-              <li>
-                <div className="footer-contact-list-item-wrapper">
-                  <img src={instagramIcon}></img>
-                  <a
-                    className="footer-list-items-text"
-                    href="https://www.instagram.com/inlimbo.studios/"
-                  >
-                    {" "}
-                    Follow Me{" "}
-                  </a>
-                </div>
-              </li>
+
             </ul>
             <p className="footer-list-items-text">
               {" "}
