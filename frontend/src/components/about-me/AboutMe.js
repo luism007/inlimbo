@@ -7,8 +7,8 @@ const AboutMe = () => {
     return (
       <motion.div
       className='about-me-container'
-      initial = {{transform: 'translateY(100%)', opacity: 0.5}}
-      animate = {{transform: 'translateY(0%)', opacity: 1}}
+      initial = {{ opacity: 0.5}}
+      animate = {{ opacity: 1}}
       transition={{ duration: 1.5}}
       >
         <div className='about-me-wrapper'>
@@ -35,6 +35,7 @@ const AboutMe = () => {
                 </a>
             </div>
           </div>
+          <Footer></Footer>
         </div>
       </motion.div>
     );
