@@ -23,7 +23,7 @@ a {
   transform-style: preserve-3d;
 }
 .parallax-group.footerGroup { 
-  height: 50vh;
+  height: auto;
 }
 .gap { 
   height: 40vh;
@@ -139,7 +139,7 @@ img-comparison-slider {
   display: grid;
   column-gap: 10px;
   row-gap: 10px;
-  padding: 0 10%;
+  padding: 5% 10%;
 }
 .photography-section { 
   background-color: white;
@@ -280,6 +280,13 @@ img-comparison-slider {
   }
 }
 
+
+@media all and (max-width: 600px) { 
+  .parallax-group.footerGroup { 
+    padding-bottom: 100px;
+  }
+}
+
 @media all and (min-width: 280px) { 
   .retouch-section {
     grid-template-columns: 100%;
@@ -342,7 +349,7 @@ img-comparison-slider {
 
 @media all and (min-width: 300px) {
   .home-text { 
-    font-size: 2.5em;
+    font-size: 2em;
   }
 
   .description-text { 
@@ -503,7 +510,7 @@ img-comparison-slider {
   }
   .retouch-section {
     grid-template-columns: 100%;
-    grid-template-rows: 10% 90% 10%;
+    grid-template-rows: 10% 60% 10%;
     justify-items: center;
   }
 }
