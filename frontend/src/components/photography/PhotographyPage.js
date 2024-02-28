@@ -6,6 +6,7 @@ import * as photosApi from '../../api/PhotosApi';
 import { PhotoModel } from "../../models/PhotoModel";
 import { motion } from "framer-motion";
 import ToastComponent from "../common/toast/Toast";
+import Footer from "../common/footer/Footer";
 const PhotographyPage = () => {
     useEffect(() => {
         retrievePhotos(0, 10);

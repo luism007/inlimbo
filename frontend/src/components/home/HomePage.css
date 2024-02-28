@@ -280,13 +280,6 @@ img-comparison-slider {
   }
 }
 
-
-@media all and (max-width: 600px) { 
-  .parallax-group.footerGroup { 
-    padding-bottom: 100px;
-  }
-}
-
 @media all and (min-width: 280px) { 
   .retouch-section {
     grid-template-columns: 100%;
